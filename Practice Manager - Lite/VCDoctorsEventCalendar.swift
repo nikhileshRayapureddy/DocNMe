@@ -55,7 +55,14 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
         }
         
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.selectCurrentDate), userInfo: nil, repeats: false)
+    }
+    func selectCurrentDate()
+    {
+        calendarView.selectDates([Date()])
+    }
     @IBAction func onClickAddAppointment(_ sender: UIButton) {
         let vcAdd: VCAddAppointment = UIStoryboard(
                 name: Names.STORYBOARD.ADD_APPOINTMENT, bundle: nil).instantiateViewController(withIdentifier: Names.VContIdentifiers.VC_ADDAPPOINTMENT) as! VCAddAppointment;

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zwG-Fe-vy0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zwG-Fe-vy0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -2536,7 +2536,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seasonal : Yes, Heredity : Yes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fz7-Up-ho0">
-                                                    <rect key="frame" x="12" y="40" width="281" height="21"/>
+                                                    <rect key="frame" x="4" y="32" width="297" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="JtT-xz-5SW"/>
                                                     </constraints>
@@ -2545,7 +2545,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symptoms : Some Symptoms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSv-b4-1Bg">
-                                                    <rect key="frame" x="12" y="60" width="281" height="21"/>
+                                                    <rect key="frame" x="4" y="52" width="297" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="ifB-xE-0f0"/>
                                                     </constraints>
@@ -2554,7 +2554,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ambroxol 75 mg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F77-HL-V3t">
-                                                    <rect key="frame" x="11" y="20" width="282" height="21"/>
+                                                    <rect key="frame" x="3" y="12" width="298" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="l1x-Xd-Zpp"/>
                                                     </constraints>
@@ -3233,7 +3233,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Dec 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWc-CN-3dV">
-                                                    <rect key="frame" x="240.5" y="11" width="87.5" height="21"/>
+                                                    <rect key="frame" x="247.5" y="8" width="87.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="gPJ-0m-64m"/>
                                                     </constraints>
@@ -6228,7 +6228,7 @@
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete" translatesAutoresizingMaskIntoConstraints="NO" id="bAL-46-avb">
-                                                                                    <rect key="frame" x="7" y="-15" width="56" height="112"/>
+                                                                                    <rect key="frame" x="-9" y="-35" width="87" height="132"/>
                                                                                 </imageView>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2b-Zp-Y4o">
                                                                                     <rect key="frame" x="49" y="0.0" width="20" height="20"/>
