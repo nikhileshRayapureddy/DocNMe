@@ -1,0 +1,80 @@
+PODS:
+  - Alamofire (4.4.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
+  - AlamofireObjectMapper (4.1.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 2.0)
+  - BEMCheckBox (1.4.1)
+  - DatePickerDialog (1.2)
+  - Dropper (2.7.6)
+  - ImagePicker (2.1.1)
+  - InitialsImageView (0.1.0)
+  - IQKeyboardManagerSwift (5.0.0)
+  - JTAppleCalendar (7.0.6)
+  - Kingfisher (3.11.0)
+  - ObjectMapper (2.2.8)
+  - PopupDialog (0.5.4)
+  - RadioButton (1.0)
+  - Realm (3.0.1):
+    - Realm/Headers (= 3.0.1)
+  - Realm/Headers (3.0.1)
+  - RealmSwift (3.0.1):
+    - Realm (= 3.0.1)
+  - SearchTextField (1.0.10)
+  - SideMenuController (0.2.4)
+  - SKPhotoBrowser (4.0.1)
+  - SwiftHEXColors (1.1.0)
+  - Toaster (2.1.0)
+  - XLPagerTabStrip (7.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - AlamofireImage (~> 3.2)
+  - AlamofireObjectMapper (~> 4.0)
+  - BEMCheckBox
+  - DatePickerDialog
+  - Dropper
+  - ImagePicker
+  - InitialsImageView
+  - IQKeyboardManagerSwift
+  - JTAppleCalendar (~> 7.0)
+  - Kingfisher (~> 3.0)
+  - ObjectMapper (~> 2.2)
+  - PopupDialog (~> 0.5)
+  - RadioButton
+  - RealmSwift (~> 3.0.1)
+  - SearchTextField (~> 1.0.2)
+  - SideMenuController
+  - SKPhotoBrowser
+  - SwiftHEXColors
+  - Toaster
+  - XLPagerTabStrip (~> 7.0)
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
+  DatePickerDialog: 03a5f219dbce1a3679c67f8c4478ee04214711f1
+  Dropper: 52a020beb6fef2e4b1d55447f17099e5776954ef
+  ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
+  InitialsImageView: 65036b0b62a2d66acc4e908a52397b60f399d2e9
+  IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
+  JTAppleCalendar: 6a942475e33b9ad4dee0a0e14aa4c63adcf4f543
+  Kingfisher: c8911a7672c6217dec8c0520fb6e76ec4b7e0780
+  ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
+  PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
+  RadioButton: 7ef053baf6ff0e7f9e777016c28e9ba4e330edba
+  Realm: ba6144c74f835f7497791f6599d63a7755377b83
+  RealmSwift: 7d13b1ac4b6022a13f841e3143e7789c9e40ad0d
+  SearchTextField: e271b2719880f907045e30ed3bef02fc4418c877
+  SideMenuController: b463d2b3aa58e2afe57f57a07938fa9a647894ca
+  SKPhotoBrowser: 3a7c6fc02aa1620ab17253a47a49fafda46536e8
+  SwiftHEXColors: 8f7e364df7929e32cff9f9eeb044bb215167d6be
+  Toaster: 8c3225dc465bef4aa57e147a288724576df8e439
+  XLPagerTabStrip: 9be80a66c6b7d60306b2c0a6004965016d68f813
+
+PODFILE CHECKSUM: ae98974e88ac0e8c3ceb9c558b77142989877f78
+
+COCOAPODS: 1.3.1

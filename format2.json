@@ -1,0 +1,46 @@
+{
+  "personAttributes": [
+    {
+      "name": "occupation",
+      "value": "Patient Occupation",
+      "personId": "c9f15c42-0175-4932-8dab-30fa55600d82",
+      "id": 0
+    },
+    {
+      "name": "spousebloodgroup",
+      "value": "A_POSITIVE",
+      "personId": "c9f15c42-0175-4932-8dab-30fa55600d82",
+      "id": 0
+    },
+    {
+      "name": "spouseage",
+      "value": "",
+      "personId": "c9f15c42-0175-4932-8dab-30fa55600d82",
+      "id": 0
+    },
+    {
+      "name": "spousename",
+      "value": "",
+      "personId": "c9f15c42-0175-4932-8dab-30fa55600d82",
+      "id": 0
+    },
+    {
+      "name": "marriedsince",
+      "value": "",
+      "personId": "c9f15c42-0175-4932-8dab-30fa55600d82",
+      "id": 0
+    },
+    {
+      "name": "spousephone",
+      "value": "",
+      "personId": "c9f15c42-0175-4932-8dab-30fa55600d82",
+      "id": 0
+    },
+    {
+      "name": "aadhaar",
+      "value": "",
+      "personId": "c9f15c42-0175-4932-8dab-30fa55600d82",
+      "id": 0
+    }
+  ]
+}

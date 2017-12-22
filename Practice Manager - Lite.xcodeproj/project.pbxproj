@@ -1,0 +1,1356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		051B78921F6945D80095EED9 /* VCNormalDelivery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051B78911F6945D80095EED9 /* VCNormalDelivery.swift */; };
+		051B78941F6946E80095EED9 /* CellDeliveryChildscellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051B78931F6946E80095EED9 /* CellDeliveryChildscellCollectionViewCell.swift */; };
+		052610321F6658AF007B959B /* VCAddConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052610311F6658AF007B959B /* VCAddConditions.swift */; };
+		0527D7911F4A9FC4000BF946 /* VCHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0527D7901F4A9FC4000BF946 /* VCHomeScreen.swift */; };
+		0532E6AE1F92494600288170 /* AllergiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0532E6AD1F92494600288170 /* AllergiesModel.swift */; };
+		0532E6C21F9278AD00288170 /* medicines2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0532E6B81F9278AA00288170 /* medicines2.txt */; };
+		0532E6C31F9278AD00288170 /* medicines3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0532E6B91F9278AA00288170 /* medicines3.txt */; };
+		0532E6C51F9278AD00288170 /* medicines1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0532E6BB1F9278AB00288170 /* medicines1.txt */; };
+		0532E6C91F9278AD00288170 /* medicines4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0532E6BF1F9278AC00288170 /* medicines4.txt */; };
+		0545B8D31F67A79F006F1E1A /* VCAddFamilyHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0545B8D21F67A79F006F1E1A /* VCAddFamilyHistory.swift */; };
+		0551703B1F41A7C4005F576D /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551703A1F41A7C4005F576D /* ErrorResponse.swift */; };
+		05562DC11F93A13B00924863 /* AddAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05562DC01F93A13B00924863 /* AddAppointment.storyboard */; };
+		0557C3321F4AF0690079534C /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0557C3311F4AF0690079534C /* DoctorModel.swift */; };
+		0557C3341F4AFB1A0079534C /* DoctorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0557C3331F4AFB1A0079534C /* DoctorTableViewCell.swift */; };
+		0557C3361F4B15920079534C /* OnDoctorClickedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0557C3351F4B15920079534C /* OnDoctorClickedDelegate.swift */; };
+		056C24661F31A30D0012195F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C24651F31A30D0012195F /* LoginViewController.swift */; };
+		0570A2FE1F3D904900D5A448 /* BuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0570A2FD1F3D904900D5A448 /* BuildConfig.swift */; };
+		0577B3FE1F2F648000D38E01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577B3FD1F2F648000D38E01 /* AppDelegate.swift */; };
+		0577B4001F2F648000D38E01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577B3FF1F2F648000D38E01 /* ViewController.swift */; };
+		0577B4031F2F648000D38E01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0577B4011F2F648000D38E01 /* Main.storyboard */; };
+		0577B4061F2F648000D38E01 /* Practice_Manager___Lite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0577B4041F2F648000D38E01 /* Practice_Manager___Lite.xcdatamodeld */; };
+		0577B4081F2F648000D38E01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0577B4071F2F648000D38E01 /* Assets.xcassets */; };
+		0577B40B1F2F648000D38E01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0577B4091F2F648000D38E01 /* LaunchScreen.storyboard */; };
+		057EC4EC1F5E86EA00E7F98A /* VCRecordsImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057EC4EB1F5E86EA00E7F98A /* VCRecordsImageViewerViewController.swift */; };
+		057EC4EE1F5E9D1300E7F98A /* CellImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057EC4ED1F5E9D1300E7F98A /* CellImageCollectionViewCell.swift */; };
+		057EC4F01F5ED68800E7F98A /* VCGynecHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057EC4EF1F5ED68800E7F98A /* VCGynecHistory.swift */; };
+		057EF7B41F60149A0041190D /* VCMenstrualHIstory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057EF7B31F60149A0041190D /* VCMenstrualHIstory.swift */; };
+		0586480A1F4D84E1006E8CE9 /* CellAppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058648091F4D84E1006E8CE9 /* CellAppointmentTableViewCell.swift */; };
+		0586480D1F4DB08D006E8CE9 /* VCRescheduleAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586480C1F4DB08D006E8CE9 /* VCRescheduleAppointment.swift */; };
+		0596CB0C1F61360500EDDD91 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0596CB0B1F61360500EDDD91 /* DateExtension.swift */; };
+		059BC8271F593CEF00E8F9BE /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BC8261F593CEF00E8F9BE /* ExtensionViewController.swift */; };
+		059BC82B1F59657500E8F9BE /* CellRecordsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BC82A1F59657500E8F9BE /* CellRecordsCollectionViewCell.swift */; };
+		05A429AC1F56CA7600415823 /* VCAlergiesAndConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A429AB1F56CA7600415823 /* VCAlergiesAndConditions.swift */; };
+		05A429AF1F56CDF100415823 /* CellAllergiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A429AE1F56CDF100415823 /* CellAllergiesCollectionViewCell.swift */; };
+		05A429B11F56CE0A00415823 /* CellConditionsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A429B01F56CE0A00415823 /* CellConditionsViewCell.swift */; };
+		05A9F0011F4C00A300E9F749 /* VCDoctorsEventCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A9F0001F4C00A300E9F749 /* VCDoctorsEventCalendar.swift */; };
+		05A9F0041F4C0B2E00E9F749 /* JTCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A9F0031F4C0B2E00E9F749 /* JTCalendarCell.swift */; };
+		05AA5C471F62D03A00D44771 /* VCAddAllergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AA5C461F62D03A00D44771 /* VCAddAllergy.swift */; };
+		05AADE7C1F57F9D100917008 /* VCMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AADE7B1F57F9D100917008 /* VCMedication.swift */; };
+		05AADE7F1F57FD8800917008 /* CellMedicationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AADE7E1F57FD8800917008 /* CellMedicationCollectionViewCell.swift */; };
+		05AADE861F5818DD00917008 /* CellFamilyHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AADE851F5818DD00917008 /* CellFamilyHistoryCollectionViewCell.swift */; };
+		05AADE8B1F58355500917008 /* VCFamilyHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AADE8A1F58355500917008 /* VCFamilyHistoryViewController.swift */; };
+		05AADE8D1F5846EE00917008 /* VCPregnancyHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AADE8C1F5846EE00917008 /* VCPregnancyHistoryViewController.swift */; };
+		05CB8AF21F8645F80060F0A2 /* PersonInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05CB8AF11F8645F80060F0A2 /* PersonInfo.storyboard */; };
+		05D41C9B1F540794009C2913 /* PatientInfoPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D41C9A1F540794009C2913 /* PatientInfoPagerViewController.swift */; };
+		05D41C9E1F540A8B009C2913 /* BasicInfoViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D41C9D1F540A8B009C2913 /* BasicInfoViewControllerViewController.swift */; };
+		05D41CA21F553658009C2913 /* VCVitalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D41CA11F553658009C2913 /* VCVitalsViewController.swift */; };
+		05DCEFD31F32EAC5008621ED /* DAMUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCEFD21F32EAC5008621ED /* DAMUrls.swift */; };
+		05DCEFD71F32ED66008621ED /* Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCEFD61F32ED66008621ED /* Names.swift */; };
+		05DCEFDD1F331919008621ED /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCEFDC1F331919008621ED /* LoginResponse.swift */; };
+		05E18A7B1F30C5A900EBC371 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E18A7A1F30C5A900EBC371 /* SideBarViewController.swift */; };
+		05E18A7D1F30C67700EBC371 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E18A7C1F30C67700EBC371 /* HomeNavigationViewController.swift */; };
+		05E3FC431F8B8CB3001EB782 /* VCSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E3FC421F8B8CB3001EB782 /* VCSubscription.swift */; };
+		05E64EB21F92894200000A0B /* allergies.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05E64EB11F92894200000A0B /* allergies.txt */; };
+		05E73E731FB151140004DD04 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E73E721FB151140004DD04 /* ValidationError.swift */; };
+		05E84B421F8C153800EBADE8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E84B411F8C153800EBADE8 /* CoreLocation.framework */; };
+		05F6D4121F91EB5300425F37 /* ScrollingStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6D4111F91EB5300425F37 /* ScrollingStackViewController.swift */; };
+		05F6D41A1F9240C700425F37 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6D4191F9240C700425F37 /* StreamReader.swift */; };
+		05F8A9F81F6AB34E001AD66C /* VCFertilityProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8A9F71F6AB34E001AD66C /* VCFertilityProfileViewController.swift */; };
+		0F8BC03E130590C130528ACC /* Pods_Practice_Manager___Lite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDC9930C24C1F92EDE531C9 /* Pods_Practice_Manager___Lite.framework */; };
+		4D7BC0276E7F5DA9ED94BC39 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC018294171E88E5A8135 /* Utility.swift */; };
+		4D7BC03B74A473AEE9A8AF35 /* CellFertilityHistoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCDF98CA62681B1F7F05A /* CellFertilityHistoryCollectionView.swift */; };
+		4D7BC07D3333F0BB37AD4DEE /* CellTableViewQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCF1FD2412FC4D47077A3 /* CellTableViewQuestions.swift */; };
+		4D7BC0B9F14AB27A9D021FC5 /* CellInvestigationsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC697D5686E26EBA57233 /* CellInvestigationsCollectionView.swift */; };
+		4D7BC0CF8363B9E0C5E898BD /* Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC30DEDD13C4ABFBCE7CE /* Visit.swift */; };
+		4D7BC0E2FB8049AE5B03FDE8 /* VCRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCF6084EA3B2646138519 /* VCRecords.swift */; };
+		4D7BC0EF0F13E6F32A2BACE3 /* AllergyAddedListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCA3B6622AF7005BA8A08 /* AllergyAddedListener.swift */; };
+		4D7BC107FEE987292085B598 /* Clinic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC24382FF17AC1798F404 /* Clinic.swift */; };
+		4D7BC164D58943A8113DD811 /* VCPatientsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC241D81CEF4F09E50F9B /* VCPatientsList.swift */; };
+		4D7BC1799C5CEADCB93FA9BF /* VCVisits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC4FBD58AB6702E9787FE /* VCVisits.swift */; };
+		4D7BC1866601E9ACDE4F9949 /* QuestionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCD8A59BD3231CA8B0706 /* QuestionResponse.swift */; };
+		4D7BC195C920B39158E25EFF /* DoctorInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC1D2C6C93134026ACC57 /* DoctorInfoModel.swift */; };
+		4D7BC1AB6075859CE8A784CA /* Allergies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC14CC5F62B2BF6895E1B /* Allergies.swift */; };
+		4D7BC1B8AFDF5CADD0D28586 /* DoctorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC758EE8359B3CA7A887D /* DoctorCollectionViewCell.swift */; };
+		4D7BC1EC70137100548BD7DA /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCB680FB3BC515F5A1246 /* Condition.swift */; };
+		4D7BC20EDADB5CC9187799C1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC853226A1721B653CDEC /* README.md */; };
+		4D7BC279D865062F0075F31D /* Pulserate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCA9C703A72AF74EE1514 /* Pulserate.swift */; };
+		4D7BC28A7D908E7896005FEE /* Loaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC483FFEEABFDA21C26F5 /* Loaders.swift */; };
+		4D7BC29D2D204764E96839FD /* VCEditPatientsBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCFF75D39BC266ED4B8D2 /* VCEditPatientsBasicInfo.swift */; };
+		4D7BC32945EF5724C87A6D0C /* Respirationrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCAF312003C6E491DE935 /* Respirationrate.swift */; };
+		4D7BC33A92F36A2F1D8CD664 /* CellPatientInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC7EEB64A34FACF01BFFF /* CellPatientInfo.swift */; };
+		4D7BC3486C913CC5F8101328 /* VCChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC5170CE62AE1A13E0574 /* VCChangePassword.swift */; };
+		4D7BC3898AD92C51BDA8229D /* BloodPressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC495D40B6C8E540FF534 /* BloodPressure.swift */; };
+		4D7BC3AB9E295E61276AFDC3 /* VCTestResultsNextScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC7178345CF0126072F80 /* VCTestResultsNextScreen.swift */; };
+		4D7BC3E33C4C510D35457DF4 /* ListenerOnConditionAdded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCCFB429AC74B50C68B6D /* ListenerOnConditionAdded.swift */; };
+		4D7BC3FB79F15D82F1E2C729 /* VCAddFertilityHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC5C4D5CA8E1094B04723 /* VCAddFertilityHistory.swift */; };
+		4D7BC410A662D3174CFE9E1A /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC65926F4E126DDCF9396 /* Patient.swift */; };
+		4D7BC4239D42E003AECAE58F /* QuestionComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCCCCE1F3137A8F10002F /* QuestionComment.swift */; };
+		4D7BC4591A2DEB50A548E26E /* format.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D7BC046847B567F0BFFBA1F /* format.json */; };
+		4D7BC46CDAAF7610D4491CD1 /* CheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC77D8A9ABAF639024B41 /* CheckModel.swift */; };
+		4D7BC47B4E410FB0F21B098A /* VCAddTestResultsForAddingInvestigations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC840578D6812CDABF4BA /* VCAddTestResultsForAddingInvestigations.swift */; };
+		4D7BC4A120A57366354B4592 /* VCQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCCEB7EC1B01644406E56 /* VCQuestions.swift */; };
+		4D7BC4E47CB4E07336D01653 /* Pregnancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC6A3346491EBF68825C7 /* Pregnancy.swift */; };
+		4D7BC502234A8BE39F30E8FD /* AntiMullerianHormone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC01329C3279171DF4DC2 /* AntiMullerianHormone.swift */; };
+		4D7BC50E4AB971BD69335429 /* Oxygenstaturation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC9EEFFC13160017C4157 /* Oxygenstaturation.swift */; };
+		4D7BC55296D3B90D3280716D /* SyncUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC5CC82D4B1C76A214A80 /* SyncUtil.swift */; };
+		4D7BC5A11725EEE790B293E8 /* BasicProfileAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCC68B98E9997A37B17F6 /* BasicProfileAttributes.swift */; };
+		4D7BC5B7AFCF57C1E576CC57 /* format2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D7BC98FD648262ADD4C238C /* format2.json */; };
+		4D7BC5CBCDB8206BBBEA2661 /* Hemoglobin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC7CE805B127D485D0E1C /* Hemoglobin.swift */; };
+		4D7BC5EB245975E8947584ED /* CellResultsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCAAACC0B3A9A7F9AE1F3 /* CellResultsTableView.swift */; };
+		4D7BC5EF3D3285470CDA3E32 /* CellVisitsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC17B6F0990E5C37E9BFF /* CellVisitsCollectionView.swift */; };
+		4D7BC6029E5EA7AFE8FADB6B /* AppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCD572493C8151B0C5948 /* AppointmentModel.swift */; };
+		4D7BC60F4F4CFC5947674CDF /* VCAddResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC88662314699DA489B2F /* VCAddResult.swift */; };
+		4D7BC614804407E6B18AA9D7 /* OnAppointmentDelegateRescheduled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCFBC4FC26948FC8BD064 /* OnAppointmentDelegateRescheduled.swift */; };
+		4D7BC618DDABA49A080AF160 /* ResponseVitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC7B7D1353BD516342E83 /* ResponseVitals.swift */; };
+		4D7BC63FD2B0D0C780D8A445 /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC18E915AD2C3D3D77747 /* Synchronizer.swift */; };
+		4D7BC658D1F6FCE19D3E914C /* OnChangeListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC10C1779967CB679DB16 /* OnChangeListener.swift */; };
+		4D7BC65D1CC517BFC0D3FE78 /* VCSyncSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCA1ED3274C4BC813F0A4 /* VCSyncSettings.swift */; };
+		4D7BC6748AB886FA01CAD688 /* OnFertilityHistoryAddedListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCCF7E5EF8EC3072AA885 /* OnFertilityHistoryAddedListener.swift */; };
+		4D7BC67A712474E87722A182 /* OnListOfCheckBoxListeners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCAC22AAC3CF710C65237 /* OnListOfCheckBoxListeners.swift */; };
+		4D7BC6868021A832124A73BC /* ThyroidStimulatingHormone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCC4537480A5605CA8B73 /* ThyroidStimulatingHormone.swift */; };
+		4D7BC6B392FF33CE13DEB699 /* OnFamilyHistoryAddedListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC16F77A36AC210F45C47 /* OnFamilyHistoryAddedListener.swift */; };
+		4D7BC6B95837872BBC852314 /* VCSignupShort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCADE93DA322EE73249A4 /* VCSignupShort.swift */; };
+		4D7BC6EAB016377A6B08C64A /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCA0122775B3B22ABFEE2 /* Temperature.swift */; };
+		4D7BC734C3AC3E9446776EFE /* formatrequest.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D7BCF6D7F27172D5B7E0E45 /* formatrequest.json */; };
+		4D7BC7942F04E5AC59B8191C /* OnRecordAddedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC0C42304B358005B6683 /* OnRecordAddedDelegate.swift */; };
+		4D7BC7980DF5B1405CA14E27 /* VCAddAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC559F3C7786FDD0A7749 /* VCAddAppointment.swift */; };
+		4D7BC79F7EC3862E65EB0E3B /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC026037CD5E1ECC896B7 /* Weight.swift */; };
+		4D7BC7F7DE6CF3C9C0BA9895 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC63D033099020F64E066 /* Record.swift */; };
+		4D7BC82DF8C6CDCCDCA10461 /* PregnancyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCCFD57589C58F09515CF /* PregnancyInfo.swift */; };
+		4D7BC856966991CC98C93178 /* VCAddMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC4AF14644E3707BD5E9A /* VCAddMedication.swift */; };
+		4D7BC874E817F574AE79CB4B /* DBUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC04FE5CEEBD811D061E9 /* DBUtils.swift */; };
+		4D7BC8C43640CA14296E1251 /* PatientsWrapperForBatchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCFDA5567F0A49C6EDE33 /* PatientsWrapperForBatchRequest.swift */; };
+		4D7BC8F58B9BED07C4598670 /* OnMedicationAddedListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC75ED945A4CA716EB4E3 /* OnMedicationAddedListener.swift */; };
+		4D7BC91C6D926B658E3868D4 /* VCSpontaneousAbortion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCB9B6C33CE22D0D6E4BD /* VCSpontaneousAbortion.swift */; };
+		4D7BC91D74742B18863278B3 /* CellPregnencyHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCDCC371C67444EA1ACC1 /* CellPregnencyHistoryCollectionViewCell.swift */; };
+		4D7BC9653DD3BD142199E475 /* ClinicLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC4195C556CC9479C9210 /* ClinicLocationModel.swift */; };
+		4D7BC9AF17E818B59FF09417 /* CellListOfCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC30B12D37796C13E7F20 /* CellListOfCheckbox.swift */; };
+		4D7BC9C4FFDEF46A3DFDAC16 /* ClinicDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC6E033122BF32D19C694 /* ClinicDetailResponse.swift */; };
+		4D7BC9D13AC3AC374370E7B5 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC25583BA92654440E445 /* AlamofireManager.swift */; };
+		4D7BC9D579393AC607B884DA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC2AB8ADF839DEE3F935D /* Result.swift */; };
+		4D7BCA031E921F9AFD2CB537 /* VCAddRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCDD0B8F2E8C2ED056499 /* VCAddRecords.swift */; };
+		4D7BCA5CF15D0E57B6C994E1 /* PersonInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC51CB879D23FD6A85B7B /* PersonInfoModel.swift */; };
+		4D7BCAC04F01E49A7DE673B8 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC1E7D48B78BC86DF99DE /* Question.swift */; };
+		4D7BCAF3CCE90954920EF296 /* CreditAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCBC5F250D1580DCFC032 /* CreditAttribute.swift */; };
+		4D7BCAF58B9A616A290961A3 /* VCListOfCheckboxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC070761742287666A1C3 /* VCListOfCheckboxes.swift */; };
+		4D7BCB0A16F5C20E7EE70B07 /* format.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D7BC4BABE4D5BB8EA1893B6 /* format.json */; };
+		4D7BCB3D2A5ED52916507B29 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCD804FA812F8C62144DD /* ApiServices.swift */; };
+		4D7BCB5A0EFA82BCB493F684 /* Bloodglucose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCCF04F27BFD7DC8D31F4 /* Bloodglucose.swift */; };
+		4D7BCB7B498BCCC57292C618 /* VCPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC858BCAEC451928F8F18 /* VCPay.swift */; };
+		4D7BCB9CF68BB0773B1DCCA0 /* ResponseBasicAttributesSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC03DFE0D603FEF70925C /* ResponseBasicAttributesSync.swift */; };
+		4D7BCBB4737A78B6198FE098 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC25D545F4A2FFA95602D /* StringExtension.swift */; };
+		4D7BCC1108ED660BD95DDBEA /* VCQuestionConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC2830C584636B74CCA79 /* VCQuestionConversation.swift */; };
+		4D7BCC1E0ACE401E9C4765D4 /* CellAnalysisCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC13DB8ED9036F7B1DC56 /* CellAnalysisCollectionView.swift */; };
+		4D7BCC2673A6AF4AAC0965FA /* FamilyMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCED5625A665E5839B991 /* FamilyMember.swift */; };
+		4D7BCC6243EEC5D7F024F10C /* Childs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC813E3D598910112DE3E /* Childs.swift */; };
+		4D7BCCA9C6B769F100512135 /* CellQuestionComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCC3D033E26F807C1EEE2 /* CellQuestionComment.swift */; };
+		4D7BCCDDC95C736452D943C5 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCB6918C93D21CAE3CFA6 /* Medication.swift */; };
+		4D7BCD025F05E8FC8594722E /* VCDoctorsListOfClinicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCA08C651266972B8F227 /* VCDoctorsListOfClinicCollectionView.swift */; };
+		4D7BCD466EB24DA85FBDAB3E /* OnRescheduleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC678FDB2CBE0E0D7EB21 /* OnRescheduleDelegate.swift */; };
+		4D7BCDD97310BFEFAC06B986 /* OnSynchronizerStateChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCD6E1015D6C46D3DB31F /* OnSynchronizerStateChanged.swift */; };
+		4D7BCE02A7F4DD437B28C89B /* Internet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC1F633B2507601C88F98 /* Internet.swift */; };
+		4D7BCE251BB802090678ED1C /* VCSignUP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCEE3B6837DEEA53B6796 /* VCSignUP.swift */; };
+		4D7BCE2CFACF5C84099310E7 /* FertilityHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCB5E2BDAF9468AC44012 /* FertilityHistory.swift */; };
+		4D7BCE454975D97F1824F7C9 /* OnAddedListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC422401E706682192B0A /* OnAddedListener.swift */; };
+		4D7BCE5A1AF7CF174DB58F1C /* PersonPregnancyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC5427352C44A6CE0DE5A /* PersonPregnancyProfile.swift */; };
+		4D7BCEBE6B24AF3C097A96C4 /* CellImageCollectionViewCellTestResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC298D19542CCC64F1232 /* CellImageCollectionViewCellTestResults.swift */; };
+		4D7BCECE52A1906A8CB8D8DF /* OnResultAddedListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCE24F33EAD7B9302F79D /* OnResultAddedListener.swift */; };
+		4D7BCED9388100E9EE010ECA /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D7BCE96397F2136D8E10939 /* test.html */; };
+		4D7BCF27D17CC8387F0EAB64 /* UserPrefUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCB415B8960CF082CB718 /* UserPrefUtil.swift */; };
+		4D7BCF2F07F5878E4C07C20F /* VCInvestigations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCA228FBC24DF58FD3B01 /* VCInvestigations.swift */; };
+		4D7BCF33DC41975FF725BFDB /* VCFertilityHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BC8AE40874ABFC37E13E3 /* VCFertilityHistory.swift */; };
+		4D7BCF726664393CD77D46EE /* CouponResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCC99A0C64F1AAA61C67A /* CouponResponse.swift */; };
+		4D7BCF92199B24B367D8990A /* OnPatientClickedListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCBA5D31B733C49B47EBA /* OnPatientClickedListener.swift */; };
+		4D7BCFA61D5A4003CD8F806E /* Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCB2CE44583D50D95A218 /* Height.swift */; };
+		4D7BCFF7E661B4E1378B2FEC /* LastMenstrualPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCD2D93EE44D8833BEE20 /* LastMenstrualPeriod.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		051B78911F6945D80095EED9 /* VCNormalDelivery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCNormalDelivery.swift; sourceTree = "<group>"; };
+		051B78931F6946E80095EED9 /* CellDeliveryChildscellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDeliveryChildscellCollectionViewCell.swift; sourceTree = "<group>"; };
+		052610311F6658AF007B959B /* VCAddConditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAddConditions.swift; sourceTree = "<group>"; };
+		0527D7901F4A9FC4000BF946 /* VCHomeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCHomeScreen.swift; sourceTree = "<group>"; };
+		0532E6AD1F92494600288170 /* AllergiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergiesModel.swift; sourceTree = "<group>"; };
+		0532E6B81F9278AA00288170 /* medicines2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = medicines2.txt; sourceTree = "<group>"; };
+		0532E6B91F9278AA00288170 /* medicines3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = medicines3.txt; sourceTree = "<group>"; };
+		0532E6BB1F9278AB00288170 /* medicines1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = medicines1.txt; sourceTree = "<group>"; };
+		0532E6BF1F9278AC00288170 /* medicines4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = medicines4.txt; sourceTree = "<group>"; };
+		0545B8D21F67A79F006F1E1A /* VCAddFamilyHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAddFamilyHistory.swift; sourceTree = "<group>"; };
+		0551703A1F41A7C4005F576D /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		05562DC01F93A13B00924863 /* AddAppointment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAppointment.storyboard; sourceTree = "<group>"; };
+		0557C3311F4AF0690079534C /* DoctorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
+		0557C3331F4AFB1A0079534C /* DoctorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorTableViewCell.swift; sourceTree = "<group>"; };
+		0557C3351F4B15920079534C /* OnDoctorClickedDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnDoctorClickedDelegate.swift; sourceTree = "<group>"; };
+		056C24651F31A30D0012195F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0570A2FD1F3D904900D5A448 /* BuildConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildConfig.swift; sourceTree = "<group>"; };
+		0577B3FA1F2F648000D38E01 /* Practice Manager - Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice Manager - Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0577B3FD1F2F648000D38E01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0577B3FF1F2F648000D38E01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0577B4021F2F648000D38E01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0577B4051F2F648000D38E01 /* Practice_Manager___Lite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Practice_Manager___Lite.xcdatamodel"; sourceTree = "<group>"; };
+		0577B4071F2F648000D38E01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0577B40A1F2F648000D38E01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0577B40C1F2F648000D38E01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		057EC4EB1F5E86EA00E7F98A /* VCRecordsImageViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCRecordsImageViewerViewController.swift; sourceTree = "<group>"; };
+		057EC4ED1F5E9D1300E7F98A /* CellImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		057EC4EF1F5ED68800E7F98A /* VCGynecHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCGynecHistory.swift; sourceTree = "<group>"; };
+		057EF7B31F60149A0041190D /* VCMenstrualHIstory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMenstrualHIstory.swift; sourceTree = "<group>"; };
+		058648091F4D84E1006E8CE9 /* CellAppointmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellAppointmentTableViewCell.swift; sourceTree = "<group>"; };
+		0586480C1F4DB08D006E8CE9 /* VCRescheduleAppointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCRescheduleAppointment.swift; sourceTree = "<group>"; };
+		0596CB0B1F61360500EDDD91 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		059BC8261F593CEF00E8F9BE /* ExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
+		059BC82A1F59657500E8F9BE /* CellRecordsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellRecordsCollectionViewCell.swift; sourceTree = "<group>"; };
+		05A429AB1F56CA7600415823 /* VCAlergiesAndConditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAlergiesAndConditions.swift; sourceTree = "<group>"; };
+		05A429AE1F56CDF100415823 /* CellAllergiesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellAllergiesCollectionViewCell.swift; sourceTree = "<group>"; };
+		05A429B01F56CE0A00415823 /* CellConditionsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConditionsViewCell.swift; sourceTree = "<group>"; };
+		05A9F0001F4C00A300E9F749 /* VCDoctorsEventCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCDoctorsEventCalendar.swift; sourceTree = "<group>"; };
+		05A9F0031F4C0B2E00E9F749 /* JTCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTCalendarCell.swift; sourceTree = "<group>"; };
+		05AA5C461F62D03A00D44771 /* VCAddAllergy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAddAllergy.swift; sourceTree = "<group>"; };
+		05AADE7B1F57F9D100917008 /* VCMedication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMedication.swift; sourceTree = "<group>"; };
+		05AADE7E1F57FD8800917008 /* CellMedicationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMedicationCollectionViewCell.swift; sourceTree = "<group>"; };
+		05AADE851F5818DD00917008 /* CellFamilyHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellFamilyHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		05AADE8A1F58355500917008 /* VCFamilyHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCFamilyHistoryViewController.swift; sourceTree = "<group>"; };
+		05AADE8C1F5846EE00917008 /* VCPregnancyHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCPregnancyHistoryViewController.swift; sourceTree = "<group>"; };
+		05CB8AF11F8645F80060F0A2 /* PersonInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonInfo.storyboard; sourceTree = "<group>"; };
+		05D41C9A1F540794009C2913 /* PatientInfoPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientInfoPagerViewController.swift; sourceTree = "<group>"; };
+		05D41C9D1F540A8B009C2913 /* BasicInfoViewControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfoViewControllerViewController.swift; sourceTree = "<group>"; };
+		05D41CA11F553658009C2913 /* VCVitalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCVitalsViewController.swift; sourceTree = "<group>"; };
+		05DCEFD21F32EAC5008621ED /* DAMUrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAMUrls.swift; sourceTree = "<group>"; };
+		05DCEFD61F32ED66008621ED /* Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Names.swift; sourceTree = "<group>"; };
+		05DCEFDC1F331919008621ED /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		05E18A7A1F30C5A900EBC371 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
+		05E18A7C1F30C67700EBC371 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
+		05E3FC421F8B8CB3001EB782 /* VCSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSubscription.swift; sourceTree = "<group>"; };
+		05E64EB11F92894200000A0B /* allergies.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = allergies.txt; sourceTree = "<group>"; };
+		05E73E721FB151140004DD04 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		05E84B411F8C153800EBADE8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		05F6D4111F91EB5300425F37 /* ScrollingStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingStackViewController.swift; sourceTree = "<group>"; };
+		05F6D4191F9240C700425F37 /* StreamReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
+		05F8A9F71F6AB34E001AD66C /* VCFertilityProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCFertilityProfileViewController.swift; sourceTree = "<group>"; };
+		4D7BC01329C3279171DF4DC2 /* AntiMullerianHormone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntiMullerianHormone.swift; sourceTree = "<group>"; };
+		4D7BC018294171E88E5A8135 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		4D7BC026037CD5E1ECC896B7 /* Weight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
+		4D7BC03DFE0D603FEF70925C /* ResponseBasicAttributesSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseBasicAttributesSync.swift; sourceTree = "<group>"; };
+		4D7BC046847B567F0BFFBA1F /* format.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = format.json; sourceTree = "<group>"; };
+		4D7BC04FE5CEEBD811D061E9 /* DBUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBUtils.swift; sourceTree = "<group>"; };
+		4D7BC070761742287666A1C3 /* VCListOfCheckboxes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCListOfCheckboxes.swift; sourceTree = "<group>"; };
+		4D7BC0C42304B358005B6683 /* OnRecordAddedDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnRecordAddedDelegate.swift; sourceTree = "<group>"; };
+		4D7BC10C1779967CB679DB16 /* OnChangeListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnChangeListener.swift; sourceTree = "<group>"; };
+		4D7BC13DB8ED9036F7B1DC56 /* CellAnalysisCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellAnalysisCollectionView.swift; sourceTree = "<group>"; };
+		4D7BC14CC5F62B2BF6895E1B /* Allergies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Allergies.swift; sourceTree = "<group>"; };
+		4D7BC16F77A36AC210F45C47 /* OnFamilyHistoryAddedListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnFamilyHistoryAddedListener.swift; sourceTree = "<group>"; };
+		4D7BC17B6F0990E5C37E9BFF /* CellVisitsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellVisitsCollectionView.swift; sourceTree = "<group>"; };
+		4D7BC18E915AD2C3D3D77747 /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronizer.swift; sourceTree = "<group>"; };
+		4D7BC1D2C6C93134026ACC57 /* DoctorInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorInfoModel.swift; sourceTree = "<group>"; };
+		4D7BC1E7D48B78BC86DF99DE /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		4D7BC1F633B2507601C88F98 /* Internet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Internet.swift; sourceTree = "<group>"; };
+		4D7BC241D81CEF4F09E50F9B /* VCPatientsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCPatientsList.swift; sourceTree = "<group>"; };
+		4D7BC24382FF17AC1798F404 /* Clinic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clinic.swift; sourceTree = "<group>"; };
+		4D7BC25583BA92654440E445 /* AlamofireManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
+		4D7BC25D545F4A2FFA95602D /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		4D7BC2830C584636B74CCA79 /* VCQuestionConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCQuestionConversation.swift; sourceTree = "<group>"; };
+		4D7BC298D19542CCC64F1232 /* CellImageCollectionViewCellTestResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellImageCollectionViewCellTestResults.swift; sourceTree = "<group>"; };
+		4D7BC2AB8ADF839DEE3F935D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		4D7BC30B12D37796C13E7F20 /* CellListOfCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellListOfCheckbox.swift; sourceTree = "<group>"; };
+		4D7BC30DEDD13C4ABFBCE7CE /* Visit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visit.swift; sourceTree = "<group>"; };
+		4D7BC4195C556CC9479C9210 /* ClinicLocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClinicLocationModel.swift; sourceTree = "<group>"; };
+		4D7BC422401E706682192B0A /* OnAddedListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnAddedListener.swift; sourceTree = "<group>"; };
+		4D7BC483FFEEABFDA21C26F5 /* Loaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loaders.swift; sourceTree = "<group>"; };
+		4D7BC495D40B6C8E540FF534 /* BloodPressure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPressure.swift; sourceTree = "<group>"; };
+		4D7BC4AF14644E3707BD5E9A /* VCAddMedication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAddMedication.swift; sourceTree = "<group>"; };
+		4D7BC4BABE4D5BB8EA1893B6 /* format.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = format.json; sourceTree = "<group>"; };
+		4D7BC4FBD58AB6702E9787FE /* VCVisits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCVisits.swift; sourceTree = "<group>"; };
+		4D7BC5170CE62AE1A13E0574 /* VCChangePassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCChangePassword.swift; sourceTree = "<group>"; };
+		4D7BC51CB879D23FD6A85B7B /* PersonInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonInfoModel.swift; sourceTree = "<group>"; };
+		4D7BC5427352C44A6CE0DE5A /* PersonPregnancyProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPregnancyProfile.swift; sourceTree = "<group>"; };
+		4D7BC559F3C7786FDD0A7749 /* VCAddAppointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAddAppointment.swift; sourceTree = "<group>"; };
+		4D7BC5C4D5CA8E1094B04723 /* VCAddFertilityHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAddFertilityHistory.swift; sourceTree = "<group>"; };
+		4D7BC5CC82D4B1C76A214A80 /* SyncUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncUtil.swift; sourceTree = "<group>"; };
+		4D7BC63D033099020F64E066 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		4D7BC65926F4E126DDCF9396 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		4D7BC678FDB2CBE0E0D7EB21 /* OnRescheduleDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnRescheduleDelegate.swift; sourceTree = "<group>"; };
+		4D7BC697D5686E26EBA57233 /* CellInvestigationsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellInvestigationsCollectionView.swift; sourceTree = "<group>"; };
+		4D7BC6A3346491EBF68825C7 /* Pregnancy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pregnancy.swift; sourceTree = "<group>"; };
+		4D7BC6E033122BF32D19C694 /* ClinicDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClinicDetailResponse.swift; sourceTree = "<group>"; };
+		4D7BC7178345CF0126072F80 /* VCTestResultsNextScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCTestResultsNextScreen.swift; sourceTree = "<group>"; };
+		4D7BC758EE8359B3CA7A887D /* DoctorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorCollectionViewCell.swift; sourceTree = "<group>"; };
+		4D7BC75ED945A4CA716EB4E3 /* OnMedicationAddedListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnMedicationAddedListener.swift; sourceTree = "<group>"; };
+		4D7BC77D8A9ABAF639024B41 /* CheckModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckModel.swift; sourceTree = "<group>"; };
+		4D7BC7B7D1353BD516342E83 /* ResponseVitals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseVitals.swift; sourceTree = "<group>"; };
+		4D7BC7CE805B127D485D0E1C /* Hemoglobin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hemoglobin.swift; sourceTree = "<group>"; };
+		4D7BC7EEB64A34FACF01BFFF /* CellPatientInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellPatientInfo.swift; sourceTree = "<group>"; };
+		4D7BC813E3D598910112DE3E /* Childs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Childs.swift; sourceTree = "<group>"; };
+		4D7BC840578D6812CDABF4BA /* VCAddTestResultsForAddingInvestigations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAddTestResultsForAddingInvestigations.swift; sourceTree = "<group>"; };
+		4D7BC853226A1721B653CDEC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4D7BC858BCAEC451928F8F18 /* VCPay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCPay.swift; sourceTree = "<group>"; };
+		4D7BC88662314699DA489B2F /* VCAddResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAddResult.swift; sourceTree = "<group>"; };
+		4D7BC8AE40874ABFC37E13E3 /* VCFertilityHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCFertilityHistory.swift; sourceTree = "<group>"; };
+		4D7BC98FD648262ADD4C238C /* format2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = format2.json; sourceTree = "<group>"; };
+		4D7BC9EEFFC13160017C4157 /* Oxygenstaturation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Oxygenstaturation.swift; sourceTree = "<group>"; };
+		4D7BCA0122775B3B22ABFEE2 /* Temperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		4D7BCA08C651266972B8F227 /* VCDoctorsListOfClinicCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCDoctorsListOfClinicCollectionView.swift; sourceTree = "<group>"; };
+		4D7BCA1ED3274C4BC813F0A4 /* VCSyncSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSyncSettings.swift; sourceTree = "<group>"; };
+		4D7BCA228FBC24DF58FD3B01 /* VCInvestigations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCInvestigations.swift; sourceTree = "<group>"; };
+		4D7BCA3B6622AF7005BA8A08 /* AllergyAddedListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllergyAddedListener.swift; sourceTree = "<group>"; };
+		4D7BCA9C703A72AF74EE1514 /* Pulserate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulserate.swift; sourceTree = "<group>"; };
+		4D7BCAAACC0B3A9A7F9AE1F3 /* CellResultsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellResultsTableView.swift; sourceTree = "<group>"; };
+		4D7BCAC22AAC3CF710C65237 /* OnListOfCheckBoxListeners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnListOfCheckBoxListeners.swift; sourceTree = "<group>"; };
+		4D7BCADE93DA322EE73249A4 /* VCSignupShort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSignupShort.swift; sourceTree = "<group>"; };
+		4D7BCAF312003C6E491DE935 /* Respirationrate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Respirationrate.swift; sourceTree = "<group>"; };
+		4D7BCB2CE44583D50D95A218 /* Height.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Height.swift; sourceTree = "<group>"; };
+		4D7BCB415B8960CF082CB718 /* UserPrefUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPrefUtil.swift; sourceTree = "<group>"; };
+		4D7BCB5E2BDAF9468AC44012 /* FertilityHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FertilityHistory.swift; sourceTree = "<group>"; };
+		4D7BCB680FB3BC515F5A1246 /* Condition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
+		4D7BCB6918C93D21CAE3CFA6 /* Medication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
+		4D7BCB9B6C33CE22D0D6E4BD /* VCSpontaneousAbortion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSpontaneousAbortion.swift; sourceTree = "<group>"; };
+		4D7BCBA5D31B733C49B47EBA /* OnPatientClickedListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnPatientClickedListener.swift; sourceTree = "<group>"; };
+		4D7BCBC5F250D1580DCFC032 /* CreditAttribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditAttribute.swift; sourceTree = "<group>"; };
+		4D7BCC19E4EBBE88FE3ABA3A /* VCPregnancyHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCPregnancyHistoryViewController.swift; sourceTree = "<group>"; };
+		4D7BCC3D033E26F807C1EEE2 /* CellQuestionComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellQuestionComment.swift; sourceTree = "<group>"; };
+		4D7BCC4537480A5605CA8B73 /* ThyroidStimulatingHormone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThyroidStimulatingHormone.swift; sourceTree = "<group>"; };
+		4D7BCC68B98E9997A37B17F6 /* BasicProfileAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicProfileAttributes.swift; sourceTree = "<group>"; };
+		4D7BCC99A0C64F1AAA61C67A /* CouponResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponResponse.swift; sourceTree = "<group>"; };
+		4D7BCCCCE1F3137A8F10002F /* QuestionComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionComment.swift; sourceTree = "<group>"; };
+		4D7BCCEB7EC1B01644406E56 /* VCQuestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCQuestions.swift; sourceTree = "<group>"; };
+		4D7BCCF04F27BFD7DC8D31F4 /* Bloodglucose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bloodglucose.swift; sourceTree = "<group>"; };
+		4D7BCCF7E5EF8EC3072AA885 /* OnFertilityHistoryAddedListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnFertilityHistoryAddedListener.swift; sourceTree = "<group>"; };
+		4D7BCCFB429AC74B50C68B6D /* ListenerOnConditionAdded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerOnConditionAdded.swift; sourceTree = "<group>"; };
+		4D7BCCFD57589C58F09515CF /* PregnancyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PregnancyInfo.swift; sourceTree = "<group>"; };
+		4D7BCD2D93EE44D8833BEE20 /* LastMenstrualPeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastMenstrualPeriod.swift; sourceTree = "<group>"; };
+		4D7BCD572493C8151B0C5948 /* AppointmentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentModel.swift; sourceTree = "<group>"; };
+		4D7BCD6E1015D6C46D3DB31F /* OnSynchronizerStateChanged.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnSynchronizerStateChanged.swift; sourceTree = "<group>"; };
+		4D7BCD804FA812F8C62144DD /* ApiServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
+		4D7BCD8A59BD3231CA8B0706 /* QuestionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionResponse.swift; sourceTree = "<group>"; };
+		4D7BCDCC371C67444EA1ACC1 /* CellPregnencyHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellPregnencyHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4D7BCDD0B8F2E8C2ED056499 /* VCAddRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAddRecords.swift; sourceTree = "<group>"; };
+		4D7BCDF98CA62681B1F7F05A /* CellFertilityHistoryCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellFertilityHistoryCollectionView.swift; sourceTree = "<group>"; };
+		4D7BCE24F33EAD7B9302F79D /* OnResultAddedListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnResultAddedListener.swift; sourceTree = "<group>"; };
+		4D7BCE96397F2136D8E10939 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		4D7BCED5625A665E5839B991 /* FamilyMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyMember.swift; sourceTree = "<group>"; };
+		4D7BCEE3B6837DEEA53B6796 /* VCSignUP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSignUP.swift; sourceTree = "<group>"; };
+		4D7BCF1FD2412FC4D47077A3 /* CellTableViewQuestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTableViewQuestions.swift; sourceTree = "<group>"; };
+		4D7BCF6084EA3B2646138519 /* VCRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCRecords.swift; sourceTree = "<group>"; };
+		4D7BCF6D7F27172D5B7E0E45 /* formatrequest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = formatrequest.json; sourceTree = "<group>"; };
+		4D7BCFBC4FC26948FC8BD064 /* OnAppointmentDelegateRescheduled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnAppointmentDelegateRescheduled.swift; sourceTree = "<group>"; };
+		4D7BCFDA5567F0A49C6EDE33 /* PatientsWrapperForBatchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientsWrapperForBatchRequest.swift; sourceTree = "<group>"; };
+		4D7BCFF75D39BC266ED4B8D2 /* VCEditPatientsBasicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCEditPatientsBasicInfo.swift; sourceTree = "<group>"; };
+		88C0ADEEA1EAA65A14E0EA1B /* Pods-Practice Manager - Lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice Manager - Lite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Practice Manager - Lite/Pods-Practice Manager - Lite.debug.xcconfig"; sourceTree = "<group>"; };
+		E76BB6218B73FB92737FC39A /* Pods-Practice Manager - Lite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice Manager - Lite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Practice Manager - Lite/Pods-Practice Manager - Lite.release.xcconfig"; sourceTree = "<group>"; };
+		ECDC9930C24C1F92EDE531C9 /* Pods_Practice_Manager___Lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Practice_Manager___Lite.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0577B3F71F2F648000D38E01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05E84B421F8C153800EBADE8 /* CoreLocation.framework in Frameworks */,
+				0F8BC03E130590C130528ACC /* Pods_Practice_Manager___Lite.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		051E9CEF1F45B7D9008BEE68 /* HomeRoot */ = {
+			isa = PBXGroup;
+			children = (
+				0577B3FF1F2F648000D38E01 /* ViewController.swift */,
+				05E18A7A1F30C5A900EBC371 /* SideBarViewController.swift */,
+				05E18A7C1F30C67700EBC371 /* HomeNavigationViewController.swift */,
+				0570A2FD1F3D904900D5A448 /* BuildConfig.swift */,
+				4D7BC026037CD5E1ECC896B7 /* Weight.swift */,
+				4D7BCC19E4EBBE88FE3ABA3A /* VCPregnancyHistoryViewController.swift */,
+			);
+			name = HomeRoot;
+			sourceTree = "<group>";
+		};
+		0527D7921F4AA01F000BF946 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0527D7901F4A9FC4000BF946 /* VCHomeScreen.swift */,
+			);
+			name = HomeScreen;
+			sourceTree = "<group>";
+		};
+		055298441F6FA40400964E12 /* FertilityHistoryList */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BCB5E2BDAF9468AC44012 /* FertilityHistory.swift */,
+				4D7BC8AE40874ABFC37E13E3 /* VCFertilityHistory.swift */,
+				4D7BCDF98CA62681B1F7F05A /* CellFertilityHistoryCollectionView.swift */,
+				4D7BC5C4D5CA8E1094B04723 /* VCAddFertilityHistory.swift */,
+				4D7BCCF7E5EF8EC3072AA885 /* OnFertilityHistoryAddedListener.swift */,
+			);
+			name = FertilityHistoryList;
+			sourceTree = "<group>";
+		};
+		0570A7141F471FD100C54170 /* Apis */ = {
+			isa = PBXGroup;
+			children = (
+				0551703A1F41A7C4005F576D /* ErrorResponse.swift */,
+				05DCEFD21F32EAC5008621ED /* DAMUrls.swift */,
+				4D7BCD804FA812F8C62144DD /* ApiServices.swift */,
+			);
+			name = Apis;
+			sourceTree = "<group>";
+		};
+		0577B3F11F2F648000D38E01 = {
+			isa = PBXGroup;
+			children = (
+				0577B3FC1F2F648000D38E01 /* Practice Manager - Lite */,
+				0577B3FB1F2F648000D38E01 /* Products */,
+				2EFD11063FCAE5C8562970CF /* Pods */,
+				06ACCD2882EB6F9749BDB4C5 /* Frameworks */,
+				4D7BC853226A1721B653CDEC /* README.md */,
+				4D7BC4BABE4D5BB8EA1893B6 /* format.json */,
+				4D7BC98FD648262ADD4C238C /* format2.json */,
+				4D7BCF6D7F27172D5B7E0E45 /* formatrequest.json */,
+				4D7BCE96397F2136D8E10939 /* test.html */,
+				4D7BC298D19542CCC64F1232 /* CellImageCollectionViewCellTestResults.swift */,
+			);
+			sourceTree = "<group>";
+		};
+		0577B3FB1F2F648000D38E01 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0577B3FA1F2F648000D38E01 /* Practice Manager - Lite.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0577B3FC1F2F648000D38E01 /* Practice Manager - Lite */ = {
+			isa = PBXGroup;
+			children = (
+				05E64EB11F92894200000A0B /* allergies.txt */,
+				0532E6BB1F9278AB00288170 /* medicines1.txt */,
+				0532E6B81F9278AA00288170 /* medicines2.txt */,
+				0532E6B91F9278AA00288170 /* medicines3.txt */,
+				0532E6BF1F9278AC00288170 /* medicines4.txt */,
+				05F6D4191F9240C700425F37 /* StreamReader.swift */,
+				05F6D4181F923EA200425F37 /* Assets */,
+				0577B3FD1F2F648000D38E01 /* AppDelegate.swift */,
+				4D7BC563CE4925FDCCA85194 /* Questions */,
+				05D41C9C1F540A72009C2913 /* Patient */,
+				05A9F0021F4C00AA00E9F749 /* DoctorsCalendar */,
+				05ECDBCE1F46B2D50027D105 /* DoctorsList */,
+				0527D7921F4AA01F000BF946 /* HomeScreen */,
+				0570A7141F471FD100C54170 /* Apis */,
+				05DCEFD41F32EACC008621ED /* Utilities */,
+				05DCEFD51F32EC4C008621ED /* Login */,
+				051E9CEF1F45B7D9008BEE68 /* HomeRoot */,
+				0577B4041F2F648000D38E01 /* Practice_Manager___Lite.xcdatamodeld */,
+				0577B4011F2F648000D38E01 /* Main.storyboard */,
+				0577B4091F2F648000D38E01 /* LaunchScreen.storyboard */,
+				05CB8AF11F8645F80060F0A2 /* PersonInfo.storyboard */,
+				05562DC01F93A13B00924863 /* AddAppointment.storyboard */,
+				0577B4071F2F648000D38E01 /* Assets.xcassets */,
+				05F6D4111F91EB5300425F37 /* ScrollingStackViewController.swift */,
+				4D7BC046847B567F0BFFBA1F /* format.json */,
+				0577B40C1F2F648000D38E01 /* Info.plist */,
+				05F6D4141F920DBD00425F37 /* MyAccounts */,
+				05F6D4131F920D9900425F37 /* SignUp */,
+				0532E6AD1F92494600288170 /* AllergiesModel.swift */,
+				4D7BC18E915AD2C3D3D77747 /* Synchronizer.swift */,
+				4D7BCD6E1015D6C46D3DB31F /* OnSynchronizerStateChanged.swift */,
+				4D7BC03DFE0D603FEF70925C /* ResponseBasicAttributesSync.swift */,
+				4D7BC559F3C7786FDD0A7749 /* VCAddAppointment.swift */,
+				4D7BCFBC4FC26948FC8BD064 /* OnAppointmentDelegateRescheduled.swift */,
+				4D7BC10C1779967CB679DB16 /* OnChangeListener.swift */,
+				05E73E721FB151140004DD04 /* ValidationError.swift */,
+			);
+			path = "Practice Manager - Lite";
+			sourceTree = "<group>";
+		};
+		057EF7B21F5FCE2D0041190D /* GynecHistory */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BC813E3D598910112DE3E /* Childs.swift */,
+				4D7BC422401E706682192B0A /* OnAddedListener.swift */,
+				057EC4EF1F5ED68800E7F98A /* VCGynecHistory.swift */,
+			);
+			name = GynecHistory;
+			sourceTree = "<group>";
+		};
+		057EF7B51F6014A00041190D /* MenstrualHistory */ = {
+			isa = PBXGroup;
+			children = (
+				057EF7B31F60149A0041190D /* VCMenstrualHIstory.swift */,
+			);
+			name = MenstrualHistory;
+			sourceTree = "<group>";
+		};
+		0586480B1F4D84E8006E8CE9 /* AppointmentsTable */ = {
+			isa = PBXGroup;
+			children = (
+				0586480C1F4DB08D006E8CE9 /* VCRescheduleAppointment.swift */,
+				4D7BC678FDB2CBE0E0D7EB21 /* OnRescheduleDelegate.swift */,
+				058648091F4D84E1006E8CE9 /* CellAppointmentTableViewCell.swift */,
+			);
+			name = AppointmentsTable;
+			sourceTree = "<group>";
+		};
+		05A429AD1F56CDC100415823 /* AlergiesAndConditions */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BCA3B6622AF7005BA8A08 /* AllergyAddedListener.swift */,
+				4D7BCCFB429AC74B50C68B6D /* ListenerOnConditionAdded.swift */,
+				052610311F6658AF007B959B /* VCAddConditions.swift */,
+				4D7BC14CC5F62B2BF6895E1B /* Allergies.swift */,
+				4D7BCB680FB3BC515F5A1246 /* Condition.swift */,
+				05A429AB1F56CA7600415823 /* VCAlergiesAndConditions.swift */,
+				05A429AE1F56CDF100415823 /* CellAllergiesCollectionViewCell.swift */,
+				05A429B01F56CE0A00415823 /* CellConditionsViewCell.swift */,
+				05AA5C461F62D03A00D44771 /* VCAddAllergy.swift */,
+			);
+			name = AlergiesAndConditions;
+			sourceTree = "<group>";
+		};
+		05A9F0021F4C00AA00E9F749 /* DoctorsCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				0586480B1F4D84E8006E8CE9 /* AppointmentsTable */,
+				05A9F0001F4C00A300E9F749 /* VCDoctorsEventCalendar.swift */,
+				05A9F0031F4C0B2E00E9F749 /* JTCalendarCell.swift */,
+				4D7BCD572493C8151B0C5948 /* AppointmentModel.swift */,
+			);
+			name = DoctorsCalendar;
+			sourceTree = "<group>";
+		};
+		05AADE781F57F97A00917008 /* BasicInfo */ = {
+			isa = PBXGroup;
+			children = (
+				05D41C9D1F540A8B009C2913 /* BasicInfoViewControllerViewController.swift */,
+				4D7BCC68B98E9997A37B17F6 /* BasicProfileAttributes.swift */,
+			);
+			name = BasicInfo;
+			sourceTree = "<group>";
+		};
+		05AADE7D1F57F9D500917008 /* Medication */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BC75ED945A4CA716EB4E3 /* OnMedicationAddedListener.swift */,
+				05AADE7B1F57F9D100917008 /* VCMedication.swift */,
+				05AADE7E1F57FD8800917008 /* CellMedicationCollectionViewCell.swift */,
+				4D7BCB6918C93D21CAE3CFA6 /* Medication.swift */,
+				4D7BC4AF14644E3707BD5E9A /* VCAddMedication.swift */,
+			);
+			name = Medication;
+			sourceTree = "<group>";
+		};
+		05AADE821F58164800917008 /* FamilyHIstory */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BC16F77A36AC210F45C47 /* OnFamilyHistoryAddedListener.swift */,
+				4D7BCED5625A665E5839B991 /* FamilyMember.swift */,
+				05AADE851F5818DD00917008 /* CellFamilyHistoryCollectionViewCell.swift */,
+				05AADE8A1F58355500917008 /* VCFamilyHistoryViewController.swift */,
+				0545B8D21F67A79F006F1E1A /* VCAddFamilyHistory.swift */,
+			);
+			name = FamilyHIstory;
+			sourceTree = "<group>";
+		};
+		05AADE871F58321500917008 /* PregnancyHistory */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BC6A3346491EBF68825C7 /* Pregnancy.swift */,
+				4D7BCDCC371C67444EA1ACC1 /* CellPregnencyHistoryCollectionViewCell.swift */,
+				05AADE8C1F5846EE00917008 /* VCPregnancyHistoryViewController.swift */,
+				051B78911F6945D80095EED9 /* VCNormalDelivery.swift */,
+				051B78931F6946E80095EED9 /* CellDeliveryChildscellCollectionViewCell.swift */,
+				4D7BCB9B6C33CE22D0D6E4BD /* VCSpontaneousAbortion.swift */,
+			);
+			name = PregnancyHistory;
+			sourceTree = "<group>";
+		};
+		05D41C9C1F540A72009C2913 /* Patient */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BC51CB879D23FD6A85B7B /* PersonInfoModel.swift */,
+				4D7BC1D2C6C93134026ACC57 /* DoctorInfoModel.swift */,
+				05D41C9A1F540794009C2913 /* PatientInfoPagerViewController.swift */,
+				057EF7B51F6014A00041190D /* MenstrualHistory */,
+				05AADE781F57F97A00917008 /* BasicInfo */,
+				05D41CA31F553660009C2913 /* Vitals */,
+				05A429AD1F56CDC100415823 /* AlergiesAndConditions */,
+				05AADE7D1F57F9D500917008 /* Medication */,
+				05AADE871F58321500917008 /* PregnancyHistory */,
+				05AADE821F58164800917008 /* FamilyHIstory */,
+				4D7BC6C17F0C598F1A3915E4 /* Records */,
+				057EF7B21F5FCE2D0041190D /* GynecHistory */,
+				05F8A9F91F6AB356001AD66C /* FertilityProfile */,
+				055298441F6FA40400964E12 /* FertilityHistoryList */,
+				4D7BC6261F988B9308384334 /* CheckList */,
+				4D7BCA83F6F0657FAC42F682 /* PatientsHome */,
+				4D7BCCFD57589C58F09515CF /* PregnancyInfo.swift */,
+				4D7BCFF75D39BC266ED4B8D2 /* VCEditPatientsBasicInfo.swift */,
+				4D7BCD351FA4E454E7CAF27B /* Visits */,
+				05F6D4151F920E1A00425F37 /* Investigations */,
+				4D7BCFDA5567F0A49C6EDE33 /* PatientsWrapperForBatchRequest.swift */,
+			);
+			name = Patient;
+			sourceTree = "<group>";
+		};
+		05D41CA31F553660009C2913 /* Vitals */ = {
+			isa = PBXGroup;
+			children = (
+				05D41CA41F559A3F009C2913 /* Models */,
+				05D41CA11F553658009C2913 /* VCVitalsViewController.swift */,
+			);
+			name = Vitals;
+			sourceTree = "<group>";
+		};
+		05D41CA41F559A3F009C2913 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BC9EEFFC13160017C4157 /* Oxygenstaturation.swift */,
+				4D7BCAF312003C6E491DE935 /* Respirationrate.swift */,
+				4D7BCCF04F27BFD7DC8D31F4 /* Bloodglucose.swift */,
+				4D7BC495D40B6C8E540FF534 /* BloodPressure.swift */,
+				4D7BCB2CE44583D50D95A218 /* Height.swift */,
+				4D7BCA9C703A72AF74EE1514 /* Pulserate.swift */,
+				4D7BCA0122775B3B22ABFEE2 /* Temperature.swift */,
+				4D7BC7CE805B127D485D0E1C /* Hemoglobin.swift */,
+				4D7BCC4537480A5605CA8B73 /* ThyroidStimulatingHormone.swift */,
+				4D7BC01329C3279171DF4DC2 /* AntiMullerianHormone.swift */,
+				4D7BCD2D93EE44D8833BEE20 /* LastMenstrualPeriod.swift */,
+				4D7BC7B7D1353BD516342E83 /* ResponseVitals.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		05DCEFD41F32EACC008621ED /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BC018294171E88E5A8135 /* Utility.swift */,
+				05DCEFD61F32ED66008621ED /* Names.swift */,
+				4D7BCB415B8960CF082CB718 /* UserPrefUtil.swift */,
+				059BC8261F593CEF00E8F9BE /* ExtensionViewController.swift */,
+				0596CB0B1F61360500EDDD91 /* DateExtension.swift */,
+				4D7BC1F633B2507601C88F98 /* Internet.swift */,
+				4D7BC25D545F4A2FFA95602D /* StringExtension.swift */,
+				4D7BC483FFEEABFDA21C26F5 /* Loaders.swift */,
+				4D7BC04FE5CEEBD811D061E9 /* DBUtils.swift */,
+				4D7BC25583BA92654440E445 /* AlamofireManager.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		05DCEFD51F32EC4C008621ED /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				056C24651F31A30D0012195F /* LoginViewController.swift */,
+				05DCEFDC1F331919008621ED /* LoginResponse.swift */,
+				4D7BC24382FF17AC1798F404 /* Clinic.swift */,
+				4D7BC6E033122BF32D19C694 /* ClinicDetailResponse.swift */,
+				4D7BC4195C556CC9479C9210 /* ClinicLocationModel.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		05ECDBCE1F46B2D50027D105 /* DoctorsList */ = {
+			isa = PBXGroup;
+			children = (
+				0557C3311F4AF0690079534C /* DoctorModel.swift */,
+				0557C3331F4AFB1A0079534C /* DoctorTableViewCell.swift */,
+				0557C3351F4B15920079534C /* OnDoctorClickedDelegate.swift */,
+				4D7BCA08C651266972B8F227 /* VCDoctorsListOfClinicCollectionView.swift */,
+				4D7BC758EE8359B3CA7A887D /* DoctorCollectionViewCell.swift */,
+			);
+			name = DoctorsList;
+			sourceTree = "<group>";
+		};
+		05F6D4131F920D9900425F37 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BCEE3B6837DEEA53B6796 /* VCSignUP.swift */,
+				4D7BCADE93DA322EE73249A4 /* VCSignupShort.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		05F6D4141F920DBD00425F37 /* MyAccounts */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BC5170CE62AE1A13E0574 /* VCChangePassword.swift */,
+				4D7BC0C42304B358005B6683 /* OnRecordAddedDelegate.swift */,
+				05E3FC421F8B8CB3001EB782 /* VCSubscription.swift */,
+				4D7BCBC5F250D1580DCFC032 /* CreditAttribute.swift */,
+				4D7BCC99A0C64F1AAA61C67A /* CouponResponse.swift */,
+				4D7BC858BCAEC451928F8F18 /* VCPay.swift */,
+				4D7BC5CC82D4B1C76A214A80 /* SyncUtil.swift */,
+				4D7BCA1ED3274C4BC813F0A4 /* VCSyncSettings.swift */,
+			);
+			path = MyAccounts;
+			sourceTree = "<group>";
+		};
+		05F6D4151F920E1A00425F37 /* Investigations */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BC2AB8ADF839DEE3F935D /* Result.swift */,
+				4D7BCE24F33EAD7B9302F79D /* OnResultAddedListener.swift */,
+				4D7BCAAACC0B3A9A7F9AE1F3 /* CellResultsTableView.swift */,
+				4D7BCA228FBC24DF58FD3B01 /* VCInvestigations.swift */,
+				4D7BC697D5686E26EBA57233 /* CellInvestigationsCollectionView.swift */,
+				4D7BC840578D6812CDABF4BA /* VCAddTestResultsForAddingInvestigations.swift */,
+				4D7BC88662314699DA489B2F /* VCAddResult.swift */,
+				4D7BC7178345CF0126072F80 /* VCTestResultsNextScreen.swift */,
+			);
+			name = Investigations;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		05F6D4181F923EA200425F37 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		05F8A9F91F6AB356001AD66C /* FertilityProfile */ = {
+			isa = PBXGroup;
+			children = (
+				05F8A9F71F6AB34E001AD66C /* VCFertilityProfileViewController.swift */,
+				4D7BC13DB8ED9036F7B1DC56 /* CellAnalysisCollectionView.swift */,
+				4D7BC30B12D37796C13E7F20 /* CellListOfCheckbox.swift */,
+			);
+			name = FertilityProfile;
+			sourceTree = "<group>";
+		};
+		06ACCD2882EB6F9749BDB4C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05E84B411F8C153800EBADE8 /* CoreLocation.framework */,
+				ECDC9930C24C1F92EDE531C9 /* Pods_Practice_Manager___Lite.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2EFD11063FCAE5C8562970CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88C0ADEEA1EAA65A14E0EA1B /* Pods-Practice Manager - Lite.debug.xcconfig */,
+				E76BB6218B73FB92737FC39A /* Pods-Practice Manager - Lite.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4D7BC563CE4925FDCCA85194 /* Questions */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BCCEB7EC1B01644406E56 /* VCQuestions.swift */,
+				4D7BCD8A59BD3231CA8B0706 /* QuestionResponse.swift */,
+				4D7BC1E7D48B78BC86DF99DE /* Question.swift */,
+				4D7BCF1FD2412FC4D47077A3 /* CellTableViewQuestions.swift */,
+				4D7BC6764FA84261D5718D92 /* QuestionConversatain */,
+				4D7BC2830C584636B74CCA79 /* VCQuestionConversation.swift */,
+				4D7BCC3D033E26F807C1EEE2 /* CellQuestionComment.swift */,
+				4D7BC5427352C44A6CE0DE5A /* PersonPregnancyProfile.swift */,
+			);
+			path = Questions;
+			sourceTree = "<group>";
+		};
+		4D7BC6261F988B9308384334 /* CheckList */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BCAC22AAC3CF710C65237 /* OnListOfCheckBoxListeners.swift */,
+				4D7BC070761742287666A1C3 /* VCListOfCheckboxes.swift */,
+				4D7BC77D8A9ABAF639024B41 /* CheckModel.swift */,
+			);
+			name = CheckList;
+			sourceTree = "<group>";
+		};
+		4D7BC6764FA84261D5718D92 /* QuestionConversatain */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BCCCCE1F3137A8F10002F /* QuestionComment.swift */,
+			);
+			path = QuestionConversatain;
+			sourceTree = "<group>";
+		};
+		4D7BC6C17F0C598F1A3915E4 /* Records */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BC63D033099020F64E066 /* Record.swift */,
+				4D7BCF6084EA3B2646138519 /* VCRecords.swift */,
+				059BC82A1F59657500E8F9BE /* CellRecordsCollectionViewCell.swift */,
+				057EC4EB1F5E86EA00E7F98A /* VCRecordsImageViewerViewController.swift */,
+				057EC4ED1F5E9D1300E7F98A /* CellImageCollectionViewCell.swift */,
+				4D7BCDD0B8F2E8C2ED056499 /* VCAddRecords.swift */,
+			);
+			name = Records;
+			sourceTree = "<group>";
+		};
+		4D7BCA83F6F0657FAC42F682 /* PatientsHome */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BC65926F4E126DDCF9396 /* Patient.swift */,
+				4D7BC241D81CEF4F09E50F9B /* VCPatientsList.swift */,
+				4D7BC7EEB64A34FACF01BFFF /* CellPatientInfo.swift */,
+				4D7BCBA5D31B733C49B47EBA /* OnPatientClickedListener.swift */,
+			);
+			name = PatientsHome;
+			sourceTree = "<group>";
+		};
+		4D7BCD351FA4E454E7CAF27B /* Visits */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BC30DEDD13C4ABFBCE7CE /* Visit.swift */,
+				4D7BC4FBD58AB6702E9787FE /* VCVisits.swift */,
+				4D7BC17B6F0990E5C37E9BFF /* CellVisitsCollectionView.swift */,
+			);
+			name = Visits;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0577B3F91F2F648000D38E01 /* Practice Manager - Lite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0577B40F1F2F648000D38E01 /* Build configuration list for PBXNativeTarget "Practice Manager - Lite" */;
+			buildPhases = (
+				FC75B4DDEB53DF1BAC7ED623 /* [CP] Check Pods Manifest.lock */,
+				0577B3F61F2F648000D38E01 /* Sources */,
+				0577B3F71F2F648000D38E01 /* Frameworks */,
+				0577B3F81F2F648000D38E01 /* Resources */,
+				DB2B082F2E8BF4B28614E2F7 /* [CP] Embed Pods Frameworks */,
+				1120CC026B70726AA9042B6C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Practice Manager - Lite";
+			productName = "Practice Manager - Lite";
+			productReference = 0577B3FA1F2F648000D38E01 /* Practice Manager - Lite.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0577B3F21F2F648000D38E01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = DocNMe;
+				TargetAttributes = {
+					0577B3F91F2F648000D38E01 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = KUSRFEXG27;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0577B3F51F2F648000D38E01 /* Build configuration list for PBXProject "Practice Manager - Lite" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0577B3F11F2F648000D38E01;
+			productRefGroup = 0577B3FB1F2F648000D38E01 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0577B3F91F2F648000D38E01 /* Practice Manager - Lite */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0577B3F81F2F648000D38E01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05562DC11F93A13B00924863 /* AddAppointment.storyboard in Resources */,
+				0577B40B1F2F648000D38E01 /* LaunchScreen.storyboard in Resources */,
+				0577B4081F2F648000D38E01 /* Assets.xcassets in Resources */,
+				05E64EB21F92894200000A0B /* allergies.txt in Resources */,
+				0532E6C91F9278AD00288170 /* medicines4.txt in Resources */,
+				0577B4031F2F648000D38E01 /* Main.storyboard in Resources */,
+				05CB8AF21F8645F80060F0A2 /* PersonInfo.storyboard in Resources */,
+				4D7BC4591A2DEB50A548E26E /* format.json in Resources */,
+				4D7BCB0A16F5C20E7EE70B07 /* format.json in Resources */,
+				0532E6C51F9278AD00288170 /* medicines1.txt in Resources */,
+				0532E6C31F9278AD00288170 /* medicines3.txt in Resources */,
+				0532E6C21F9278AD00288170 /* medicines2.txt in Resources */,
+				4D7BC5B7AFCF57C1E576CC57 /* format2.json in Resources */,
+				4D7BC734C3AC3E9446776EFE /* formatrequest.json in Resources */,
+				4D7BCED9388100E9EE010ECA /* test.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1120CC026B70726AA9042B6C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Practice Manager - Lite/Pods-Practice Manager - Lite-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB2B082F2E8BF4B28614E2F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Practice Manager - Lite/Pods-Practice Manager - Lite-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/Dropper/Dropper.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/InitialsImageView/InitialsImageView.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/RadioButton/RadioButton.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SKPhotoBrowser/SKPhotoBrowser.framework",
+				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenuController/SideMenuController.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftHEXColors/SwiftHEXColors.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
+				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dropper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InitialsImageView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RadioButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKPhotoBrowser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenuController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHEXColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Practice Manager - Lite/Pods-Practice Manager - Lite-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC75B4DDEB53DF1BAC7ED623 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Practice Manager - Lite-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0577B3F61F2F648000D38E01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0570A2FE1F3D904900D5A448 /* BuildConfig.swift in Sources */,
+				056C24661F31A30D0012195F /* LoginViewController.swift in Sources */,
+				05D41CA21F553658009C2913 /* VCVitalsViewController.swift in Sources */,
+				0557C3361F4B15920079534C /* OnDoctorClickedDelegate.swift in Sources */,
+				05DCEFD31F32EAC5008621ED /* DAMUrls.swift in Sources */,
+				0551703B1F41A7C4005F576D /* ErrorResponse.swift in Sources */,
+				0527D7911F4A9FC4000BF946 /* VCHomeScreen.swift in Sources */,
+				05DCEFDD1F331919008621ED /* LoginResponse.swift in Sources */,
+				05DCEFD71F32ED66008621ED /* Names.swift in Sources */,
+				0577B4001F2F648000D38E01 /* ViewController.swift in Sources */,
+				05AADE8D1F5846EE00917008 /* VCPregnancyHistoryViewController.swift in Sources */,
+				05AADE8B1F58355500917008 /* VCFamilyHistoryViewController.swift in Sources */,
+				057EC4F01F5ED68800E7F98A /* VCGynecHistory.swift in Sources */,
+				057EF7B41F60149A0041190D /* VCMenstrualHIstory.swift in Sources */,
+				0577B3FE1F2F648000D38E01 /* AppDelegate.swift in Sources */,
+				05A9F0011F4C00A300E9F749 /* VCDoctorsEventCalendar.swift in Sources */,
+				05D41C9E1F540A8B009C2913 /* BasicInfoViewControllerViewController.swift in Sources */,
+				05E18A7D1F30C67700EBC371 /* HomeNavigationViewController.swift in Sources */,
+				0577B4061F2F648000D38E01 /* Practice_Manager___Lite.xcdatamodeld in Sources */,
+				05A9F0041F4C0B2E00E9F749 /* JTCalendarCell.swift in Sources */,
+				05D41C9B1F540794009C2913 /* PatientInfoPagerViewController.swift in Sources */,
+				0586480D1F4DB08D006E8CE9 /* VCRescheduleAppointment.swift in Sources */,
+				05E18A7B1F30C5A900EBC371 /* SideBarViewController.swift in Sources */,
+				0586480A1F4D84E1006E8CE9 /* CellAppointmentTableViewCell.swift in Sources */,
+				052610321F6658AF007B959B /* VCAddConditions.swift in Sources */,
+				059BC82B1F59657500E8F9BE /* CellRecordsCollectionViewCell.swift in Sources */,
+				0557C3341F4AFB1A0079534C /* DoctorTableViewCell.swift in Sources */,
+				05AADE861F5818DD00917008 /* CellFamilyHistoryCollectionViewCell.swift in Sources */,
+				05F6D4121F91EB5300425F37 /* ScrollingStackViewController.swift in Sources */,
+				4D7BCF27D17CC8387F0EAB64 /* UserPrefUtil.swift in Sources */,
+				0557C3321F4AF0690079534C /* DoctorModel.swift in Sources */,
+				4D7BCB3D2A5ED52916507B29 /* ApiServices.swift in Sources */,
+				057EC4EC1F5E86EA00E7F98A /* VCRecordsImageViewerViewController.swift in Sources */,
+				4D7BC20EDADB5CC9187799C1 /* README.md in Sources */,
+				4D7BC6029E5EA7AFE8FADB6B /* AppointmentModel.swift in Sources */,
+				05A429B11F56CE0A00415823 /* CellConditionsViewCell.swift in Sources */,
+				0545B8D31F67A79F006F1E1A /* VCAddFamilyHistory.swift in Sources */,
+				4D7BCA5CF15D0E57B6C994E1 /* PersonInfoModel.swift in Sources */,
+				0596CB0C1F61360500EDDD91 /* DateExtension.swift in Sources */,
+				05AADE7C1F57F9D100917008 /* VCMedication.swift in Sources */,
+				4D7BC195C920B39158E25EFF /* DoctorInfoModel.swift in Sources */,
+				4D7BCD466EB24DA85FBDAB3E /* OnRescheduleDelegate.swift in Sources */,
+				05A429AF1F56CDF100415823 /* CellAllergiesCollectionViewCell.swift in Sources */,
+				4D7BC0276E7F5DA9ED94BC39 /* Utility.swift in Sources */,
+				4D7BCB5A0EFA82BCB493F684 /* Bloodglucose.swift in Sources */,
+				4D7BC3898AD92C51BDA8229D /* BloodPressure.swift in Sources */,
+				4D7BCFA61D5A4003CD8F806E /* Height.swift in Sources */,
+				4D7BC79F7EC3862E65EB0E3B /* Weight.swift in Sources */,
+				057EC4EE1F5E9D1300E7F98A /* CellImageCollectionViewCell.swift in Sources */,
+				4D7BC279D865062F0075F31D /* Pulserate.swift in Sources */,
+				4D7BC6EAB016377A6B08C64A /* Temperature.swift in Sources */,
+				4D7BC5CBCDB8206BBBEA2661 /* Hemoglobin.swift in Sources */,
+				4D7BC6868021A832124A73BC /* ThyroidStimulatingHormone.swift in Sources */,
+				4D7BC502234A8BE39F30E8FD /* AntiMullerianHormone.swift in Sources */,
+				4D7BCFF7E661B4E1378B2FEC /* LastMenstrualPeriod.swift in Sources */,
+				4D7BC618DDABA49A080AF160 /* ResponseVitals.swift in Sources */,
+				4D7BC50E4AB971BD69335429 /* Oxygenstaturation.swift in Sources */,
+				05A429AC1F56CA7600415823 /* VCAlergiesAndConditions.swift in Sources */,
+				4D7BC32945EF5724C87A6D0C /* Respirationrate.swift in Sources */,
+				05AADE7F1F57FD8800917008 /* CellMedicationCollectionViewCell.swift in Sources */,
+				4D7BC1AB6075859CE8A784CA /* Allergies.swift in Sources */,
+				4D7BC1EC70137100548BD7DA /* Condition.swift in Sources */,
+				4D7BCCDDC95C736452D943C5 /* Medication.swift in Sources */,
+				059BC8271F593CEF00E8F9BE /* ExtensionViewController.swift in Sources */,
+				4D7BCC2673A6AF4AAC0965FA /* FamilyMember.swift in Sources */,
+				4D7BC4E47CB4E07336D01653 /* Pregnancy.swift in Sources */,
+				4D7BC91D74742B18863278B3 /* CellPregnencyHistoryCollectionViewCell.swift in Sources */,
+				4D7BC7F7DE6CF3C9C0BA9895 /* Record.swift in Sources */,
+				05F8A9F81F6AB34E001AD66C /* VCFertilityProfileViewController.swift in Sources */,
+				4D7BC0E2FB8049AE5B03FDE8 /* VCRecords.swift in Sources */,
+				4D7BC5A11725EEE790B293E8 /* BasicProfileAttributes.swift in Sources */,
+				051B78921F6945D80095EED9 /* VCNormalDelivery.swift in Sources */,
+				05AA5C471F62D03A00D44771 /* VCAddAllergy.swift in Sources */,
+				4D7BC0EF0F13E6F32A2BACE3 /* AllergyAddedListener.swift in Sources */,
+				4D7BC3E33C4C510D35457DF4 /* ListenerOnConditionAdded.swift in Sources */,
+				4D7BC856966991CC98C93178 /* VCAddMedication.swift in Sources */,
+				051B78941F6946E80095EED9 /* CellDeliveryChildscellCollectionViewCell.swift in Sources */,
+				4D7BC8F58B9BED07C4598670 /* OnMedicationAddedListener.swift in Sources */,
+				4D7BC6B392FF33CE13DEB699 /* OnFamilyHistoryAddedListener.swift in Sources */,
+				4D7BCC6243EEC5D7F024F10C /* Childs.swift in Sources */,
+				4D7BCE454975D97F1824F7C9 /* OnAddedListener.swift in Sources */,
+				05E73E731FB151140004DD04 /* ValidationError.swift in Sources */,
+				4D7BC91C6D926B658E3868D4 /* VCSpontaneousAbortion.swift in Sources */,
+				4D7BCC1E0ACE401E9C4765D4 /* CellAnalysisCollectionView.swift in Sources */,
+				4D7BC9AF17E818B59FF09417 /* CellListOfCheckbox.swift in Sources */,
+				4D7BC67A712474E87722A182 /* OnListOfCheckBoxListeners.swift in Sources */,
+				4D7BCF33DC41975FF725BFDB /* VCFertilityHistory.swift in Sources */,
+				4D7BCE2CFACF5C84099310E7 /* FertilityHistory.swift in Sources */,
+				4D7BC03B74A473AEE9A8AF35 /* CellFertilityHistoryCollectionView.swift in Sources */,
+				05E3FC431F8B8CB3001EB782 /* VCSubscription.swift in Sources */,
+				4D7BC3FB79F15D82F1E2C729 /* VCAddFertilityHistory.swift in Sources */,
+				4D7BCAF58B9A616A290961A3 /* VCListOfCheckboxes.swift in Sources */,
+				4D7BC46CDAAF7610D4491CD1 /* CheckModel.swift in Sources */,
+				4D7BCD025F05E8FC8594722E /* VCDoctorsListOfClinicCollectionView.swift in Sources */,
+				4D7BC410A662D3174CFE9E1A /* Patient.swift in Sources */,
+				4D7BC164D58943A8113DD811 /* VCPatientsList.swift in Sources */,
+				4D7BC33A92F36A2F1D8CD664 /* CellPatientInfo.swift in Sources */,
+				4D7BCF92199B24B367D8990A /* OnPatientClickedListener.swift in Sources */,
+				4D7BC4A120A57366354B4592 /* VCQuestions.swift in Sources */,
+				4D7BC1866601E9ACDE4F9949 /* QuestionResponse.swift in Sources */,
+				4D7BCAC04F01E49A7DE673B8 /* Question.swift in Sources */,
+				4D7BC07D3333F0BB37AD4DEE /* CellTableViewQuestions.swift in Sources */,
+				4D7BC4239D42E003AECAE58F /* QuestionComment.swift in Sources */,
+				4D7BCC1108ED660BD95DDBEA /* VCQuestionConversation.swift in Sources */,
+				4D7BCCA9C6B769F100512135 /* CellQuestionComment.swift in Sources */,
+				4D7BC107FEE987292085B598 /* Clinic.swift in Sources */,
+				4D7BC9C4FFDEF46A3DFDAC16 /* ClinicDetailResponse.swift in Sources */,
+				4D7BC9653DD3BD142199E475 /* ClinicLocationModel.swift in Sources */,
+				4D7BC1B8AFDF5CADD0D28586 /* DoctorCollectionViewCell.swift in Sources */,
+				0532E6AE1F92494600288170 /* AllergiesModel.swift in Sources */,
+				4D7BC6748AB886FA01CAD688 /* OnFertilityHistoryAddedListener.swift in Sources */,
+				4D7BC82DF8C6CDCCDCA10461 /* PregnancyInfo.swift in Sources */,
+				4D7BCA031E921F9AFD2CB537 /* VCAddRecords.swift in Sources */,
+				4D7BC29D2D204764E96839FD /* VCEditPatientsBasicInfo.swift in Sources */,
+				4D7BC3486C913CC5F8101328 /* VCChangePassword.swift in Sources */,
+				4D7BC7942F04E5AC59B8191C /* OnRecordAddedDelegate.swift in Sources */,
+				4D7BCAF3CCE90954920EF296 /* CreditAttribute.swift in Sources */,
+				4D7BCF726664393CD77D46EE /* CouponResponse.swift in Sources */,
+				4D7BCB7B498BCCC57292C618 /* VCPay.swift in Sources */,
+				4D7BCE251BB802090678ED1C /* VCSignUP.swift in Sources */,
+				4D7BCE02A7F4DD437B28C89B /* Internet.swift in Sources */,
+				4D7BCF2F07F5878E4C07C20F /* VCInvestigations.swift in Sources */,
+				4D7BC0B9F14AB27A9D021FC5 /* CellInvestigationsCollectionView.swift in Sources */,
+				4D7BCE5A1AF7CF174DB58F1C /* PersonPregnancyProfile.swift in Sources */,
+				4D7BC0CF8363B9E0C5E898BD /* Visit.swift in Sources */,
+				4D7BC1799C5CEADCB93FA9BF /* VCVisits.swift in Sources */,
+				4D7BC5EF3D3285470CDA3E32 /* CellVisitsCollectionView.swift in Sources */,
+				4D7BCBB4737A78B6198FE098 /* StringExtension.swift in Sources */,
+				05F6D41A1F9240C700425F37 /* StreamReader.swift in Sources */,
+				4D7BC55296D3B90D3280716D /* SyncUtil.swift in Sources */,
+				4D7BC65D1CC517BFC0D3FE78 /* VCSyncSettings.swift in Sources */,
+				4D7BC6B95837872BBC852314 /* VCSignupShort.swift in Sources */,
+				4D7BC28A7D908E7896005FEE /* Loaders.swift in Sources */,
+				4D7BC63FD2B0D0C780D8A445 /* Synchronizer.swift in Sources */,
+				4D7BCDD97310BFEFAC06B986 /* OnSynchronizerStateChanged.swift in Sources */,
+				4D7BCB9CF68BB0773B1DCCA0 /* ResponseBasicAttributesSync.swift in Sources */,
+				4D7BC874E817F574AE79CB4B /* DBUtils.swift in Sources */,
+				4D7BC7980DF5B1405CA14E27 /* VCAddAppointment.swift in Sources */,
+				4D7BC614804407E6B18AA9D7 /* OnAppointmentDelegateRescheduled.swift in Sources */,
+				4D7BC8C43640CA14296E1251 /* PatientsWrapperForBatchRequest.swift in Sources */,
+				4D7BC658D1F6FCE19D3E914C /* OnChangeListener.swift in Sources */,
+				4D7BC47B4E410FB0F21B098A /* VCAddTestResultsForAddingInvestigations.swift in Sources */,
+				4D7BC60F4F4CFC5947674CDF /* VCAddResult.swift in Sources */,
+				4D7BC9D579393AC607B884DA /* Result.swift in Sources */,
+				4D7BCECE52A1906A8CB8D8DF /* OnResultAddedListener.swift in Sources */,
+				4D7BC5EB245975E8947584ED /* CellResultsTableView.swift in Sources */,
+				4D7BC3AB9E295E61276AFDC3 /* VCTestResultsNextScreen.swift in Sources */,
+				4D7BCEBE6B24AF3C097A96C4 /* CellImageCollectionViewCellTestResults.swift in Sources */,
+				4D7BC9D13AC3AC374370E7B5 /* AlamofireManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0577B4011F2F648000D38E01 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0577B4021F2F648000D38E01 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0577B4091F2F648000D38E01 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0577B40A1F2F648000D38E01 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0577B40D1F2F648000D38E01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0577B40E1F2F648000D38E01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0577B4101F2F648000D38E01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88C0ADEEA1EAA65A14E0EA1B /* Pods-Practice Manager - Lite.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KUSRFEXG27;
+				INFOPLIST_FILE = "Practice Manager - Lite/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.docnme.practice-manager";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0577B4111F2F648000D38E01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E76BB6218B73FB92737FC39A /* Pods-Practice Manager - Lite.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KUSRFEXG27;
+				INFOPLIST_FILE = "Practice Manager - Lite/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.docnme.practice-manager";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0577B3F51F2F648000D38E01 /* Build configuration list for PBXProject "Practice Manager - Lite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0577B40D1F2F648000D38E01 /* Debug */,
+				0577B40E1F2F648000D38E01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0577B40F1F2F648000D38E01 /* Build configuration list for PBXNativeTarget "Practice Manager - Lite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0577B4101F2F648000D38E01 /* Debug */,
+				0577B4111F2F648000D38E01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0577B4041F2F648000D38E01 /* Practice_Manager___Lite.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0577B4051F2F648000D38E01 /* Practice_Manager___Lite.xcdatamodel */,
+			);
+			currentVersion = 0577B4051F2F648000D38E01 /* Practice_Manager___Lite.xcdatamodel */;
+			path = "Practice_Manager___Lite.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 0577B3F21F2F648000D38E01 /* Project object */;
+}

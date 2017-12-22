@@ -1,0 +1,6 @@
+framework module Pods_Practice_Manager___Lite {
+  umbrella header "Pods-Practice Manager - Lite-umbrella.h"
+
+  export *
+  module * { export * }
+}
