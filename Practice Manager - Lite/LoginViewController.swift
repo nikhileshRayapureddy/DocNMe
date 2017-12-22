@@ -105,8 +105,31 @@ class LoginViewController: UIViewController {
                             UserDefaults.standard.setValue(response.result.value?.toJSONString(), forKey: Names.CLINIC_RESPONSE);
                             
                             if (Utility.needToOpenFill(clin)) {
-                                let vc: VCSignUP = UIStoryboard(name: Names.STORYBOARD.PERSON_INFO, bundle: nil).instantiateViewController(withIdentifier: Names.VContIdentifiers.VC_SIGNUP) as! VCSignUP;
-                                self.present(vc, animated: true, completion: nil);
+                                let alert = UIAlertController(title: "Your profile is Incomplete. Do you want to fill it now?"
+                                    , message: nil, preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                // add the actions (buttons)
+                                alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {
+                                    action in
+                                    DispatchQueue.main.async {
+                                        let vc: VCSignUP = UIStoryboard(name: Names.STORYBOARD.PERSON_INFO, bundle: nil).instantiateViewController(withIdentifier: Names.VContIdentifiers.VC_SIGNUP) as! VCSignUP;
+                                        self.present(vc, animated: true, completion: nil);
+
+                                    }
+                                }))
+                                
+                                alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: {
+                                    action in
+                                    DispatchQueue.main.async {
+                                        self.openHomeNavigationControllViewer(logResponse: logResponse);
+
+                                    }
+                                }))
+                                
+                                
+                                // show the alert
+                                self.present(alert, animated: true, completion: nil)
+
                             }
                             self.openHomeNavigationControllViewer(logResponse: logResponse);
                         }
