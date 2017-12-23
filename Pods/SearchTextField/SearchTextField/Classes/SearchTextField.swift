@@ -490,6 +490,9 @@ extension SearchTextField: UITableViewDelegate, UITableViewDataSource {
         } else {
             let index = indexPath.row
             itemSelectionHandler!(filteredResults[index], index)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SelectedSearchTextField"), object: filteredResults[index])
+
+            
         }
 
         clearResults()
@@ -518,7 +521,7 @@ public struct SearchTextFieldTheme {
     }
 
     public static func lightTheme() -> SearchTextFieldTheme {
-        return SearchTextFieldTheme(cellHeight: 30, bgColor: UIColor(red: 1, green: 1, blue: 1, alpha: 0.6), borderColor: UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0), separatorColor: UIColor.clear, font: UIFont.systemFont(ofSize: 10), fontColor: UIColor.black)
+        return SearchTextFieldTheme(cellHeight: 30, bgColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1), borderColor: UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0), separatorColor: UIColor.clear, font: UIFont.systemFont(ofSize: 10), fontColor: UIColor.black)
     }
 
     public static func darkTheme() -> SearchTextFieldTheme {
