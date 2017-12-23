@@ -206,8 +206,16 @@ class VCAddAppointment: UIViewController {
             (item, itemPosition) in
             self.onSelectUpdateUI(item: item, itemPosition: itemPosition);
         };
-    }
+        NotificationCenter.default.addObserver(self, selector: #selector(self.selectedRow(notification:)), name: NSNotification.Name(rawValue: "SelectedSearchTextField"), object: nil)
 
+    }
+    func selectedRow(notification : Notification)
+    {
+        let item = notification.object as! SearchTextFieldItem
+        ePhoneNumber.text = item.subtitle
+        ePatientName.text = item.title
+        self.view.endEditing(true)
+    }
     private func onSelectUpdateUI(item: SearchTextFieldItem, itemPosition: Int) {
         print(item);
         let res = self.realm?.objects(Patient.self).filter("personId = '\(item.id!)'").first;
@@ -232,6 +240,9 @@ class VCAddAppointment: UIViewController {
             self.patient = patient;
             self.updateOnSelectPatient();
         }
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     private func updateOnSelectPatient() {

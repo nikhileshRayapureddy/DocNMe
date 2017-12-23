@@ -85,7 +85,10 @@ class VCRescheduleAppointment: UIViewController {
     func showDatePicker() {
         DatePickerDialog().show("Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
             (date) -> Void in
+            if date != nil
+            {
             self.b_date.setTitle("\(String(describing: self.dateFormatter.string(from: date!)))", for: UIControlState.normal);
+            }
         }
     }
 
