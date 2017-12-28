@@ -19,7 +19,6 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
 
     @IBOutlet weak var l_labelloading: UILabel!
     @IBOutlet weak var l_heading_monthyear: UILabel!
-    @IBOutlet weak var progressbar: UIActivityIndicatorView!
     @IBOutlet weak var tableview_appointment: UITableView!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     let formatter: DateFormatter = DateFormatter();
@@ -72,8 +71,6 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
 
 
     func apiGetAppointmentsForADoctor(doctor: DoctorModel?) {
-        self.progressbar.isHidden = false;
-        self.progressbar.startAnimating();
         self.l_labelloading.isHidden = false;
         formatter.dateFormat = "ddMMyyyy";
         formatter.timeZone = Calendar.current.timeZone;
@@ -83,8 +80,6 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
 
         if self.dictionaryAppointments.count > 0 {
             self.l_labelloading.isHidden = true;
-            self.progressbar.stopAnimating();
-            self.progressbar.isHidden = true;
         }
 
         let date = Calendar.current.date(byAdding: Calendar.Component.month, value: (-1), to: Date());
@@ -106,8 +101,6 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
 
             }
 
-            self.progressbar.isHidden = true;
-            self.progressbar.stopAnimating()
             self.l_labelloading.isHidden = true;
         }
 
@@ -238,7 +231,10 @@ extension VCDoctorsEventCalendar: JTAppleCalendarViewDelegate, JTAppleCalendarVi
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
 
 
-        (cell as! JTCalendarCell).v_background.isHidden = false;
+        if let JTcell =  cell as? JTCalendarCell
+        {
+            JTcell.v_background.isHidden = false;
+        }
 
         self.l_heading_monthyear.text = self.formatterMonthYear?.string(from: date);
 
@@ -257,6 +253,7 @@ extension VCDoctorsEventCalendar: JTAppleCalendarViewDelegate, JTAppleCalendarVi
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         if cell != nil && (cell as! JTCalendarCell).v_background != nil {
             (cell as! JTCalendarCell).v_background.isHidden = true;
+            (cell as! JTCalendarCell).l_date.textColor = .black
         }
 
     }

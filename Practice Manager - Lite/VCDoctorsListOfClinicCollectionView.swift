@@ -22,8 +22,6 @@ class VCDoctorsListofClinicCollectionView: UIViewController, UICollectionViewDat
     let realm = try? Realm()
     @IBOutlet weak var collectionView: UICollectionView!
 
-//    @IBOutlet weak var indicator: UIActivityIndicatorView!
-
     private var colorCircle: UIColor?;
 
     override func viewDidLoad() {
@@ -51,7 +49,6 @@ class VCDoctorsListofClinicCollectionView: UIViewController, UICollectionViewDat
         return dataListDoctors.count;
     }
 
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier: String = Names.VContIdentifiers.CELL_DOCTORSLISTCOLLECTIONVIEW;

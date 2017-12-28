@@ -116,7 +116,9 @@ class VCRescheduleAppointment: UIViewController {
     }
 
     func pupulateData(appointment: AppointmentModel) {
-        self.e_purpose.text = appointment.purpose as? String;
+        self.title = "Reschedule Appointment"
+        self.l_patientname.text = appointment.patientInfo.name
+        self.e_purpose.text = appointment.purpose
         let date = Date(milliseconds: appointment.appointmentFrom);
         b_date.setTitle(dateFormatter.string(from: date), for: UIControlState.normal);
         b_time.setTitle(timeFormatter.string(from: date), for: UIControlState.normal);
