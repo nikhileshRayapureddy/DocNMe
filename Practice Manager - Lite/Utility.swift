@@ -38,14 +38,14 @@ class Utility {
 
     class func showProgressForIndicator(_ indicator: UIActivityIndicatorView!, _ isProgress: Bool) {
 
-        indicator.isHidden = !isProgress;
-
-        if isProgress {
-            indicator.startAnimating();
-        } else {
-            indicator.stopAnimating();
-        }
-
+//        indicator.isHidden = !isProgress;
+//
+//        if isProgress {
+//            indicator.startAnimating();
+//        } else {
+//            indicator.stopAnimating();
+//        }
+//
 
     }
 
