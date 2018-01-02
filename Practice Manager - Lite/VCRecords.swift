@@ -19,7 +19,9 @@ class VCRecords: UIViewController, OnRecordAddedDelegate {
     var listRecords = [String: [Record]]();
     let dateFormatter = DateFormatter();
 
-//    let dictImages = [String:[String]]();
+    @IBAction func btnSave(_ sender: Any) {
+    }
+    //    let dictImages = [String:[String]]();
 
     private var data = [Record]();
 
@@ -185,29 +187,4 @@ extension VCRecords: UICollectionViewDelegate, UICollectionViewDataSource, Indic
         return false;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

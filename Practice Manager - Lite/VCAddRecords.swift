@@ -34,6 +34,14 @@ class VCAddRecords: UIViewController, UICollectionViewDataSource, UICollectionVi
 
     func onRemoveButtonClicked(_ sender: UIButton) {
         self.arrOfImages.remove(at: sender.tag);
+        if arrOfImages.count > 0
+        {
+            btnSave.isHidden = false
+        }
+        else
+        {
+            btnSave.isHidden = true
+        }
         self.collectionView.reloadData();
     }
 
@@ -42,6 +50,7 @@ class VCAddRecords: UIViewController, UICollectionViewDataSource, UICollectionVi
 
     private var dropper: Dropper?;
 
+    @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var eDoctor: UITextField!;
     @IBOutlet weak var eIssuer: UITextField!;
     @IBOutlet weak var eNote: UITextField!;
@@ -77,7 +86,7 @@ class VCAddRecords: UIViewController, UICollectionViewDataSource, UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        btnSave.isHidden = true
         let recogN = UITapGestureRecognizer(target: self, action: #selector(onTouchScrollView(_:)));
         recogN.cancelsTouchesInView = false;
         scrollView.addGestureRecognizer(recogN);
@@ -296,6 +305,14 @@ extension VCAddRecords: DropperDelegate, UIImagePickerControllerDelegate, UINavi
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             let resizedImage = UIImage(data: pickedImage.jpeg(.low)!);
             self.arrOfImages.append(resizedImage!);
+            if arrOfImages.count > 0
+            {
+                btnSave.isHidden = false
+            }
+            else
+            {
+                btnSave.isHidden = true
+            }
             self.collectionView.reloadData();
         }
         
@@ -317,5 +334,29 @@ extension UIImage {
     /// - returns: A data object containing the JPEG data, or nil if there was a problem generating the data. This function may return nil if the image has no data or if the underlying CGImageRef contains data in an unsupported bitmap format.
     func jpeg(_ quality: JPEGQuality) -> Data? {
         return UIImageJPEGRepresentation(self, quality.rawValue)
+    }
+}
+extension VCAddRecords: UITextFieldDelegate
+{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == eNote
+        {
+            if (textField.text?.characters.count)! + string.characters.count > 0
+            {
+                btnSave.isHidden = false
+            }
+            else
+            {
+                if arrOfImages.count > 0
+                {
+                    btnSave.isHidden = false
+                }
+                else
+                {
+                    btnSave.isHidden = true
+                }
+            }
+        }
+        return true
     }
 }
