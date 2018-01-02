@@ -127,11 +127,11 @@ class VCAddFertilityHistory: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dateFormatter = Utility.getDateFormatter(dateFormat: "dd-MM-yyyy");
-        let date = Date();
-        self.bDateFrom.setTitle(dateFormatter?.string(from: date), for: .normal);
-        self.bDateTo.setTitle(dateFormatter?.string(from: date), for: .normal);
-
+//        self.dateFormatter = Utility.getDateFormatter(dateFormat: "dd-MM-yyyy");
+//        let date = Date();
+//        self.bDateFrom.setTitle(dateFormatter?.string(from: date), for: .normal);
+//        self.bDateTo.setTitle(dateFormatter?.string(from: date), for: .normal);
+        
     }
 
 
