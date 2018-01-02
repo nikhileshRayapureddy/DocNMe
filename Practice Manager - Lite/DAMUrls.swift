@@ -11,8 +11,8 @@ import Foundation
 public class DAMUrls {
     struct URLs {
 //        static let baseUrl = "http://139.59.42.79:8080/server/webapi/";
-        static let baseUrl = "https://api.docnme.com/server/webapi/";
-//        static let baseUrl = "https://api-dev.docnme.com/server/webapi";
+//        static let baseUrl = "https://api.docnme.com/server/webapi/";
+        static let baseUrl = "https://api-dev.docnme.com/server/webapi/";
 
     }
 
