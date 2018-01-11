@@ -29,6 +29,15 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
     @IBOutlet weak var bSave: UIButton!
     @IBOutlet weak var bOverBlodGroup: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    var patientInfo: PersonInfoModel?;
+    
+    static let TAG_USER = "user";
+    static let TAG_SPOUSE = "spouse";
+    var dropper: Dropper?;
+    var tag = TAG_USER;
+    var btnBg = UIButton()
+    @IBOutlet weak var bBloodGroupSpouse: UIButton!
+    @IBOutlet weak var containerViewSpouse: UIView!
 
     @IBAction func onClickSaveBasicInfo(_ sender: Any) {
         let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ")
@@ -77,39 +86,18 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
                     }
 
                 }
+                DispatchQueue.main.async {
+                    let Alert = UIAlertController(title: "Success!", message: "Saved Successfully", preferredStyle: UIAlertControllerStyle.alert)
+                    Alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                    self.present(Alert, animated: true, completion: nil)
 
-
-//            let requestUpdateBasicInfo = ApiServices.createPostRequest(urlStr:
-//                DAMUrls.urlUpdatePatientBasicProfile(), parameters: reqObj);
-//            self.bSave.setTitle("saving..", for: .normal);
-//            self.bSave.isEnabled = false;
-//            AlamofireManager.Manager.request(requestUpdateBasicInfo).responseString(completionHandler: {
-//                response in
-//                self.bSave.setTitle("Save", for: .normal);
-//                self.bSave.isEnabled = true;
-//                if response.response?.statusCode == 200 {
-//                    print(response)
-//
-////                    self.navigationController?.popViewController(animated: false);
-//                }
-//
-//            });
-
-
+                }
+                
             }
         });
 
     }
 
-    var patientInfo: PersonInfoModel?;
-
-    static let TAG_USER = "user";
-    static let TAG_SPOUSE = "spouse";
-    var dropper: Dropper?;
-    var tag = TAG_USER;
-
-    @IBOutlet weak var bBloodGroupSpouse: UIButton!
-    @IBOutlet weak var containerViewSpouse: UIView!
 
     private func getArrayOfAttributesAfterSettingValuesFromViews() -> [String: BasicProfileAttributes]? {
 
@@ -212,7 +200,7 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
 
     @IBAction func onClickShowSpouseBloodGroupList(_ sender: Any) {
         self.closeDropper();
-
+        btnBg.isHidden = false
         self.dropper = Dropper(width: 75, height: 250)
         self.dropper?.items = Array(dictBloodGroups.keys);
         self.dropper?.delegate = self;
@@ -268,6 +256,7 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
     @IBOutlet weak var scMaritalStatus: UISegmentedControl!
 
     @IBAction func onClickBloodGroup(_ sender: Any) {
+        btnBg.isHidden = false
         self.closeDropper()
         self.dropper = Dropper(width: 75, height: 250)
         self.dropper?.items = Array(dictBloodGroups.keys);
@@ -280,6 +269,14 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        btnBg = UIButton(type: .custom)
+        btnBg.backgroundColor = .clear
+        btnBg.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight)
+        btnBg.addTarget(self, action: #selector(btnBgClicked(sender:)), for: .touchUpInside)
+        btnBg.isHidden = true
+        
+        self.view.addSubview(btnBg)
         self.containerViewSpouse.isHidden = true;
         self.dropper = Dropper(width: 75, height: 250)
         self.dropper?.items = Array(dictBloodGroups.keys);
@@ -290,7 +287,14 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
 
 
     }
+    @objc func btnBgClicked(sender:UIButton)
+    {
+        sender.isHidden = true
+        if !(dropper?.status == Dropper.Status.hidden) {
+            dropper?.hide();
+        }
 
+    }
     func getDataFromDB() {
         let results = realm?.objects(BasicProfileAttributes.self).filter("personId = '" + (self.patientInfo?.id)! + "'");
         if results != nil && (results?.count)! > 0 {

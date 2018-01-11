@@ -849,6 +849,7 @@ class Synchronizer {
                         if (response.response?.statusCode == 200) {
                             let jsonData = try? JSONSerialization.jsonObject(with: response.result.value!, options: []);
                             if (jsonData != nil) {
+                                self.updateAppoinmentStatus()
                             }
                         }
                     }
@@ -892,7 +893,24 @@ class Synchronizer {
         }
 
     }
+    private class func updateAppoinmentStatus()
+    {
+        let realm = try? Realm();
+        let apntRes = realm?.objects(AppointmentModel.self).filter("id LIKE '\(regEx)' && (isDeleted = false && isUpdated = true)");
+        if apntRes != nil {
+            for item in apntRes! {
+                do {
+                    try realm?.write {
+                        item.isUpdated = false
+                    }
+                } catch {
+                    //handle error
+                    print(error)
+                }
 
+            }
+        }
+    }
     private class func updateShortIdswithLongForAppointments(_ dataArr: [[String: Any]]) {
 
         let realm = try? Realm();
