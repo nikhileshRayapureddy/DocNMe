@@ -155,6 +155,7 @@ class VCEditPatientsBasicInfo: UIViewController {
         let idPerson = self.personInfo?.personId;
 
         let patient = Patient();
+        patient.isUpdated = true
         patient.personId = idPerson!;
         let personInfo = PersonInfoModel();
         personInfo.setFields(from: self.personInfo!);
@@ -175,6 +176,7 @@ class VCEditPatientsBasicInfo: UIViewController {
         personInfo.state = self.lState.text;
         personInfo.address = self.ePermAddress.text;
         personInfo.city = self.eCity.text;
+        personInfo.state = self.lState.text
         personInfo.pincode = self.ePincode.text;
         if !(self.eCountryCode.text?.isEmpty)! {
             personInfo.phonenumber = "\(self.eCountryCode.text!)\(self.ePhoneNumber.text!)";
@@ -314,6 +316,7 @@ class VCEditPatientsBasicInfo: UIViewController {
         let idPerson = Date().millisecondsSince1970.description;
 
         let patient = Patient();
+        patient.isUpdated = true
         patient.clinicId = UserPrefUtil.getClinicResponse()?.clinic?.id;
         patient.personId = idPerson;
         let personInfo = PersonInfoModel();
@@ -333,7 +336,7 @@ class VCEditPatientsBasicInfo: UIViewController {
         personInfo.address = self.ePermAddress.text;
         personInfo.city = self.eCity.text;
         personInfo.pincode = self.ePincode.text;
-
+        personInfo.state = self.lState.text
         if !(self.eCountryCode.text?.isEmpty)! {
             personInfo.phonenumber = "\(self.eCountryCode.text!)\(self.ePhoneNumber.text!)";
         }else {
@@ -466,6 +469,7 @@ extension VCEditPatientsBasicInfo: DropperDelegate, UIImagePickerControllerDeleg
         let image: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage;
         self.iProfileAvatar.contentMode = .scaleAspectFit;
         self.iProfileAvatar.image = image;
+        
         picker.dismiss(animated: true);
 //        dismiss(animated: true);
     }

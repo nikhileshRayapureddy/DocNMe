@@ -152,15 +152,17 @@ class VCQuestions: UIViewController, UITableViewDataSource, UITableViewDelegate 
 
     private func apiCallGetQuestionsList() {
         self.updateFromDatabase();
-        Utility.showProgressForIndicator(self.indicator, true);
+        app_delegate.showLoader(message: "Fetching Questions...")
         let url = DAMUrls.urlQuestionsListAll(doctorId: UserPrefUtil.getPersonIdClinic()!);
         let request = ApiServices.createGetRequest(urlStr: url, parameters: []);
         AlamofireManager.Manager.request(request).responseArray {
             (response: DataResponse<[QuestionResponse]>) in
-            Utility.showProgressForIndicator(self.indicator, false);
-            if (response.response?.statusCode == 200) {
-//                self.populateData(response.result.value);
-                self.checkAndWriteToData(response.result.value!);
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                if (response.response?.statusCode == 200) {
+                    //                self.populateData(response.result.value);
+                    self.checkAndWriteToData(response.result.value!);
+                }
             }
         }
     }

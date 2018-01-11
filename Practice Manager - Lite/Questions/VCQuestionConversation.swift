@@ -33,14 +33,16 @@ class VCQuestionConversation: UIViewController, UITableViewDelegate, UITableView
     }
 
     private func getListOfAnswers() {
-        Utility.showProgressForIndicator(self.indicator, true);
+        app_delegate.showLoader(message: "Fetching answers...")
         let url = DAMUrls.urlGetAListOfAnswers(question: ((self.question?.question)!!));
         let request = ApiServices.createGetRequest(urlStr: url, parameters: []);
         AlamofireManager.Manager.request(request).responseArray {
             (response: DataResponse<[QuestionComment]>) in
-            Utility.showProgressForIndicator(self.indicator, false);
-            if (response.response?.statusCode == 200) {
-                self.populateData(response.result.value);
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                if (response.response?.statusCode == 200) {
+                    self.populateData(response.result.value);
+                }
             }
         }
     }

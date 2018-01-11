@@ -36,16 +36,19 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
 
     override func viewDidLoad() {
         super.viewDidLoad();
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         calendarView.scrollToDate(Date());
         formatterTime.timeZone = Calendar.current.timeZone;
         formatterTime.locale = Calendar.current.locale;
         formatterTime.dateFormat = "hh:mm aa";
-
+        
         formatterMonthYear = Utility.getDateFormatter(dateFormat: "MMMM yyyy");
-
+        
         tableview_appointment.dataSource = self;
         tableview_appointment.delegate = self;
-
+        
         print("on load");
         self.apiGetAppointmentsForADoctor(doctor: doctor);
         
@@ -53,10 +56,9 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
             self.title = self.doctor?.name;
         }
         
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.selectCurrentDate), userInfo: nil, repeats: false)
+
+        self.selectCurrentDate()
+//        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.selectCurrentDate), userInfo: nil, repeats: false)
     }
     func selectCurrentDate()
     {

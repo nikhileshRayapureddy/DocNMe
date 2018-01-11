@@ -100,6 +100,7 @@ class Synchronizer {
                 let respo = realm?.objects(Patient.self).filter("personId = '\(item)'").first;
                 if respo != nil {
                     respo?.personId = replId
+                    respo?.isUpdated = false
                 }
 
                 let respoPersonInfo = realm?.objects(PersonInfoModel.self).filter("id = '\(item)'").first;
@@ -309,7 +310,7 @@ class Synchronizer {
     private class func syncPatientsRemaining() {
         var requestJson = [Any]();
         let realm = try? Realm();
-        let patients = realm?.objects(Patient.self).filter("isDeleted = false");
+        let patients = realm?.objects(Patient.self).filter("isDeleted = false && isUpdated = true");
         if patients != nil && (patients?.count)! > 0 {
 
             for pat in patients! {
@@ -831,7 +832,7 @@ class Synchronizer {
     private class func syncAppointments() {
         let realm = try? Realm();
        if true {
-            let apntRes = realm?.objects(AppointmentModel.self).filter("id LIKE '\(regEx)' AND isDeleted = false");
+            let apntRes = realm?.objects(AppointmentModel.self).filter("id LIKE '\(regEx)' && (isDeleted = false && isUpdated = true)");
             var listAppointments = [[String: Any]]();
             if apntRes != nil {
                 for item in apntRes! {
@@ -839,20 +840,20 @@ class Synchronizer {
                     let jsonA = appoint.getJSONforBatchRequestWithId(item);
                     listAppointments.append(jsonA)
                 }
-                let url = DAMUrls.urlAddAppointmentsList();
-                let request = ApiServices.createPostRequest(urlStr: url, parameters: listAppointments);
-                AlamofireManager.Manager.request(request).responseData {
-                    response in
-                    if (response.response?.statusCode == 200) {
-                        
-//                     JSONSerialization.jsonObject(data:response.result.value,options:JSONSerialization.ReadingOptions);
-                        let jsonData = try? JSONSerialization.jsonObject(with: response.result.value!, options: []);
-//                    print(response.result.value);
-                        if (jsonData != nil) {
-                            
+                if listAppointments.count > 0
+                {
+                    let url = DAMUrls.urlAddAppointmentsList();
+                    let request = ApiServices.createPostRequest(urlStr: url, parameters: listAppointments);
+                    AlamofireManager.Manager.request(request).responseData {
+                        response in
+                        if (response.response?.statusCode == 200) {
+                            let jsonData = try? JSONSerialization.jsonObject(with: response.result.value!, options: []);
+                            if (jsonData != nil) {
+                            }
                         }
                     }
                 }
+
             }
         }
 //        AppointmentDelete
@@ -873,17 +874,17 @@ class Synchronizer {
                     let jsonA = appoint.getJSONforBatchRequest(item);
                     listAppointments.append(jsonA)
                 }
-                let url = DAMUrls.urlDeleteAppointmentsList();
-                let request = ApiServices.createPostRequest(urlStr: url, parameters: listAppointments);
-                AlamofireManager.Manager.request(request).responseData {
-                    response in
-                    if (response.response?.statusCode == 200) {
-                        realm?.delete(apntRes!);
-//                     JSONSerialization.jsonObject(data:response.result.value,options:JSONSerialization.ReadingOptions);
-                        let jsonData = try? JSONSerialization.jsonObject(with: response.result.value!, options: []);
-//                    print(response.result.value);
-                        if (jsonData != nil) {
-//                            updateShortIdswithLongForAppointments(jsonData as! [[String: Any]]);
+                if listAppointments.count > 0
+                {
+                    let url = DAMUrls.urlDeleteAppointmentsList();
+                    let request = ApiServices.createPostRequest(urlStr: url, parameters: listAppointments);
+                    AlamofireManager.Manager.request(request).responseData {
+                        response in
+                        if (response.response?.statusCode == 200) {
+                            realm?.delete(apntRes!);
+                            let jsonData = try? JSONSerialization.jsonObject(with: response.result.value!, options: []);
+                            if (jsonData != nil) {
+                            }
                         }
                     }
                 }
