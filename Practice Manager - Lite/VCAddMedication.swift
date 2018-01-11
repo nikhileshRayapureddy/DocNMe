@@ -94,7 +94,7 @@ class VCAddMedication: UIViewController {
         "As needed (S.O.S)",
         "Fixed time",
         "Meals Based",
-        "Once in a day",
+        "Once a day",
         "Every hour",
         "Every other hour",
         "Every morning",

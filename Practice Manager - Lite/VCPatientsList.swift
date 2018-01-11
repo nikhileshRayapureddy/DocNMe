@@ -39,6 +39,9 @@ class VCPatientsList: UIViewController, UICollectionViewDelegate, UICollectionVi
 
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.searchBar.text = ""
+        self.view.endEditing(true)
+
         let patient: Patient = self.arrOfPatients[indexPath.row];
         if self.onPatientClickedListener != nil {
             self.onPatientClickedListener?.onPatientClicked(patient, indexPath);
@@ -165,6 +168,9 @@ class VCPatientsList: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     @IBAction func onEditButtonClicked(_ sender: UIButton) {
+        self.searchBar.text = ""
+        self.view.endEditing(true)
+
         print("OnEditButtonClicked");
         let vc: VCEditPatientsBasicInfo = UIStoryboard(name: Names.STORYBOARD.PERSON_INFO, bundle: nil).instantiateViewController(withIdentifier: Names.VContIdentifiers.VC_EDITPERSONPROFILE) as! VCEditPatientsBasicInfo;
         vc.personInfo = self.arrOfPatients[sender.tag];
@@ -173,6 +179,9 @@ class VCPatientsList: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     @IBAction func onAddPatientButtonClicked(_ sender: UIButton) {
+        self.searchBar.text = ""
+        self.view.endEditing(true)
+
         print("OnAddPatientButtonClicked");
         let vc: VCEditPatientsBasicInfo = UIStoryboard(name: Names.STORYBOARD.PERSON_INFO, bundle: nil).instantiateViewController(withIdentifier: Names.VContIdentifiers.VC_EDITPERSONPROFILE) as! VCEditPatientsBasicInfo;
 //        vc.personInfo = self.arrOfPatients[sender.tag];
@@ -190,27 +199,32 @@ class VCPatientsList: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.searchBar.text = ""
+        self.view.endEditing(true)
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
         self.apiCallGetPatientsList();
         colorCircle = UIColor(hexString: "#01715C")
-//        self.realm = try! Realm();
-
+        //        self.realm = try! Realm();
+        
         self.dateFormatter = Utility.getDateFormatter(dateFormat: "yyyy-MM-dd");
-
+        
         if (UserPrefUtil.getClinicResponse() != nil) {
             self.title = "Patients | " + (UserPrefUtil.getClinicResponse()?.clinic?.name!)!;
         }
-
+        
         searchBar.searchBarStyle = UISearchBarStyle.prominent
-//        searchBar.placeholder = " Search..."
-//        searchBar.sizeToFit()
-//        searchBar.isTranslucent = false
-//        searchBar.backgroundImage = UIImage()
+        //        searchBar.placeholder = " Search..."
+        //        searchBar.sizeToFit()
+        //        searchBar.isTranslucent = false
+        //        searchBar.backgroundImage = UIImage()
         searchBar.delegate = self
-//        navigationItem.titleView = searchBar
-    }
+        //        navigationItem.titleView = searchBar
 
+    }
     @IBOutlet weak var searchBar: UISearchBar!;
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -219,12 +233,15 @@ class VCPatientsList: UIViewController, UICollectionViewDelegate, UICollectionVi
         do {
             let results = self.allPatients.filter() {
                 res in
-                let per = res.personPregnancyInfo;
-                if ((per?.name?.lowercased().hasPrefix(searchText.lowercased()))! || (per?.phonenumber?.hasPrefix(searchText))!) {
+               if let per = res.personPregnancyInfo
+               {
+                if ((per.name?.lowercased().hasPrefix(searchText.lowercased()))! || (per.phonenumber?.hasPrefix(searchText))!) {
                     return true;
                 } else {
                     return false;
                 }
+                }
+                return false
             };
             self.arrOfPatients.removeAll();
             self.arrOfPatients.append(contentsOf: results);
@@ -240,29 +257,23 @@ class VCPatientsList: UIViewController, UICollectionViewDelegate, UICollectionVi
     private func apiCallGetPatientsList() {
         let url = DAMUrls.urlAllPatientsList();
         let request = ApiServices.createGetRequest(urlStr: url, parameters: []);
-        Utility.showProgressForIndicator(self.indicator, true);
-
-//        let dataObjects = self.realm?.objects(Patient.self);
-//        if (dataObjects != nil) {
-//            self.allPatients.append(contentsOf: Array(dataObjects!));
-//            self.arrOfPatients.append(contentsOf: Array(dataObjects!));
-//            self.collectionView.reloadData();
+        app_delegate.showLoader(message: "Fetching patients...")
         self.loadDataFromDatabase();
-
         AlamofireManager.Manager.request(request).responseArray {
             (response: DataResponse<[Patient]>) in
-            Utility.showProgressForIndicator(self.indicator, false);
-            if response.response?.statusCode == 200 {
-//                self.allPatients.removeAll();
-//                self.allPatients.append(contentsOf: response.result.value!);
-//                self.populateDate(response.result.value);
-                self.writeToDatabase(response.result.value);
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                if response.response?.statusCode == 200 {
+                    self.writeToDatabase(response.result.value);
+                }
             }
+            
         }
     }
 
     private func loadDataFromDatabase() {
 //        Realm.refresh(realm!);
+        self.allPatients.removeAll()
         try? realm?.commitWrite();
         realm?.refresh();
         let res = realm?.objects(Patient.self);

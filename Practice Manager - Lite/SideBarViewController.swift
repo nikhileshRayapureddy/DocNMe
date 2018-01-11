@@ -32,7 +32,7 @@ class SideBarViewController: UIViewController {
             }
             navcont.pushViewController(controller!, animated: false);
         }
-//        self.sideMenuController?.toggle();
+        self.sideMenuController?.toggle();
     }
 
     private func pushViewController(storyBoard: String, viewControllerIdentifier: String) {
@@ -46,7 +46,7 @@ class SideBarViewController: UIViewController {
 //            }
             navcont.pushViewController(controller, animated: false);
         }
-//        self.sideMenuController?.toggle();
+        self.sideMenuController?.toggle();
     }
 
     @IBAction func onclickLogout(_ sender: UIButton) {
@@ -113,7 +113,17 @@ class SideBarViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        replaceNavig(viewControllerIdentifier: Names.VContIdentifiers.HOME)
+//        replaceNavig(viewControllerIdentifier: Names.VContIdentifiers.HOME)
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: Names.VContIdentifiers.HOME);
+        if let navcont = self.sideMenuController?.centerViewController as? UINavigationController {
+            navcont.popToRootViewController(animated: false);
+            print(navcont.viewControllers.count);
+            if navcont.viewControllers.count > 0 {
+                navcont.viewControllers.remove(at: 0);
+            }
+            navcont.pushViewController(controller!, animated: false);
+        }
+
     }
 
     override func viewDidLoad() {

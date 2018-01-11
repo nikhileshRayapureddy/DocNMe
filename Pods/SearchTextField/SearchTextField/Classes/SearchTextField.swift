@@ -489,9 +489,11 @@ extension SearchTextField: UITableViewDelegate, UITableViewDataSource {
             self.text = filteredResults[(indexPath as NSIndexPath).row].title
         } else {
             let index = indexPath.row
-            itemSelectionHandler!(filteredResults[index], index)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SelectedSearchTextField"), object: filteredResults[index])
-
+            if filteredResults.count > index
+            {
+                itemSelectionHandler!(filteredResults[index], index)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SelectedSearchTextField"), object: filteredResults[index])
+            }
             
         }
 

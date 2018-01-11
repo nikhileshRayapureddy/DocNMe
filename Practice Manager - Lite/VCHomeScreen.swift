@@ -41,10 +41,24 @@ class VCHomeScreen: UIViewController {
         if UserPrefUtil.getClinicResponse() != nil {
         self.title = (UserPrefUtil.getClinicResponse()?.clinic?.name!)! + " | " + (UserPrefUtil.getClinicResponse()?.personInfo?.name!)!;
         }
-    
+        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -12
+        
+        let btnMenu = UIButton(type: UIButtonType.custom)
+        btnMenu.frame = CGRect(x: 0, y: 0  , width: 44 , height: 44)
+        btnMenu.setImage(#imageLiteral(resourceName: "menu"), for: UIControlState.normal)
+        btnMenu.contentMode = .scaleAspectFit
+        btnMenu.addTarget(self, action: #selector(self.btnMenuClicked(sender:)), for: UIControlEvents.touchUpInside)
+        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: btnMenu)
+        self.navigationItem.leftBarButtonItems = [negativeSpacer,leftBarButtonItem]
+
     
     }
+    @objc func btnMenuClicked(sender:UIButton)
+    {
+        self.sideMenuController?.toggle();
 
+    }
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        switch segue.identifier! {
 //        case Names.Segues.DOCTORS_LIST:

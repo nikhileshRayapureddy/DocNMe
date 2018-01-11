@@ -1289,8 +1289,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.docnme.practice-manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "002e952b-2cea-44ee-ad8e-ae77b8aee32a";
-				PROVISIONING_PROFILE_SPECIFIER = "Practice-Manager-Dev-profile";
+				PROVISIONING_PROFILE = "5af9b658-0b6c-462b-ba2c-78249b365ce7";
+				PROVISIONING_PROFILE_SPECIFIER = "Practice-Manager-Dev-prf2018";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1310,8 +1310,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.docnme.practice-manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "002e952b-2cea-44ee-ad8e-ae77b8aee32a";
-				PROVISIONING_PROFILE_SPECIFIER = "Practice-Manager-Dev-profile";
+				PROVISIONING_PROFILE = "5af9b658-0b6c-462b-ba2c-78249b365ce7";
+				PROVISIONING_PROFILE_SPECIFIER = "Practice-Manager-Dev-prf2018";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
