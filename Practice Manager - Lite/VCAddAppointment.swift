@@ -87,78 +87,53 @@ class VCAddAppointment: UIViewController {
 
         let milliTo = (appointmentDate?.millisecondsSince1970)! + 3600000;
         if self.patient == nil {
-
-
             let patient = Patient();
             let personInfo = PersonInfoModel();
             personInfo.id = Date().millisecondsSince1970.description;
             personInfo.name = self.ePatientName.text;
             personInfo.gender = self.segmentGender.selectedSegmentIndex;
             personInfo.phonenumber = self.ePhoneNumber.text;
-
+            
             try? realm?.write({
                 patient.isUpdated = true;
-
+                
                 realm?.add(patient);
                 realm?.add(personInfo);
-
+                
                 let pregIn = PregnancyInfo();
                 pregIn.id = personInfo.id;
                 pregIn.name = personInfo.name;
                 pregIn.gender = personInfo.gender;
                 pregIn.phonenumber = personInfo.phonenumber;
-
+                
                 realm?.add(pregIn);
-
-
             });
             self.patient = patient;
-
-
             let appoint = AppointmentModel();
+            appoint.isUpdated = true;
             appoint.id = Date().millisecondsSince1970.description;
-
-//            let milli = (self.dateFormatter.date(from: (self.bDate.titleLabel?.text)!)?.millisecondsSince1970)! + (self.timeFormatter.date(from: (self.bTime.titleLabel?.text)!)?.millisecondsSince1970)!;
-
-//            let milliFor = milli + 3600000;
-
-//            print(self.dateFormatter.string(from: Date(milliseconds: milliTo)));
-
             appoint.patientId = personInfo.id;
             appoint.appointmentFrom = milliFrom!;
-
             appoint.appointmentTo = milliTo;
-
-
             appoint.doctorId = self.doctorId!;
             appoint.purpose = self.ePurpose.text;
-
             try? realm?.write({
                 realm?.add(appoint);
             })
-
         } else {
-
-
-//            print(self.dateFormatter.string(from: Date(milliseconds: milliTo)));
             let appoint = AppointmentModel();
+            appoint.isUpdated = true
             appoint.patientId = self.patient?.personInfo?.id;
             appoint.appointmentFrom = milliFrom!;
             appoint.appointmentTo = milliTo;
             appoint.id = Date().millisecondsSince1970.description;
-
             appoint.doctorId = self.doctorId!;
             appoint.purpose = self.ePurpose.text;
-
             try? realm?.write({
                 realm?.add(appoint);
             })
-
         }
-
         self.navigationController?.popViewController(animated: true);
-
-//        http://139.59.42.79:8080/server/webapi/appointments/mobile/add/
     }
 
     @IBOutlet weak var ePurpose: UITextField!

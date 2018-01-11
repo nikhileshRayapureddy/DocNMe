@@ -649,7 +649,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5y-av-6Hq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759" y="-1391"/>
+            <point key="canvasLocation" x="1591" y="-1263"/>
         </scene>
         <!--Patients List-->
         <scene sceneID="Xeb-61-PJy">
@@ -1053,9 +1053,6 @@
                                                     <action selector="onClickSaveBasicInfo:" destination="gQ8-zd-3D3" eventType="touchUpInside" id="DdY-t8-szk"/>
                                                 </connections>
                                             </button>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="qsH-x7-3bl">
-                                                <rect key="frame" x="344" y="53" width="20" height="20"/>
-                                            </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKa-Op-uoe">
                                                 <rect key="frame" x="98" y="215" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1081,7 +1078,6 @@
                                             <constraint firstAttribute="trailing" secondItem="GXZ-1V-LEe" secondAttribute="trailing" constant="8" id="N1W-Np-hqo"/>
                                             <constraint firstItem="vZa-Hm-BZS" firstAttribute="top" secondItem="UCM-gD-iiN" secondAttribute="bottom" constant="8" id="Psn-aU-qVm"/>
                                             <constraint firstAttribute="trailing" secondItem="AiQ-MP-0ky" secondAttribute="trailing" constant="290" id="Xl1-nv-TsC"/>
-                                            <constraint firstItem="qsH-x7-3bl" firstAttribute="top" secondItem="oZC-po-wRt" secondAttribute="top" constant="53" id="YU2-Oz-XGC"/>
                                             <constraint firstItem="UCM-gD-iiN" firstAttribute="top" secondItem="AiQ-MP-0ky" secondAttribute="bottom" constant="31" id="ZAD-mg-v8t"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0Hu-ms-dfC" secondAttribute="trailing" id="bEv-Zl-o1N"/>
                                             <constraint firstItem="XhC-SE-s5X" firstAttribute="leading" secondItem="oZC-po-wRt" secondAttribute="leading" constant="8" id="byX-Xp-ZOe"/>
@@ -1089,7 +1085,6 @@
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UCM-gD-iiN" secondAttribute="trailing" id="gIE-kh-ruM"/>
                                             <constraint firstItem="AiQ-MP-0ky" firstAttribute="top" secondItem="0Hu-ms-dfC" secondAttribute="bottom" constant="8" id="gcx-bl-SrZ"/>
                                             <constraint firstItem="qre-i1-z2j" firstAttribute="leading" secondItem="oZC-po-wRt" secondAttribute="leading" constant="8" id="hou-9u-zmr"/>
-                                            <constraint firstAttribute="trailing" secondItem="qsH-x7-3bl" secondAttribute="trailing" constant="8" id="hsj-md-cu4"/>
                                             <constraint firstItem="ydw-2C-f8e" firstAttribute="top" secondItem="XhC-SE-s5X" secondAttribute="bottom" constant="8" id="j0K-i0-sS8"/>
                                             <constraint firstItem="qre-i1-z2j" firstAttribute="top" secondItem="oZC-po-wRt" secondAttribute="top" constant="52" id="qn3-E1-wsW"/>
                                             <constraint firstItem="GXZ-1V-LEe" firstAttribute="trailing" secondItem="L0V-YK-eiQ" secondAttribute="trailing" id="sXD-ai-smE"/>
@@ -1126,7 +1121,6 @@
                         <outlet property="eSpouseAge" destination="f8s-Jq-mlY" id="rV3-yz-8J9"/>
                         <outlet property="eSpouseName" destination="AK8-Hz-Kkh" id="hns-B5-G05"/>
                         <outlet property="eSpousePhone" destination="BRc-cz-7n7" id="C6x-J8-u8E"/>
-                        <outlet property="indicator" destination="qsH-x7-3bl" id="fUs-nh-r8h"/>
                         <outlet property="lAadharCardNumber" destination="ydw-2C-f8e" id="NUy-5H-xSO"/>
                         <outlet property="lBloodGroup" destination="eBS-V3-XIV" id="H1J-aN-yrQ"/>
                         <outlet property="lBloodGroupSpouse" destination="vDQ-0D-uo0" id="Svi-MZ-dcw"/>
@@ -1136,7 +1130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="97F-6v-uB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2335" y="-1392"/>
+            <point key="canvasLocation" x="2226" y="-1391"/>
         </scene>
         <!--Vitals View Controller-->
         <scene sceneID="BKB-gt-yMu">
@@ -1384,7 +1378,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="mEg-NG-eZl">
-                                        <rect key="frame" x="190.5" y="302.5" width="100" height="32"/>
+                                        <rect key="frame" x="190.5" y="303" width="100" height="32"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <state key="normal" title="Date">
                                             <color key="titleColor" red="0.2340282081" green="0.23778864029999999" blue="0.24260390230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1394,7 +1388,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="KgV-LA-NoJ">
-                                        <rect key="frame" x="190.5" y="371.5" width="100" height="32"/>
+                                        <rect key="frame" x="190.5" y="372" width="100" height="32"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <state key="normal" title="Date">
                                             <color key="titleColor" red="0.2340282081" green="0.23778864029999999" blue="0.24260390230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1404,7 +1398,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="rJf-DO-Nt9">
-                                        <rect key="frame" x="190.5" y="438.5" width="100" height="32"/>
+                                        <rect key="frame" x="190.5" y="439" width="100" height="32"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <state key="normal" title="Date">
                                             <color key="titleColor" red="0.2340282081" green="0.23778864029999999" blue="0.24260390230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1414,7 +1408,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="HXR-JI-a2R">
-                                        <rect key="frame" x="190.5" y="507.5" width="100" height="32"/>
+                                        <rect key="frame" x="190.5" y="508" width="100" height="32"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <state key="normal" title="Date">
                                             <color key="titleColor" red="0.2340282081" green="0.23778864029999999" blue="0.24260390230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1424,7 +1418,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="YJK-cf-yox">
-                                        <rect key="frame" x="190.5" y="576.5" width="100" height="32"/>
+                                        <rect key="frame" x="190.5" y="577" width="100" height="32"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <state key="normal" title="Date">
                                             <color key="titleColor" red="0.2340282081" green="0.23778864029999999" blue="0.24260390230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5434,7 +5428,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bps-zC-cM5">
-                                                <rect key="frame" x="8" y="1502" width="250" height="30"/>
+                                                <rect key="frame" x="8" y="1502" width="359" height="30"/>
                                                 <color key="backgroundColor" red="0.9486635471" green="0.83247985160000004" blue="0.099154926660000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="D2O-Q3-mBr"/>
@@ -5518,7 +5512,7 @@
                                             <constraint firstItem="7Wl-9l-xrx" firstAttribute="top" secondItem="69c-a6-qN5" secondAttribute="bottom" constant="8" id="Zfd-e0-pVK"/>
                                             <constraint firstItem="3fm-gn-fWj" firstAttribute="leading" secondItem="lLa-We-bf7" secondAttribute="leading" constant="8" id="ZmH-wm-sna"/>
                                             <constraint firstAttribute="trailing" secondItem="vry-so-Z5i" secondAttribute="trailing" constant="8" id="ZpZ-zO-aSo"/>
-                                            <constraint firstAttribute="trailing" secondItem="Bps-zC-cM5" secondAttribute="trailing" constant="117" id="bE6-F3-hoG"/>
+                                            <constraint firstAttribute="trailing" secondItem="Bps-zC-cM5" secondAttribute="trailing" constant="8" id="bE6-F3-hoG"/>
                                             <constraint firstItem="ALc-8D-w9l" firstAttribute="top" secondItem="Bps-zC-cM5" secondAttribute="bottom" constant="8" id="blT-NK-96R"/>
                                             <constraint firstItem="HaO-ha-RVq" firstAttribute="leading" secondItem="lLa-We-bf7" secondAttribute="leading" constant="8" id="cbT-dF-6Vg"/>
                                             <constraint firstItem="AGj-Lw-atE" firstAttribute="leading" secondItem="lLa-We-bf7" secondAttribute="leading" constant="8" id="cmz-GA-WuW"/>
