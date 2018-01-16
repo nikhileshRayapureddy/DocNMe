@@ -10,7 +10,10 @@ import UIKit
 
 class CellAllergiesCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var btnDelete: UIButton!
     @IBOutlet weak var lSymptom: UILabel!
     @IBOutlet weak var lSubtitleSeasonalHeredity: UILabel!
+    
+    @IBOutlet weak var lHeredityValue: UILabel!
     @IBOutlet weak var lTitle: UILabel!
 }
