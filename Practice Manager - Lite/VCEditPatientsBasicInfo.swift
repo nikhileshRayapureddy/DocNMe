@@ -13,7 +13,8 @@ import Alamofire
 import AlamofireObjectMapper
 
 //import Validator
-
+let ACCEPTABLE_CHARECTERS_WORDS = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+let ACCEPTABLE_CHARECTERS_NUMBERS = "0123456789"
 class VCEditPatientsBasicInfo: UIViewController {
     @IBOutlet weak var eName: UITextField!;
     @IBOutlet weak var ePhoneNumber: UITextField!;
@@ -31,7 +32,8 @@ class VCEditPatientsBasicInfo: UIViewController {
     @IBOutlet weak var lState: UILabel!;
     @IBOutlet weak var bSave: UIButton!;
 //    var imageController:UIImagePickerController?;
-
+    @IBOutlet weak var scrlView: UIScrollView!
+    
     public var personInfo: Patient?;
 
 
@@ -82,9 +84,15 @@ class VCEditPatientsBasicInfo: UIViewController {
 //        imageController.delegate = self;
 //        self.present(imageController, animated: true);
         picker.delegate = self;
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-            print("Button capture")
+        if UIImagePickerController.isSourceTypeAvailable(.camera)
+        {
             picker.sourceType = .camera;
+        }
+        else
+        {
+            picker.sourceType = .photoLibrary;
+        }
+            print("Button capture")
             picker.allowsEditing = false
             picker.modalPresentationStyle = .overCurrentContext;
             self.present(picker, animated: true, completion: nil);
@@ -92,7 +100,6 @@ class VCEditPatientsBasicInfo: UIViewController {
 //            self.addChildViewController(picker)
 //            picker.didMove(toParentViewController: self)
 //            self.view!.addSubview(picker.view!)
-        }
 
     }
 
@@ -150,29 +157,30 @@ class VCEditPatientsBasicInfo: UIViewController {
     }
 
     private func apiEditAddPatientToServer(_ sender: UIButton) {
-//        let urlEditPatient = DAMUrls.urlPatientEditToClinic(self.personInfo);
-
+        //        let urlEditPatient = DAMUrls.urlPatientEditToClinic(self.personInfo);
+        app_delegate.showLoader(message: "Please wait...")
+        
         let idPerson = self.personInfo?.personId;
-
+        
         let patient = Patient();
         patient.isUpdated = true
         patient.personId = idPerson!;
         let personInfo = PersonInfoModel();
         personInfo.setFields(from: self.personInfo!);
-
+        
         personInfo.name = self.eName.text;
         personInfo.email = self.eEmail.text;
         personInfo.gender = self.svGender.selectedSegmentIndex;
         personInfo.mstatus = self.svMaritalStatus.selectedSegmentIndex;
-//        personInfo.dob = self.
+        //        personInfo.dob = self.
         if (self.eAge.text != nil && self.eAge.text != "") {
             let earlyDate = Calendar.current.date(byAdding: .year, value: Int(self.eAge.text!)!, to: Date());
             personInfo.dob = earlyDate!.millisecondsSince1970;
         }
-
+        
         personInfo.id = idPerson;
-
-
+        
+        
         personInfo.state = self.lState.text;
         personInfo.address = self.ePermAddress.text;
         personInfo.city = self.eCity.text;
@@ -183,17 +191,17 @@ class VCEditPatientsBasicInfo: UIViewController {
         }else {
             personInfo.phonenumber = "+91\(self.ePhoneNumber.text!)";
         }
-
+        
         personInfo.role = "assistant";
-
+        
         personInfo.vip = (self.switchVip.isOn ? 1 : 0);
-
+        
         patient.clinicId = self.personInfo?.clinicId;
         patient.clinicPersonId = self.personInfo?.clinicPersonId;
         patient.personId = (self.personInfo?.personId)!;
-
+        
         patient.refererName = self.eReferredBy.text;
-
+        
         let realm = try? Realm();
         do {
             try realm?.write({
@@ -202,16 +210,16 @@ class VCEditPatientsBasicInfo: UIViewController {
                     realm?.add(patient);
                     realm?.add(personInfo);
                 } else {
-
+                    
                     let results = realm?.objects(Patient.self).filter("personId = '" + patient.personId.description + "'");
-
+                    
                     if ((results?.count)! > 0) {
                         var pat = results?.first;
                         pat?.isUpdated = true;
-//                        pat?.personId = "";
+                        //                        pat?.personId = "";
                         pat?.refererName = patient.refererName;
                     }
-
+                    
                     let pregIn = realm?.objects(PregnancyInfo.self).filter("id = '" + patient.personId.description + "'").first;
                     pregIn?.id = personInfo.id;
                     pregIn?.name = personInfo.name;
@@ -219,40 +227,40 @@ class VCEditPatientsBasicInfo: UIViewController {
                     pregIn?.icon = personInfo.icon;
                     pregIn?.gender = personInfo.gender;
                     pregIn?.mstatus = personInfo.mstatus;
-//                    pregIn?.dob = personInfo.dob;
+                    //                    pregIn?.dob = personInfo.dob;
                     pregIn?.bloodgroup = personInfo.bloodgroup;
                     pregIn?.donor = personInfo.donor;
                     pregIn?.vip = personInfo.vip;
-
+                    
                     if let address = personInfo.address {
                         pregIn?.address = address;
                     }
-
+                    
                     if let city = personInfo.city {
                         pregIn?.city = city;
                     }
-
+                    
                     if let state = personInfo.state {
                         pregIn?.state = state;
                     }
-
+                    
                     if let country = personInfo.country {
                         pregIn?.country = country;
                     }
-
+                    
                     if let pincode = personInfo.pincode {
                         pregIn?.pincode = pincode;
                     }
                     pregIn?.phonenumber = personInfo.phonenumber;
                     pregIn?.changepassword = personInfo.changepassword;
-//                    pregIn?.pregnant = personInfo.pregnant;
-//                    pregIn?.highrisk = personInfo.highrisk;
-//                    pregIn?.edd = personInfo.edd;
-
-
+                    //                    pregIn?.pregnant = personInfo.pregnant;
+                    //                    pregIn?.highrisk = personInfo.highrisk;
+                    //                    pregIn?.edd = personInfo.edd;
+                    
+                    
                     let personInfoResult = realm?.objects(PersonInfoModel.self).filter("id = '" + patient.personId.description + "'");
                     if ((personInfoResult?.count)! > 0) {
-//                        let personInfoRes = personInfoResult?.first;
+                        //                        let personInfoRes = personInfoResult?.first;
                         personInfoResult?.first?.id = personInfo.id;
                         personInfoResult?.first?.prefixStr = personInfo.prefixStr;
                         personInfoResult?.first?.name = personInfo.name;
@@ -279,40 +287,43 @@ class VCEditPatientsBasicInfo: UIViewController {
                     } else {
                         realm?.add(personInfo);
                     }
-
-
+                    
+                    
                 }
             })
         } catch {
+            app_delegate.removeloder()
             print("\(error.localizedDescription) Error occured");
         };
-
+        app_delegate.removeloder()
         self.navigationController?.popViewController(animated: true);
         if self.onChangeListener != nil {
             self.onChangeListener?.onChange();
         }
         try? realm?.commitWrite();
-//        patient.personInfo = personInfo;
-//
-//        sender.setTitle("saving...", for: .normal);
-//
-//        let request = ApiServices.createPostRequest(urlStr: urlEditPatient, parameters: patient.toJSON());
-//        AlamofireManager.Manager.request(request).responseString() {
-//            response in
-//            sender.isEnabled = true;
-//            sender.setTitle("SAVE", for: .normal);
-//            if response.response?.statusCode == 200 {
-//                print(response.result.value);
-//                self.navigationController?.popViewController(animated: true);
-//            }
-//        }
-
+        //        patient.personInfo = personInfo;
+        //
+        //        sender.setTitle("saving...", for: .normal);
+        //
+        //        let request = ApiServices.createPostRequest(urlStr: urlEditPatient, parameters: patient.toJSON());
+        //        AlamofireManager.Manager.request(request).responseString() {
+        //            response in
+        //            sender.isEnabled = true;
+        //            sender.setTitle("SAVE", for: .normal);
+        //            if response.response?.statusCode == 200 {
+        //                print(response.result.value);
+        //                self.navigationController?.popViewController(animated: true);
+        //            }
+        //        }
+        
     }
 
     private func apiCallAddPatientToServer(_ sender: UIButton) {
         sender.isEnabled = false;
 //        let urlAddPatient = DAMUrls.urlPatientAddToClinic();
-
+        DispatchQueue.main.async {
+            app_delegate.showLoader(message: "Please wait...")
+        }
         let idPerson = Date().millisecondsSince1970.description;
 
         let patient = Patient();
@@ -382,9 +393,14 @@ class VCEditPatientsBasicInfo: UIViewController {
                 }
             })
         } catch {
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+            }
             print("\(error.localizedDescription) Error occured");
         };
-
+        DispatchQueue.main.async {
+            app_delegate.removeloder()
+        }
         self.navigationController?.popViewController(animated: true);
         if self.onChangeListener != nil {
             self.onChangeListener?.onChange();
@@ -427,12 +443,44 @@ class VCEditPatientsBasicInfo: UIViewController {
 
     }
 
-
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrlView.contentSize = CGSize(width: self.view.frame.size.width, height: 1080)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         let formatter = Utility.getDateFormatter(dateFormat: "yyyy-MM-dd")
         if (self.personInfo != nil) {
             let pregInfo = self.personInfo?.personPregnancyInfo;
+            if (pregInfo?.name?.contains("null"))!
+            {
+                pregInfo?.name = ""
+            }
+            if (pregInfo?.email?.contains("null"))!
+            {
+                pregInfo?.email = ""
+            }
+            if (pregInfo?.address?.contains("null"))!
+            {
+                pregInfo?.address = ""
+            }
+            if (pregInfo?.city?.contains("null"))!
+            {
+                pregInfo?.city = ""
+            }
+            if (pregInfo?.state?.contains("null"))!
+            {
+                pregInfo?.state = ""
+            }
+            if (pregInfo?.country?.contains("null"))!
+            {
+                pregInfo?.country = ""
+            }
+            if (pregInfo?.phonenumber?.contains("null"))!
+            {
+                pregInfo?.phonenumber = ""
+            }
+
             self.eName.text = pregInfo?.name;
             if (pregInfo?.dob != nil && pregInfo?.dob != "") {
                 self.eAge.text = Utility.calculateAgefromDOB(pregInfo?.dob);
@@ -440,7 +488,19 @@ class VCEditPatientsBasicInfo: UIViewController {
             self.eCity.text = pregInfo!.city;
             self.eEmail.text = pregInfo!.email;
             self.ePermAddress.text = pregInfo!.address;
-            self.ePhoneNumber.text = pregInfo!.phonenumber;
+            if (pregInfo?.phonenumber?.contains("+"))! == true
+            {
+                let index = pregInfo?.phonenumber?.index((pregInfo?.phonenumber?.startIndex)!, offsetBy: 3)
+                var code = ""
+                code = (pregInfo?.phonenumber?.substring(to: index!))!
+                eCountryCode.text = code
+                ePhoneNumber.text = pregInfo?.phonenumber?.replacingOccurrences(of: code, with: "")
+            }
+            else
+            {
+                ePhoneNumber.text = pregInfo?.phonenumber
+            }
+            
             self.ePincode.text = pregInfo!.pincode;
             self.eReferredBy.text = self.personInfo?.refererName;
             self.lState.text = pregInfo!.state;
@@ -475,4 +535,45 @@ extension VCEditPatientsBasicInfo: DropperDelegate, UIImagePickerControllerDeleg
     }
 }
 
-
+extension VCEditPatientsBasicInfo: UITextFieldDelegate
+{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == eName
+        {
+            if string.characters.count == 0
+            {
+                return true
+            }
+            else
+            {
+                if ACCEPTABLE_CHARECTERS_WORDS.contains(string)
+                {
+                    return true
+                }
+                else
+                {
+                    return false
+                }
+            }
+        }
+        if textField == ePhoneNumber
+        {
+            if string.characters.count == 0
+            {
+                return true
+            }
+            else
+            {
+                if ACCEPTABLE_CHARECTERS_NUMBERS.contains(string)
+                {
+                    return true
+                }
+                else
+                {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+}

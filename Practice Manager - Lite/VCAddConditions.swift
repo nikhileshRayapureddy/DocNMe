@@ -99,6 +99,7 @@ class VCAddConditions: UIViewController {
         self.dateFormatter.locale = Calendar.current.locale;
         self.dateFormatter.dateFormat = "dd-MM-yyyy";
         self.bDateSince.setTitle(self.dateFormatter.string(from: Date()), for: .normal);
+        self.title = "Add Conditions"
     }
 
 }
