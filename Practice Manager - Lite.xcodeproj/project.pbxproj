@@ -1281,16 +1281,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Samidha Garud (URX38B7DC8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Samidha Garud (URX38B7DC8)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 767WDHBUJ6;
 				INFOPLIST_FILE = "Practice Manager - Lite/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.taksykraft.drivers;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.docnme.practice-manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2b82a9b3-ed2c-41ae-97dd-393527190aa3";
-				PROVISIONING_PROFILE_SPECIFIER = OrbDrivers_Dev;
+				PROVISIONING_PROFILE = "5af9b658-0b6c-462b-ba2c-78249b365ce7";
+				PROVISIONING_PROFILE_SPECIFIER = "Practice-Manager-Dev-prf2018";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1302,16 +1303,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Samidha Garud (URX38B7DC8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Samidha Garud (URX38B7DC8)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 767WDHBUJ6;
 				INFOPLIST_FILE = "Practice Manager - Lite/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.taksykraft.drivers;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.docnme.practice-manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2b82a9b3-ed2c-41ae-97dd-393527190aa3";
-				PROVISIONING_PROFILE_SPECIFIER = OrbDrivers_Dev;
+				PROVISIONING_PROFILE = "5af9b658-0b6c-462b-ba2c-78249b365ce7";
+				PROVISIONING_PROFILE_SPECIFIER = "Practice-Manager-Dev-prf2018";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

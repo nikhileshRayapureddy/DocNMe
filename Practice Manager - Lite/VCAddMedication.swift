@@ -190,7 +190,14 @@ class VCAddMedication: UIViewController {
         if (isValidField(view: self.eMedicineName)) {
             medication.name = self.eMedicineName.text!;
             medication.personId = self.patientInfo?.id;
-            medication.notes = self.lSelectedType.text;
+            if self.lSelectedType.text?.contains("Select") == true
+            {
+                medication.notes = ""
+            }
+            else
+            {
+                medication.notes = self.lSelectedType.text;
+            }
             medication.duration = self.eDuration.text;
             medication.dosage = self.eDosage.text;
             medication.isUpdated = true;
