@@ -105,23 +105,6 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
 
             self.l_labelloading.isHidden = true;
         }
-
-
-//        (urlRequest).responseData {
-//            response in
-//            print("Data aa gya : VCDoctorsEventCalendar");
-//            print("Status Code : \(String(describing: response.response?.statusCode))");
-//            print(String(describing: response.data));
-//            if (response.response?.statusCode == 200) {
-//                let data = try! JSONSerialization.jsonObject(with: response.data!) as? [Any];
-////                print(data);
-//
-//                self.dictionaryAppointments = AppointmentModel.getAppointmentsListFromJSONArray(data: data!);
-//                self.calendarView.reloadData();
-////                ReloadData();
-////                print(listAppointments);
-//            }
-
     }
 
     let realm = try? Realm();

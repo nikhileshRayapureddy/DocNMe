@@ -144,9 +144,9 @@ public class AppointmentModel: Object, Mappable {
         
         
         var js = self.toJSON();
-//        js["mobileAppointmentID"] = item.id;
         js["patientPersonId"] = item.patientId;
         js["doctorPersonId"] = item.doctorId;
+        js["mobileAppointmentID"] = item.id;
         js["edd"] = nil;
         js["nePatient"] = nil;
         js["newPatient"] = nil;
@@ -154,7 +154,6 @@ public class AppointmentModel: Object, Mappable {
         js["isDeleted"] = nil;
         return js;
     }
-    
     class func fromAppointmentModel(_ item: AppointmentModel) -> AppointmentModel {
         let app = AppointmentModel();
         app.isUpdated = item.isUpdated;
