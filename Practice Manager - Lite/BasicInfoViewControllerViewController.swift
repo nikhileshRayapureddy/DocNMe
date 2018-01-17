@@ -129,7 +129,7 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
             self.arrAttributes![Names.Attr.SPOUSEAGE] = atr;
         }
         if let atr = self.arrAttributes![Names.Attr.SPOUSEPHONE] {
-            atr.value = self.eSpousePhone.text
+            atr.value = String(format: "%@%@", "+91",self.eSpousePhone.text!) //self.eSpousePhone.text
             atr.isUpdated = true;
         } else {
             let atr = BasicProfileAttributes();
@@ -403,6 +403,18 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
                 eSpouseAge.text = attribute.value!;
                 break;
             case Names.Attr.SPOUSEPHONE:
+                if (attribute.value?.contains("+"))! == true
+                {
+                    let index = attribute.value?.index((attribute.value?.startIndex)!, offsetBy: 3)
+                    var code = ""
+                    code = (attribute.value?.substring(to: index!))!
+                    eSpousePhone.text = attribute.value?.replacingOccurrences(of: code, with: "")
+                }
+                else
+                {
+                    eSpousePhone.text = attribute.value
+                }
+
                 eSpousePhone.text = attribute.value!;
                 break;
             case Names.Attr.SPOUSEBLOODGROUP:
@@ -452,4 +464,30 @@ extension BasicInfoViewControllerViewController {
 
     }
 
+}
+
+extension BasicInfoViewControllerViewController: UITextFieldDelegate
+{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == lPatientOccupation || textField == lAadharCardNumber || textField == eSpouseName
+        {
+            if string.characters.count == 0
+            {
+                return true
+            }
+            else
+            {
+                if ACCEPTABLE_CHARECTERS_WORDS.contains(string)
+                {
+                    return true
+                }
+                else
+                {
+                    return false
+                }
+            }
+        }
+        return true
+    }
 }

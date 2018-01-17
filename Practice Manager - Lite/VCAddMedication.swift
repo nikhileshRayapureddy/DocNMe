@@ -224,6 +224,10 @@ class VCAddMedication: UIViewController {
             } else if (lSelectedSchedule.text == "Fixed time") {
                 medication.schedule = lSelectedSchedule.text?.description;
             }
+            else
+            {
+                strSchedule = lSelectedSchedule.text
+            }
             if (strSchedule != nil) {
                 medication.schedule = strSchedule;
             } else {
@@ -270,7 +274,7 @@ class VCAddMedication: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "Add Medication"
 
         let recogN = UITapGestureRecognizer(target: self, action: #selector(onTouchScrollView(_:)));
         recogN.cancelsTouchesInView = false;

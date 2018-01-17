@@ -11,4 +11,5 @@ import UIKit
 class CellConditionsViewCell: UICollectionViewCell {
     @IBOutlet weak var lTitle: UILabel!
     @IBOutlet weak var lSinceDay: UILabel!
+    @IBOutlet weak var btnDelete: UIButton!
 }

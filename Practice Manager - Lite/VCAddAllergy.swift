@@ -32,6 +32,7 @@ class VCAddAllergy: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Add Allergies"
     }
 
 

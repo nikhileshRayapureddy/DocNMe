@@ -72,10 +72,18 @@ class VCMedication: UIViewController, UICollectionViewDelegate, UICollectionView
         let medicat = listMedications[indexPath.row];
         let cell: CellMedicationCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Names.VContIdentifiers.CELL_MEDICATION, for: indexPath) as! CellMedicationCollectionViewCell;
         cell.lTitle.text = medicat.name;
-        let strDescripto = String(format: "Dosage: %@, Duration: %@ %@ %@", medicat.dosage!, medicat.duration!, medicat.notes!,medicat.schedule!);
-        cell.lDescription.text = strDescripto;
-        cell.lDescription.sizeToFit();
+        cell.lblDosageValue.text = medicat.dosage
+        let strDescripto = String(format: "%@ %@ %@", medicat.duration!, medicat.notes!,medicat.schedule!);
+        cell.lblDurationValue.text = strDescripto
+        cell.btnDelete.tag = indexPath.item + 1000
+        cell.btnDelete.addTarget(self, action: #selector(deleteMedication(sender:)), for: .touchUpInside)
         return cell;
+    }
+    
+    func deleteMedication(sender: UIButton)
+    {
+        listMedications.remove(at: sender.tag - 1000)
+        collectionView.reloadData()
     }
 }
 

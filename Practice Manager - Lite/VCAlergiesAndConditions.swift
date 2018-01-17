@@ -164,9 +164,11 @@ extension VCAlergiesAndConditions: UICollectionViewDataSource, UICollectionViewD
             let allergy: Allergies = listAllergies[indexPath.row];
             let cell: CellAllergiesCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Names.VContIdentifiers.CELL_ALLERGIES, for: indexPath) as! CellAllergiesCollectionViewCell;
             cell.lTitle.text = allergy.medicalname;
-            cell.lSubtitleSeasonalHeredity.text = String(format: "Seasonal : %@, Hereditary : %@", (allergy.isseasonal ? "Yes" : "No"), (allergy.hereditary ? "Yes" : "No"));
-            cell.lSymptom.text = String(format: "Symptoms : %@", allergy.symptoms!);
-
+            cell.lSubtitleSeasonalHeredity.text = String(format: "%@,", (allergy.isseasonal ? "Yes" : "No"))
+            cell.lHeredityValue.text = (allergy.isseasonal ? "Yes" : "No")
+            cell.lSymptom.text = allergy.symptoms
+            cell.btnDelete.tag = indexPath.item + 3000
+            cell.btnDelete.addTarget(self, action: #selector(deleteAllergies(sender:)), for: .touchUpInside)
             return cell;
         default:
             let condition: Condition = listConditions[indexPath.row];
@@ -174,8 +176,22 @@ extension VCAlergiesAndConditions: UICollectionViewDataSource, UICollectionViewD
             cell.lTitle.text = condition.medicalname!;
             let date: Date = Date(milliseconds: condition.since);
             cell.lSinceDay.text = String(format: "Since : %@", arguments: [date.getElapsedInterval()]);
+            cell.btnDelete.tag = indexPath.item + 6000
+            cell.btnDelete.addTarget(self, action: #selector(deleteConditions(sender:)), for: .touchUpInside)
             return cell;
         }
+    }
+    
+    func deleteAllergies(sender: UIButton)
+    {
+        listAllergies.remove(at: sender.tag - 3000)
+        collectionView.reloadData()
+    }
+    
+    func deleteConditions(sender: UIButton)
+    {
+        listConditions.remove(at: sender.tag - 6000)
+        collectionView.reloadData()
     }
 }
 
