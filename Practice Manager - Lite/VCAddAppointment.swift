@@ -88,14 +88,17 @@ class VCAddAppointment: UIViewController {
         let milliTo = (appointmentDate?.millisecondsSince1970)! + 3600000;
         if self.patient == nil {
             let patient = Patient();
+            patient.isUpdated = true;
+            patient.clinicId = UserPrefUtil.getClinicResponse()?.clinic?.id;
+            patient.personId = Date().millisecondsSince1970.description;
+
             let personInfo = PersonInfoModel();
             personInfo.id = Date().millisecondsSince1970.description;
             personInfo.name = self.ePatientName.text;
             personInfo.gender = self.segmentGender.selectedSegmentIndex;
             personInfo.phonenumber = self.ePhoneNumber.text;
-            
+            personInfo.isUpdated = true
             try? realm?.write({
-                patient.isUpdated = true;
                 
                 realm?.add(patient);
                 realm?.add(personInfo);

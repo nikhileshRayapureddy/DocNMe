@@ -70,10 +70,12 @@ class Utility {
 
     class func calculateGestAge(_ timeInMillis: Int64) -> String? {
         if timeInMillis > 0 {
-            let date = Date(milliseconds: timeInMillis);
-            let dayComponent = Calendar.current.dateComponents([.day], from: date, to: Date())
-            let days = dayComponent.day!
-            let strTime = "\(abs(days / 7))W \(abs(days % 7))D";
+            let totalAge : Int64 = 40 * 7 * 24 * 60 * 60 * 1000
+//            let date = Date(milliseconds: timeInMillis);
+//            let dayComponent = Calendar.current.dateComponents([.day], from: date, to: Date())
+//            let days = dayComponent.day!
+            let days = timeInMillis - totalAge
+            let strTime = "\(days / 7)W \(days % 7)D";
             return strTime;
         } else {
             return nil;
