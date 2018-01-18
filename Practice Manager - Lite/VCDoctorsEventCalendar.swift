@@ -112,6 +112,12 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
     private func checkAndStoreToData(_ list: [AppointmentModel]) {
 
         do {
+            
+            let updatedAppointments = self.realm?.objects(AppointmentModel.self).filter("isUpdated = false")
+            try realm?.write {
+                realm?.delete(updatedAppointments!)
+            }
+            
             try realm?.write({
                 for item in list {
                     let res = self.realm?.objects(AppointmentModel.self).filter("id = '\((item.id!))'").first;
