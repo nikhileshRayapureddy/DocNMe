@@ -144,7 +144,7 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
     private func refreshDataFromDB() {
         var arrOfApp = [AppointmentModel]();
         let idStr = self.doctor?.id!;
-        let results = self.realm?.objects(AppointmentModel.self).filter("doctorId = '\(idStr!)' AND isDeleted = false");
+        let results = self.realm?.objects(AppointmentModel.self).filter("doctorId = '\(idStr!)' AND isDeleted = false").sorted(byKeyPath: "appointmentFrom", ascending: false);
         if results != nil {
 
             for item in results! {
