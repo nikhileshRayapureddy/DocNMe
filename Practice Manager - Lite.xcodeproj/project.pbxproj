@@ -847,7 +847,7 @@
 				TargetAttributes = {
 					0577B3F91F2F648000D38E01 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 767WDHBUJ6;
+						DevelopmentTeam = KUSRFEXG27;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -1284,7 +1284,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Samidha Garud (URX38B7DC8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Samidha Garud (URX38B7DC8)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 767WDHBUJ6;
+				DEVELOPMENT_TEAM = KUSRFEXG27;
 				INFOPLIST_FILE = "Practice Manager - Lite/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1306,7 +1306,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Samidha Garud (URX38B7DC8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Samidha Garud (URX38B7DC8)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 767WDHBUJ6;
+				DEVELOPMENT_TEAM = KUSRFEXG27;
 				INFOPLIST_FILE = "Practice Manager - Lite/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

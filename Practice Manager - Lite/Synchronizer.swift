@@ -26,7 +26,7 @@ class Synchronizer {
     private class func syncPatientWithServer() {
         var requestJson = [Any]();
         let realm = try? Realm();
-        let patients = realm?.objects(Patient.self).filter("isDeleted = false && personId LIKE '\(regEx)'");
+        let patients = realm?.objects(Patient.self).filter("isDeleted = false && isUpdated = true && personId LIKE '\(regEx)'");
         if patients != nil && (patients?.count)! > 0 {
 
             for pat in patients! {
@@ -849,7 +849,7 @@ class Synchronizer {
                         if (response.response?.statusCode == 200) {
                             let jsonData = try? JSONSerialization.jsonObject(with: response.result.value!, options: []);
                             if (jsonData != nil) {
-                                self.updateAppoinmentStatus()
+                                self.updateAppoinmentStatus(strResponse: jsonData as! [String : AnyObject])
                             }
                         }
                     }
@@ -893,21 +893,26 @@ class Synchronizer {
         }
 
     }
-    private class func updateAppoinmentStatus()
+    private class func updateAppoinmentStatus(strResponse:[String:AnyObject])
     {
-        let realm = try? Realm();
-        let apntRes = realm?.objects(AppointmentModel.self).filter("id LIKE '\(regEx)' && (isDeleted = false && isUpdated = true)");
-        if apntRes != nil {
-            for item in apntRes! {
-                do {
-                    try realm?.write {
-                        item.isUpdated = false
+        
+        for key in strResponse.keys
+        {
+            let realm = try? Realm();
+            let apntRes = realm?.objects(AppointmentModel.self).filter("id = '\(key)'");
+            if apntRes != nil {
+                for item in apntRes! {
+                    do {
+                        try realm?.write {
+                            item.isUpdated = false
+                            item.id = strResponse[key] as! String
+                        }
+                    } catch {
+                        //handle error
+                        print(error)
                     }
-                } catch {
-                    //handle error
-                    print(error)
+                    
                 }
-
             }
         }
     }

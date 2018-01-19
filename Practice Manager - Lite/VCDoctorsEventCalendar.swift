@@ -105,23 +105,6 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
 
             self.l_labelloading.isHidden = true;
         }
-
-
-//        (urlRequest).responseData {
-//            response in
-//            print("Data aa gya : VCDoctorsEventCalendar");
-//            print("Status Code : \(String(describing: response.response?.statusCode))");
-//            print(String(describing: response.data));
-//            if (response.response?.statusCode == 200) {
-//                let data = try! JSONSerialization.jsonObject(with: response.data!) as? [Any];
-////                print(data);
-//
-//                self.dictionaryAppointments = AppointmentModel.getAppointmentsListFromJSONArray(data: data!);
-//                self.calendarView.reloadData();
-////                ReloadData();
-////                print(listAppointments);
-//            }
-
     }
 
     let realm = try? Realm();
@@ -129,6 +112,12 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
     private func checkAndStoreToData(_ list: [AppointmentModel]) {
 
         do {
+            
+            let updatedAppointments = self.realm?.objects(AppointmentModel.self).filter("isUpdated = false")
+            try realm?.write {
+                realm?.delete(updatedAppointments!)
+            }
+            
             try realm?.write({
                 for item in list {
                     let res = self.realm?.objects(AppointmentModel.self).filter("id = '\((item.id!))'").first;
@@ -155,7 +144,7 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
     private func refreshDataFromDB() {
         var arrOfApp = [AppointmentModel]();
         let idStr = self.doctor?.id!;
-        let results = self.realm?.objects(AppointmentModel.self).filter("doctorId = '\(idStr!)' AND isDeleted = false");
+        let results = self.realm?.objects(AppointmentModel.self).filter("doctorId = '\(idStr!)' AND isDeleted = false").sorted(byKeyPath: "appointmentFrom", ascending: false);
         if results != nil {
 
             for item in results! {

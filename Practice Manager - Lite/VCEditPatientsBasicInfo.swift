@@ -331,14 +331,11 @@ class VCEditPatientsBasicInfo: UIViewController {
         patient.clinicId = UserPrefUtil.getClinicResponse()?.clinic?.id;
         patient.personId = idPerson;
         let personInfo = PersonInfoModel();
-//        if self.personInfo != nil {
         personInfo.id = idPerson;
-//        }
         personInfo.name = self.eName.text;
         personInfo.email = self.eEmail.text;
         personInfo.gender = self.svGender.selectedSegmentIndex;
         personInfo.mstatus = self.svMaritalStatus.selectedSegmentIndex;
-//        personInfo.dob = self.
         if (self.eAge.text != nil && self.eAge.text != "") {
             let earlyDate = Calendar.current.date(byAdding: .year, value: Int(self.eAge.text!)!, to: Date());
             personInfo.dob = earlyDate!.millisecondsSince1970;
@@ -405,28 +402,7 @@ class VCEditPatientsBasicInfo: UIViewController {
         if self.onChangeListener != nil {
             self.onChangeListener?.onChange();
         }
-//        patient.personInfo = personInfo;
-//        try? self.realm?.write({
-//            realm?.add(patient);
-//            realm?.add(personInfo);
-//            let pregInfo = PregnancyInfo();
-//            pregInfo.setFields(personInfo);
-////            realm
-//        });
-
-//        let request = ApiServices.createPostRequest(urlStr: urlAddPatient, parameters: patient.toJSON());
-//        AlamofireManager.Manager.request(request).responseString() {
-//            response in
-//            sender.isEnabled = true;
-//            if response.response?.statusCode == 200 {
-//                print(response.result.value);
-//                self.navigationController?.popViewController(animated: true);
-//            }
-//        }
     }
-
-//    let realm = try? Realm();
-
     @IBAction func onClickSelectState(_ sender: UIButton) {
         self.view.bringSubview(toFront: sender);
         if (self.dropper != nil) {
@@ -438,7 +414,6 @@ class VCEditPatientsBasicInfo: UIViewController {
         self.dropper = Dropper.init(width: 140, height: 200);
         self.dropper?.items = Array(self.arrOfStates);
         self.dropper?.delegate = self;
-//        self.dropper?.show(.top, button: sender);
         self.dropper?.showWithAnimation((0.15), options: .left, position: .top, button: self.bSave)
 
     }

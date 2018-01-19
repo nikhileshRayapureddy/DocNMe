@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
 
 // MARK: - Logging in is here
     public func callLoginUserAndProceed(username: String, password: String) {
-
+        self.view.endEditing(true)
         let url = URL(string: DAMUrls.loginAndGetAuthTokenUrl())!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
