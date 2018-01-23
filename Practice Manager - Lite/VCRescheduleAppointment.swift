@@ -49,32 +49,26 @@ class VCRescheduleAppointment: UIViewController {
             dictToUpdate[Names.ID] = appointment.id;
             dictToUpdate[Names.PURPOSE] = appointment.purpose;
             dictToUpdate[Names.PATIENTPERSONID] = appointment.patientInfo.id;
-
+            let appRes = self.realm?.objects(AppointmentModel.self).filter("id = '\(appointment.id!)'").first;
+            let appResCopy = AppointmentModel(value: appRes as! AppointmentModel)
             try? realm?.write {
-                let appRes = self.realm?.objects(AppointmentModel.self).filter("id = '\(appointment.id!)'").first;
+                appRes?.isDeleted = true
+                appResCopy.isUpdated = true
+                appResCopy.purpose = self.e_purpose.text;
+                appResCopy.appointmentFrom = dateWithTime.millisecondsSince1970;
+                appResCopy.appointmentTo = dateWithTime.millisecondsSince1970 + 3600000;
+
                 if appRes != nil {
-                    appRes?.purpose = self.e_purpose.text;
-                    appRes?.appointmentFrom = dateWithTime.millisecondsSince1970;
-                    appRes?.appointmentTo = dateWithTime.millisecondsSince1970 + 3600000;
-                    self.navigationController?.popViewController(animated: true);
-                    if self.appointmentDelegate != nil {
-                        self.appointmentDelegate?.onRescheduled();
+                    realm?.add(appResCopy)
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true);
+                        if self.appointmentDelegate != nil {
+                            self.appointmentDelegate?.onRescheduled();
+                        }
                     }
                 }
 
             }
-
-
-//            let urlRequest = ApiServices.createPostRequest(urlStr:
-//            DAMUrls.urlRescheduleAppointment(), parameters: dictToUpdate);
-//            AlamofireManager.Manager.request(urlRequest).responseString(completionHandler: {
-//                response in
-//                if response.response?.statusCode == 200 {
-//                    self.navigationController?.popViewController(animated: false);
-//                }
-//
-//            });
-
         }
 
 

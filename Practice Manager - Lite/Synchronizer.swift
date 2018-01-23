@@ -832,7 +832,7 @@ class Synchronizer {
     private class func syncAppointments() {
         let realm = try? Realm();
        if true {
-            let apntRes = realm?.objects(AppointmentModel.self).filter("id LIKE '\(regEx)' && (isDeleted = false && isUpdated = true)");
+            let apntRes = realm?.objects(AppointmentModel.self).filter("isDeleted = false && isUpdated = true");
             var listAppointments = [[String: Any]]();
             if apntRes != nil {
                 for item in apntRes! {
