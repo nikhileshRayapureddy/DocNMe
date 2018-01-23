@@ -77,33 +77,36 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
         formatter.dateFormat = "ddMMyyyy";
         formatter.timeZone = Calendar.current.timeZone;
         formatter.locale = Calendar.current.locale;
-
-        self.refreshDataFromDB();
-
-        if self.dictionaryAppointments.count > 0 {
-            self.l_labelloading.isHidden = true;
-        }
-
+        
+        //        self.refreshDataFromDB();
+        //
+        //        if self.dictionaryAppointments.count > 0 {
+        //            self.l_labelloading.isHidden = true;
+        //        }
+        //
         let date = Calendar.current.date(byAdding: Calendar.Component.month, value: (-1), to: Date());
         let datePost = Calendar.current.date(byAdding: Calendar.Component.month, value: (1), to: Date());
-
+        
         let params = [Names.ACCESS_TOKEN: UserPrefUtil.getAccessToken(), "fromTime": date?.millisecondsSince1970, "toTime": datePost?.millisecondsSince1970] as [String: Any];
-
+        
         let urlRequest = ApiServices.createGetRequest(urlStr:
-        DAMUrls.urlDoctorsEvent(doctorId: (doctor?.id)!
+            DAMUrls.urlDoctorsEvent(doctorId: (doctor?.id)!
         ), parameters: params);
-
-
+        
+        app_delegate.showLoader(message: "Loading Appointments...")
         AlamofireManager.Manager.request(urlRequest).responseArray {
             (response: DataResponse<[AppointmentModel]>) in
-            if (response.error == nil) {
-
-                self.checkAndStoreToData(response.result.value!);
-            } else {
-
+            DispatchQueue.main.async {
+                self.l_labelloading.isHidden = true;
+                if (response.error == nil)
+                {
+                    self.checkAndStoreToData(response.result.value!);
+                }
+                else
+                {
+                    app_delegate.removeloder()
+                }
             }
-
-            self.l_labelloading.isHidden = true;
         }
     }
 
@@ -163,6 +166,7 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
             self.dictionaryAppointments = AppointmentModel.getAppointmentsListFromArray(data: arrOfApp);
 
             self.calendarView.reloadData()
+            app_delegate.removeloder()
         }
     }
 
