@@ -21,7 +21,9 @@ class VCAddMedication: UIViewController {
     private var dateFormatter: DateFormatter?;
 
     private var dropper: Dropper?;
-
+    let picker = UIPickerView()
+    var arrPickerComponents = [String]()
+    var currentTextField = UITextField()
     @IBOutlet weak var bAddMedication: UIButton!
     @IBAction func onMedicineNameChanged(_ sender: SearchTextField) {
         let str:String = sender.text!;
@@ -31,8 +33,7 @@ class VCAddMedication: UIViewController {
             self.bAddMedication.isEnabled = true;
         }
     }
-    private let arrTypes = [
-        "-Select-",
+    let arrTypes = [
         "Syrup",
         "Tablet",
         "Capsule",
@@ -142,13 +143,14 @@ class VCAddMedication: UIViewController {
     var type = 0;
 
     @IBAction func onClickSelectSchedule(_ sender: UIButton) {
-        Utility.hideDropper(dropper);
-        self.type = VCAddMedication.DROPPER_SCHEDULE;
-        self.dropper = Dropper(width: 200, height: 220)
-        self.dropper?.items = self.listSchedule;
-        self.dropper?.delegate = self;
-        self.dropper?.show(.center, button: sender);
-
+        lSelectedSchedule.becomeFirstResponder()
+//        Utility.hideDropper(dropper);
+//        self.type = VCAddMedication.DROPPER_SCHEDULE;
+//        self.dropper = Dropper(width: 200, height: 220)
+//        self.dropper?.items = self.listSchedule;
+//        self.dropper?.delegate = self;
+//        self.dropper?.show(.center, button: sender);
+//
     }
 
     @IBAction func onSearchStringChanged(_ sender: UITextField) {
@@ -168,22 +170,23 @@ class VCAddMedication: UIViewController {
     }
 
 
-    @IBOutlet weak var lSelectedSchedule: UILabel!
+    @IBOutlet weak var lSelectedSchedule: UITextField!
     @IBOutlet weak var eDuration: UITextField!
     @IBOutlet weak var eDosage: UITextField!
 
     @IBAction func onClickSelectType(_ sender: UIButton) {
-        Utility.hideDropper(dropper);
-        self.type = VCAddMedication.DROPPER_TYPE;
-        self.dropper = Dropper(width: 200, height: 220)
-        self.dropper?.items = self.arrTypes;
-        self.dropper?.delegate = self;
-        self.dropper?.show(.center, button: sender);
+        lSelectedType.becomeFirstResponder()
+//        Utility.hideDropper(dropper);
+//        self.type = VCAddMedication.DROPPER_TYPE;
+//        self.dropper = Dropper(width: 200, height: 220)
+//        self.dropper?.items = self.arrTypes;
+//        self.dropper?.delegate = self;
+//        self.dropper?.show(.center, button: sender);
     }
 
 
     @IBOutlet weak var eMedicineName: SearchTextField!
-    @IBOutlet weak var lSelectedType: UILabel!
+    @IBOutlet weak var lSelectedType: UITextField!
 
     @IBAction func onClickAddMedication(_ sender: UIButton) {
         var medication: Medication = Medication();
@@ -198,10 +201,25 @@ class VCAddMedication: UIViewController {
             {
                 medication.notes = self.lSelectedType.text;
             }
-            medication.duration = self.eDuration.text;
-            medication.dosage = self.eDosage.text;
+            if self.eDuration.text?.characters.count == 0
+            {
+                medication.duration = "Not Specified"
+            }
+            else
+            {
+                medication.duration = self.eDuration.text;
+            }
+            
+            if self.eDosage.text?.characters.count == 0
+            {
+                medication.dosage = "Not Specified"
+            }
+            else
+            {
+                medication.dosage = self.eDosage.text;
+            }
             medication.isUpdated = true;
-
+            
             var strSchedule: String?;
             strSchedule = "";
             if (lSelectedSchedule.text! == "Meals Based") {
@@ -282,7 +300,7 @@ class VCAddMedication: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Add Medication"
-
+        assignPickerForFields()
         let recogN = UITapGestureRecognizer(target: self, action: #selector(onTouchScrollView(_:)));
         recogN.cancelsTouchesInView = false;
         scrollView.addGestureRecognizer(recogN);
@@ -296,8 +314,44 @@ class VCAddMedication: UIViewController {
         self.bemLunch.delegate = self;
         self.bemBreakfast.delegate = self;
         self.bemDinner.delegate = self;
+        
+        
     }
 
+    func assignPickerForFields()
+    {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(sender:)))
+        let flexiSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped(sender:)))
+        
+        toolBar.items = [cancelButton,flexiSpace,flexiSpace,doneButton]
+        toolBar.tintColor = UIColor.init(red: 32.0/255.0, green: 148.0/255.0, blue: 135.0/255.0, alpha: 1.0)
+        
+        picker.delegate = self
+        picker.dataSource = self
+        lSelectedType.inputAccessoryView = toolBar
+        lSelectedSchedule.inputAccessoryView = toolBar
+        
+        lSelectedType.inputView = picker
+        lSelectedSchedule.inputView = picker
+        
+    }
+    
+    func doneButtonTapped(sender: UIButton)
+    {
+        currentTextField.text = arrPickerComponents[picker.selectedRow(inComponent: 0)]
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
+    }
+    
+    func cancelButtonTapped(sender: UIButton)
+    {
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
+    }
 }
 
 extension VCAddMedication: DropperDelegate, BEMCheckBoxDelegate {
@@ -355,4 +409,40 @@ extension VCAddMedication: DropperDelegate, BEMCheckBoxDelegate {
 
 //    func DropperSelectedRow(_ path: IndexPath, contents: String, tag: Int) {
 //    }
+}
+
+extension VCAddMedication: UITextFieldDelegate
+{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == lSelectedType
+        {
+            currentTextField = textField
+            arrPickerComponents = self.arrTypes
+            picker.reloadAllComponents()
+        }
+        if textField == lSelectedSchedule
+        {
+            currentTextField = textField
+            arrPickerComponents = self.listSchedule
+            picker.reloadAllComponents()
+        }
+    }
+}
+
+extension VCAddMedication: UIPickerViewDelegate, UIPickerViewDataSource
+{
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrPickerComponents.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrPickerComponents[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    }
 }

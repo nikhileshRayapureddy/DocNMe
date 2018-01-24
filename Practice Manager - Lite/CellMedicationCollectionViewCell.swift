@@ -13,5 +13,6 @@ class CellMedicationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var btnDelete: UIButton!
     @IBOutlet weak var lblDurationValue: UILabel!
     @IBOutlet weak var lblDosageValue: UILabel!
+    @IBOutlet weak var lblSchedule: UILabel!
     @IBOutlet weak var lTitle: UILabel!
 }
