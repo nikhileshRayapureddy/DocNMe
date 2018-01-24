@@ -14,6 +14,7 @@ import AlamofireObjectMapper
 
 //import Validator
 let ACCEPTABLE_CHARECTERS_WORDS = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+let ACCEPTABLE_CHARACTER_ONLYLETTERS = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 let ACCEPTABLE_CHARECTERS_NUMBERS = "0123456789"
 class VCEditPatientsBasicInfo: UIViewController {
     @IBOutlet weak var eName: UITextField!;
