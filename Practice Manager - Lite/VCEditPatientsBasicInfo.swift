@@ -17,6 +17,11 @@ let ACCEPTABLE_CHARECTERS_WORDS = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqr
 let ACCEPTABLE_CHARACTER_ONLYLETTERS = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 let ACCEPTABLE_CHARECTERS_NUMBERS = "0123456789"
 class VCEditPatientsBasicInfo: UIViewController {
+    
+    let picker = UIPickerView()
+    var arrPickerComponents = [String]()
+    var currentTextField = UITextField()
+
     @IBOutlet weak var eName: UITextField!;
     @IBOutlet weak var ePhoneNumber: UITextField!;
     @IBOutlet weak var eCountryCode: UITextField!;
@@ -30,7 +35,7 @@ class VCEditPatientsBasicInfo: UIViewController {
     @IBOutlet weak var svMaritalStatus: UISegmentedControl!;
     @IBOutlet weak var switchVip: UISwitch!;
     @IBOutlet weak var iProfileAvatar: UIImageView!;
-    @IBOutlet weak var lState: UILabel!;
+    @IBOutlet weak var lState: UITextField!;
     @IBOutlet weak var bSave: UIButton!;
 //    var imageController:UIImagePickerController?;
     @IBOutlet weak var scrlView: UIScrollView!
@@ -76,7 +81,7 @@ class VCEditPatientsBasicInfo: UIViewController {
 
     var onChangeListener: OnChangeListener?;
 
-    let picker = UIImagePickerController();
+    let imagePicker = UIImagePickerController();
 
     @IBAction func onClickCameraButton(_ sender: UIButton) {
 
@@ -87,16 +92,16 @@ class VCEditPatientsBasicInfo: UIViewController {
         picker.delegate = self;
         if UIImagePickerController.isSourceTypeAvailable(.camera)
         {
-            picker.sourceType = .camera;
+            imagePicker.sourceType = .camera;
         }
         else
         {
-            picker.sourceType = .photoLibrary;
+            imagePicker.sourceType = .photoLibrary;
         }
             print("Button capture")
-            picker.allowsEditing = false
-            picker.modalPresentationStyle = .overCurrentContext;
-            self.present(picker, animated: true, completion: nil);
+            imagePicker.allowsEditing = false
+            imagePicker.modalPresentationStyle = .overCurrentContext;
+            self.present(imagePicker, animated: true, completion: nil);
 
 //            self.addChildViewController(picker)
 //            picker.didMove(toParentViewController: self)
@@ -297,7 +302,14 @@ class VCEditPatientsBasicInfo: UIViewController {
             print("\(error.localizedDescription) Error occured");
         };
         app_delegate.removeloder()
-        self.navigationController?.popViewController(animated: true);
+        DispatchQueue.main.async {
+            let Alert = UIAlertController(title: "Success!", message: "Saved Successfully", preferredStyle: UIAlertControllerStyle.alert)
+            Alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (completed) in
+                self.navigationController?.popViewController(animated: true);
+            }))
+            self.present(Alert, animated: true, completion: nil)
+        }
+
         if self.onChangeListener != nil {
             self.onChangeListener?.onChange();
         }
@@ -398,8 +410,13 @@ class VCEditPatientsBasicInfo: UIViewController {
         };
         DispatchQueue.main.async {
             app_delegate.removeloder()
+
+            let Alert = UIAlertController(title: "Success!", message: "Saved Successfully", preferredStyle: UIAlertControllerStyle.alert)
+            Alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (completed) in
+                self.navigationController?.popViewController(animated: true);
+            }))
+            self.present(Alert, animated: true, completion: nil)
         }
-        self.navigationController?.popViewController(animated: true);
         if self.onChangeListener != nil {
             self.onChangeListener?.onChange();
         }
@@ -425,6 +442,7 @@ class VCEditPatientsBasicInfo: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        assignPickerForFields()
         let formatter = Utility.getDateFormatter(dateFormat: "yyyy-MM-dd")
         if (self.personInfo != nil) {
             let pregInfo = self.personInfo?.personPregnancyInfo;
@@ -448,7 +466,14 @@ class VCEditPatientsBasicInfo: UIViewController {
             {
                 pregInfo?.state = ""
             }
-            if (pregInfo?.country?.contains("null"))!
+            if pregInfo?.country != nil
+            {
+                if (pregInfo?.country?.contains("null"))!
+                {
+                    pregInfo?.country = ""
+                }
+            }
+            else
             {
                 pregInfo?.country = ""
             }
@@ -476,8 +501,14 @@ class VCEditPatientsBasicInfo: UIViewController {
             {
                 ePhoneNumber.text = pregInfo?.phonenumber
             }
-            
-            self.ePincode.text = pregInfo!.pincode;
+            if (pregInfo?.pincode?.characters.count == 0) || (pregInfo?.pincode == nil) || (pregInfo?.pincode?.contains("null") == true)
+            {
+                self.ePincode.text = ""
+            }
+            else
+            {
+                self.ePincode.text = pregInfo!.pincode;
+            }
             self.eReferredBy.text = self.personInfo?.refererName;
             self.lState.text = pregInfo!.state;
             self.svGender.selectedSegmentIndex = pregInfo!.gender;
@@ -487,6 +518,39 @@ class VCEditPatientsBasicInfo: UIViewController {
         } else {
             self.title = "Add Patient";
         }
+    }
+
+    func assignPickerForFields()
+    {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(sender:)))
+        let flexiSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped(sender:)))
+        
+        toolBar.items = [cancelButton,flexiSpace,flexiSpace,doneButton]
+        toolBar.tintColor = UIColor.init(red: 32.0/255.0, green: 148.0/255.0, blue: 135.0/255.0, alpha: 1.0)
+        
+        picker.delegate = self
+        picker.dataSource = self
+        lState.inputAccessoryView = toolBar
+        
+        lState.inputView = picker
+        
+    }
+
+    func doneButtonTapped(sender: UIButton)
+    {
+        currentTextField.text = arrPickerComponents[picker.selectedRow(inComponent: 0)]
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
+    }
+    
+    func cancelButtonTapped(sender: UIButton)
+    {
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
     }
 
 }
@@ -552,4 +616,30 @@ extension VCEditPatientsBasicInfo: UITextFieldDelegate
         }
         return true
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == lState
+        {
+            currentTextField = textField
+            arrPickerComponents = self.arrOfStates
+            picker.reloadAllComponents()
+        }
+    }
 }
+extension VCEditPatientsBasicInfo: UIPickerViewDelegate, UIPickerViewDataSource
+{
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrPickerComponents.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrPickerComponents[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    }
+}
+

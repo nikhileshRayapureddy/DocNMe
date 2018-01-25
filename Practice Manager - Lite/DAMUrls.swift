@@ -180,6 +180,10 @@ public class DAMUrls {
         return URLs.baseUrl + "clinics";
     }
 
+    class func urlAllPatientsListWithPagination(fromOffset: Int, andLimit limit: Int) -> String {
+        return URLs.baseUrl + String(format: "network/mobile/patients/gynec/search?offset=%d&limit=%d", fromOffset,limit)
+    }
+
     class func urlAllPatientsList() -> String {
         return URLs.baseUrl + "network/mobile/patients/gynec/search";
     }
