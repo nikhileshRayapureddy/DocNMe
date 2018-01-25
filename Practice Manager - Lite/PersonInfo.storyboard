@@ -476,16 +476,19 @@
                                                                 <color key="textColor" red="0.47469860409999998" green="0.47469860409999998" blue="0.47469860409999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Andhra Pradesh" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7V-D5-Ml6">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdX-sz-ZME">
                                                                 <rect key="frame" x="8" y="38" width="340" height="31"/>
                                                                 <color key="backgroundColor" red="0.12532997130000001" green="0.58141857389999996" blue="0.52919065949999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="31" id="5IV-72-CIF"/>
+                                                                    <constraint firstAttribute="height" constant="31" id="ezF-c2-WzP"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="bdh-gj-vvd" id="xd4-ij-W58"/>
+                                                                </connections>
+                                                            </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hy-HZ-jRa">
                                                                 <rect key="frame" x="356" y="36" width="34" height="34"/>
                                                                 <constraints>
@@ -507,14 +510,14 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="6hy-HZ-jRa" secondAttribute="trailing" constant="8" id="6KH-LN-cJ0"/>
-                                                            <constraint firstItem="f7V-D5-Ml6" firstAttribute="leading" secondItem="iQv-m1-iDR" secondAttribute="leading" constant="8" id="7jQ-WN-qYq"/>
-                                                            <constraint firstItem="6hy-HZ-jRa" firstAttribute="centerY" secondItem="f7V-D5-Ml6" secondAttribute="centerY" id="JHt-jK-TLK"/>
-                                                            <constraint firstItem="6hy-HZ-jRa" firstAttribute="leading" secondItem="f7V-D5-Ml6" secondAttribute="trailing" constant="8" id="ftN-C7-u3B"/>
+                                                            <constraint firstItem="6hy-HZ-jRa" firstAttribute="top" secondItem="iQv-m1-iDR" secondAttribute="top" constant="36" id="0Qi-Ao-glE"/>
+                                                            <constraint firstAttribute="trailing" secondItem="6hy-HZ-jRa" secondAttribute="trailing" constant="8" id="5eJ-fN-6bN"/>
+                                                            <constraint firstItem="bdX-sz-ZME" firstAttribute="leading" secondItem="iQv-m1-iDR" secondAttribute="leading" constant="8" id="Sbu-71-GfM"/>
                                                             <constraint firstAttribute="height" constant="79" id="k3n-t8-R8j"/>
                                                             <constraint firstItem="KHk-i6-b7d" firstAttribute="top" secondItem="iQv-m1-iDR" secondAttribute="top" constant="9" id="kfW-WH-3kv"/>
                                                             <constraint firstItem="KHk-i6-b7d" firstAttribute="leading" secondItem="iQv-m1-iDR" secondAttribute="leading" constant="8" id="oBy-ug-ddY"/>
-                                                            <constraint firstItem="f7V-D5-Ml6" firstAttribute="top" secondItem="KHk-i6-b7d" secondAttribute="bottom" constant="8" id="rr1-E7-3pV"/>
+                                                            <constraint firstItem="6hy-HZ-jRa" firstAttribute="leading" secondItem="bdX-sz-ZME" secondAttribute="trailing" constant="8" id="sgJ-t3-yN5"/>
+                                                            <constraint firstItem="bdX-sz-ZME" firstAttribute="top" secondItem="KHk-i6-b7d" secondAttribute="bottom" constant="8" id="thb-im-jyr"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOM-nU-sRQ" userLabel="Pincode">
@@ -660,7 +663,7 @@
                         <outlet property="ePincode" destination="syM-ZQ-75d" id="vDq-wR-b0a"/>
                         <outlet property="eReferredBy" destination="GCC-ox-a2o" id="xau-Uu-91a"/>
                         <outlet property="iProfileAvatar" destination="ltQ-PI-bfa" id="S6h-wx-kDv"/>
-                        <outlet property="lState" destination="f7V-D5-Ml6" id="pvj-Dw-XRa"/>
+                        <outlet property="lState" destination="bdX-sz-ZME" id="D4k-nB-wH0"/>
                         <outlet property="scrlView" destination="PFB-BW-xqh" id="en6-gg-48D"/>
                         <outlet property="svGender" destination="r8U-l5-Tjw" id="PjL-Rn-Iva"/>
                         <outlet property="svMaritalStatus" destination="u6e-73-ouH" id="8HU-ni-Iod"/>

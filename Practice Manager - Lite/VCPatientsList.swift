@@ -12,6 +12,7 @@ import InitialsImageView
 import RealmSwift
 
 class VCPatientsList: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, OnChangeListener {
+    var offSet = 0
     func onChange() {
         self.loadDataFromDatabase();
 //        let when = DispatchTime.now() + 5 // Expected delay for realm to process data.
@@ -206,7 +207,9 @@ class VCPatientsList: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.view.endEditing(true)
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
-        self.apiCallGetPatientsList();
+//        self.loadDataFromDatabase();
+        self.performSelector(inBackground: #selector(apiCallGetPatientsList), with: nil)
+//        self.apiCallGetPatientsList();
         colorCircle = UIColor(hexString: "#01715C")
         //        self.realm = try! Realm();
         
@@ -254,11 +257,11 @@ class VCPatientsList: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     }
 
-    private func apiCallGetPatientsList() {
-        let url = DAMUrls.urlAllPatientsList();
+    @objc func apiCallGetPatientsList() {
+        let url = DAMUrls.urlAllPatientsListWithPagination(fromOffset: offSet, andLimit: 50)
+//        let url = DAMUrls.urlAllPatientsList();
         let request = ApiServices.createGetRequest(urlStr: url, parameters: []);
         app_delegate.showLoader(message: "Fetching patients...")
-        self.loadDataFromDatabase();
         AlamofireManager.Manager.request(request).responseArray {
             (response: DataResponse<[Patient]>) in
             DispatchQueue.main.async {
@@ -292,7 +295,7 @@ class VCPatientsList: UIViewController, UICollectionViewDelegate, UICollectionVi
                 self.allPatients.append(patient);
             }
             self.populateDate(allPatients);
-//            self.collectionView.reloadData();
+            self.collectionView.reloadData();
         }
     }
 
@@ -318,7 +321,7 @@ class VCPatientsList: UIViewController, UICollectionViewDelegate, UICollectionVi
 
                     }
                 };
-//                self.populateDate(value);
+                self.populateDate(value);
                 self.loadDataFromDatabase();
             }
         }
@@ -332,4 +335,19 @@ class VCPatientsList: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.collectionView.reloadData();
     }
 
+}
+
+extension VCPatientsList: UIScrollViewDelegate
+{
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y + scrollView.frame.size.height >= scrollView.contentSize.height
+        {
+            offSet = offSet + 1
+            apiCallGetPatientsList()
+        }
+        else
+        {
+            print("Not reached")
+        }
+    }
 }
