@@ -91,30 +91,45 @@ class VCDoctorsListofClinicCollectionView: UIViewController, UICollectionViewDat
 
 
     private func getDoctorsListAndShow() {
-        app_delegate.showLoader(message: "Fetching Details...")
 
-        let dataObjects = self.realm?.objects(DoctorModel.self);
-        if (dataObjects != nil) {
-            for item in dataObjects! {
-                let docMod = DoctorModel();
-                docMod.setFields(item);
-                self.dataListDoctors.append(docMod);
 
-            }
-            self.collectionView.reloadData();
-        }
+        if app_delegate.isServerReachable
+        {
+            app_delegate.showLoader(message: "Fetching Details...")
+            let urlRequest = ApiServices.createGetRequest(urlStr: DAMUrls.urlDoctorsList(), parameters: []);
+            AlamofireManager.Manager.request(urlRequest).responseArray {
+                (response: DataResponse<[DoctorModel]>) in
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                    if (response.response?.statusCode == 200) {
+                        self.writeToDatabase(response.result.value);
+                        self.dataListDoctors.removeAll()
+                        let dataObjects = self.realm?.objects(DoctorModel.self);
+                        if (dataObjects != nil) {
+                            for item in dataObjects! {
+                                let docMod = DoctorModel();
+                                docMod.setFields(item);
+                                self.dataListDoctors.append(docMod);
+                                
+                            }
+                            self.collectionView.reloadData();
+                        }
 
-        let urlRequest = ApiServices.createGetRequest(urlStr: DAMUrls.urlDoctorsList(), parameters: []);
-        AlamofireManager.Manager.request(urlRequest).responseArray {
-            (response: DataResponse<[DoctorModel]>) in
-            DispatchQueue.main.async {
-                app_delegate.removeloder()
-                if (response.response?.statusCode == 200) {
-                    self.dataListDoctors.removeAll();
-                    self.dataListDoctors.append(contentsOf: response.result.value!);
-                    self.collectionView.reloadData();
-                    self.writeToDatabase(response.result.value);
+                    }
                 }
+            }
+        }
+        else
+        {
+            let dataObjects = self.realm?.objects(DoctorModel.self);
+            if (dataObjects != nil) {
+                for item in dataObjects! {
+                    let docMod = DoctorModel();
+                    docMod.setFields(item);
+                    self.dataListDoctors.append(docMod);
+                    
+                }
+                self.collectionView.reloadData();
             }
         }
     }
@@ -122,9 +137,6 @@ class VCDoctorsListofClinicCollectionView: UIViewController, UICollectionViewDat
     private func writeToDatabase(_ value: [DoctorModel]?) {
         if let objects = value {
             try! realm?.write {
-                let result = realm?.objects(DoctorModel.self);
-                realm?.delete(result!)
-
                 realm?.add(objects);
             };
         }

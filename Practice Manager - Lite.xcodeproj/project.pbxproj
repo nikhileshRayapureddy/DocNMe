@@ -173,6 +173,7 @@
 		4D7BCF92199B24B367D8990A /* OnPatientClickedListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCBA5D31B733C49B47EBA /* OnPatientClickedListener.swift */; };
 		4D7BCFA61D5A4003CD8F806E /* Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCB2CE44583D50D95A218 /* Height.swift */; };
 		4D7BCFF7E661B4E1378B2FEC /* LastMenstrualPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCD2D93EE44D8833BEE20 /* LastMenstrualPeriod.swift */; };
+		A7EE7F4620184AE30006C3B0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EE7F4520184AE30006C3B0 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -345,6 +346,7 @@
 		4D7BCFDA5567F0A49C6EDE33 /* PatientsWrapperForBatchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientsWrapperForBatchRequest.swift; sourceTree = "<group>"; };
 		4D7BCFF75D39BC266ED4B8D2 /* VCEditPatientsBasicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCEditPatientsBasicInfo.swift; sourceTree = "<group>"; };
 		88C0ADEEA1EAA65A14E0EA1B /* Pods-Practice Manager - Lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice Manager - Lite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Practice Manager - Lite/Pods-Practice Manager - Lite.debug.xcconfig"; sourceTree = "<group>"; };
+		A7EE7F4520184AE30006C3B0 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		E76BB6218B73FB92737FC39A /* Pods-Practice Manager - Lite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice Manager - Lite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Practice Manager - Lite/Pods-Practice Manager - Lite.release.xcconfig"; sourceTree = "<group>"; };
 		ECDC9930C24C1F92EDE531C9 /* Pods_Practice_Manager___Lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Practice_Manager___Lite.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -632,6 +634,7 @@
 		05DCEFD41F32EACC008621ED /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A7EE7F4520184AE30006C3B0 /* Reachability.swift */,
 				4D7BC018294171E88E5A8135 /* Utility.swift */,
 				05DCEFD61F32ED66008621ED /* Names.swift */,
 				4D7BCB415B8960CF082CB718 /* UserPrefUtil.swift */,
@@ -1094,6 +1097,7 @@
 				4D7BC164D58943A8113DD811 /* VCPatientsList.swift in Sources */,
 				4D7BC33A92F36A2F1D8CD664 /* CellPatientInfo.swift in Sources */,
 				4D7BCF92199B24B367D8990A /* OnPatientClickedListener.swift in Sources */,
+				A7EE7F4620184AE30006C3B0 /* Reachability.swift in Sources */,
 				4D7BC4A120A57366354B4592 /* VCQuestions.swift in Sources */,
 				4D7BC1866601E9ACDE4F9949 /* QuestionResponse.swift in Sources */,
 				4D7BCAC04F01E49A7DE673B8 /* Question.swift in Sources */,

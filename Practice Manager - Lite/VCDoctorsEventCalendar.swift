@@ -149,7 +149,6 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
         let idStr = self.doctor?.id!;
         let results = self.realm?.objects(AppointmentModel.self).filter("doctorId = '\(idStr!)' AND isDeleted = false").sorted(byKeyPath: "appointmentFrom", ascending: false);
         if results != nil {
-
             for item in results! {
                 let tempApp = AppointmentModel.fromAppointmentModel(item);
                 let patRes = self.realm?.objects(PersonInfoModel.self).filter("id = '\(item.patientId!)'").first;
@@ -160,12 +159,11 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
                 }
                 arrOfApp.append(tempApp);
             }
-
-
             self.dictionaryAppointments.removeAll();
             self.dictionaryAppointments = AppointmentModel.getAppointmentsListFromArray(data: arrOfApp);
 
             self.calendarView.reloadData()
+            self.selectCurrentDate()
             app_delegate.removeloder()
         }
     }
@@ -238,11 +236,9 @@ extension VCDoctorsEventCalendar: JTAppleCalendarViewDelegate, JTAppleCalendarVi
             self.arrOfAppointments.append(contentsOf: arrOf.reversed());
             if ((arrOfAppointments.count) > 0) {
                 self.tableview_appointment.reloadData();
-            } else {
-                self.tableview_appointment.reloadData();
             }
+            
         }
-        self.tableview_appointment.reloadData();
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
