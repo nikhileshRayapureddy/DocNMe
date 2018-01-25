@@ -17,6 +17,13 @@ import Toaster
 
 class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProvider, DropperDelegate {
 
+    @IBOutlet weak var txtBloodGroupPersonal: UITextField!
+    @IBOutlet weak var txtSpouseBloodGroup: UITextField!
+    @IBOutlet weak var scrlView: UIScrollView!
+    let picker = UIPickerView()
+    var arrPickerComponents = [String]()
+    var currentTextField = UITextField()
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         Utility.hideDropper(self.dropper);
@@ -137,11 +144,11 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
             self.arrAttributes![Names.Attr.SPOUSEPHONE] = atr;
         }
         if let atr = self.arrAttributes![Names.Attr.SPOUSEBLOODGROUP] {
-            atr.value = self.dictBloodGroups[lBloodGroupSpouse.text!]
+            atr.value = self.dictBloodGroups[txtSpouseBloodGroup.text!]
             atr.isUpdated = true;
         } else {
             let atr = BasicProfileAttributes();
-            atr.setFields(name: Names.Attr.SPOUSEBLOODGROUP, value: self.dictBloodGroups[lBloodGroupSpouse.text!], personId: self.patientInfo?.id);
+            atr.setFields(name: Names.Attr.SPOUSEBLOODGROUP, value: self.dictBloodGroups[txtSpouseBloodGroup.text!], personId: self.patientInfo?.id);
             self.arrAttributes![Names.Attr.SPOUSEBLOODGROUP] = atr;
         }
 
@@ -199,13 +206,14 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
     }
 
     @IBAction func onClickShowSpouseBloodGroupList(_ sender: Any) {
-        self.closeDropper();
-        btnBg.isHidden = false
-        self.dropper = Dropper(width: 75, height: 250)
-        self.dropper?.items = Array(dictBloodGroups.keys);
-        self.dropper?.delegate = self;
-        self.dropper?.show(Dropper.Alignment.center, button: bBloodGroupSpouse);
-        tag = BasicInfoViewControllerViewController.TAG_SPOUSE;
+        txtSpouseBloodGroup.becomeFirstResponder()
+//        self.closeDropper();
+//        btnBg.isHidden = false
+//        self.dropper = Dropper(width: 75, height: 250)
+//        self.dropper?.items = Array(dictBloodGroups.keys);
+//        self.dropper?.delegate = self;
+//        self.dropper?.show(Dropper.Alignment.center, button: bBloodGroupSpouse);
+//        tag = BasicInfoViewControllerViewController.TAG_SPOUSE;
     }
 
 
@@ -221,7 +229,7 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
     @IBOutlet weak var eAgeOfMarriage: UITextField!
     @IBOutlet weak var eSpouseName: UITextField!
 
-    @IBOutlet weak var lBloodGroup: UILabel!
+//    @IBOutlet weak var lBloodGroup: UILabel!
     @IBOutlet weak var lPatientOccupation: UITextField!
     @IBOutlet weak var lAadharCardNumber: UITextField!
 
@@ -241,6 +249,7 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
         }
     }
 
+    let bloodGroups = ["A +ve","A -ve","B +ve","B -ve","AB +ve","AB -ve","O +ve","O -ve"]
     let dictBloodGroups = [
         "--": "",
         "A +ve": "A_POSITIVE",
@@ -256,20 +265,21 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
     @IBOutlet weak var scMaritalStatus: UISegmentedControl!
 
     @IBAction func onClickBloodGroup(_ sender: Any) {
-        btnBg.isHidden = false
-        self.closeDropper()
-        self.dropper = Dropper(width: 75, height: 250)
-        self.dropper?.items = Array(dictBloodGroups.keys);
-        self.dropper?.delegate = self;
-
-        self.dropper?.show(Dropper.Alignment.center, button: bOverBlodGroup);
-        tag = BasicInfoViewControllerViewController.TAG_USER;
+        txtBloodGroupPersonal.becomeFirstResponder()
+//        btnBg.isHidden = false
+//        self.closeDropper()
+//        self.dropper = Dropper(width: 75, height: 250)
+//        self.dropper?.items = Array(dictBloodGroups.keys);
+//        self.dropper?.delegate = self;
+//
+//        self.dropper?.show(Dropper.Alignment.center, button: bOverBlodGroup);
+//        tag = BasicInfoViewControllerViewController.TAG_USER;
     }
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        assignPickerForFields()
         btnBg = UIButton(type: .custom)
         btnBg.backgroundColor = .clear
         btnBg.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight)
@@ -278,14 +288,55 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
         
         self.view.addSubview(btnBg)
         self.containerViewSpouse.isHidden = true;
-        self.dropper = Dropper(width: 75, height: 250)
-        self.dropper?.items = Array(dictBloodGroups.keys);
-        self.dropper?.delegate = self;
+//        self.dropper = Dropper(width: 75, height: 250)
+//        self.dropper?.items = Array(dictBloodGroups.keys);
+//        self.dropper?.delegate = self;
         self.apiCallGetBasicInfo(patientInfo: self.patientInfo!);
 
         self.getDataFromDB();
 
+        txtSpouseBloodGroup.text = "A +ve"
+        txtBloodGroupPersonal.text = "A +ve"
+    }
+    
+    func assignPickerForFields()
+    {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(sender:)))
+        let flexiSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped(sender:)))
+        
+        toolBar.items = [cancelButton,flexiSpace,flexiSpace,doneButton]
+        toolBar.tintColor = UIColor.init(red: 32.0/255.0, green: 148.0/255.0, blue: 135.0/255.0, alpha: 1.0)
+        
+        picker.delegate = self
+        picker.dataSource = self
+        txtBloodGroupPersonal.inputAccessoryView = toolBar
+        txtSpouseBloodGroup.inputAccessoryView = toolBar
+        
+        txtBloodGroupPersonal.inputView = picker
+        txtSpouseBloodGroup.inputView = picker
+        
+    }
 
+    func doneButtonTapped(sender: UIButton)
+    {
+        currentTextField.text = arrPickerComponents[picker.selectedRow(inComponent: 0)]
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
+    }
+    
+    func cancelButtonTapped(sender: UIButton)
+    {
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrlView.contentSize = CGSize(width: self.view.frame.size.width, height: 690)
     }
     @objc func btnBgClicked(sender:UIButton)
     {
@@ -420,7 +471,7 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
             case Names.Attr.SPOUSEBLOODGROUP:
                 if let index = dictBloodGroups.values.index(of: attribute.value!) {
                     let key = dictBloodGroups.keys[index]
-                    lBloodGroupSpouse.text = key;
+                    txtSpouseBloodGroup.text = key
                 }
                 break;
             case Names.Attr.MARRIEDSINCE:
@@ -441,7 +492,7 @@ class BasicInfoViewControllerViewController: UIViewController, IndicatorInfoProv
         return IndicatorInfo(title: PatientInfoPagerViewController.TITLE_BASIC_INFO);
     }
 
-    @IBOutlet weak var lBloodGroupSpouse: UILabel!
+//    @IBOutlet weak var lBloodGroupSpouse: UILabel!
 }
 
 extension BasicInfoViewControllerViewController {
@@ -451,10 +502,10 @@ extension BasicInfoViewControllerViewController {
 
         switch self.tag {
         case BasicInfoViewControllerViewController.TAG_USER:
-            lBloodGroup.text = contents;
+            txtBloodGroupPersonal.text = contents;
             break;
         default:
-            lBloodGroupSpouse.text = contents;
+            txtSpouseBloodGroup.text = contents;
             break;
         }
 
@@ -470,7 +521,25 @@ extension BasicInfoViewControllerViewController: UITextFieldDelegate
 {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if textField == lPatientOccupation || textField == lAadharCardNumber || textField == eSpouseName
+        if (textField == lPatientOccupation) || (textField == eSpouseName)
+        {
+            if string.characters.count == 0
+            {
+                return true
+            }
+            else
+            {
+                if ACCEPTABLE_CHARACTER_ONLYLETTERS.contains(string)
+                {
+                    return true
+                }
+                else
+                {
+                    return false
+                }
+            }
+        }
+        else if textField == lAadharCardNumber
         {
             if string.characters.count == 0
             {
@@ -489,5 +558,38 @@ extension BasicInfoViewControllerViewController: UITextFieldDelegate
             }
         }
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == txtBloodGroupPersonal
+        {
+            currentTextField = textField
+            arrPickerComponents = bloodGroups
+            picker.reloadAllComponents()
+        }
+        if textField == txtSpouseBloodGroup
+        {
+            currentTextField = textField
+            arrPickerComponents = bloodGroups
+            picker.reloadAllComponents()
+        }
+    }
+}
+
+extension BasicInfoViewControllerViewController: UIPickerViewDelegate, UIPickerViewDataSource
+{
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrPickerComponents.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrPickerComponents[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     }
 }

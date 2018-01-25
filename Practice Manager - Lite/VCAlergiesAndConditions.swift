@@ -165,7 +165,7 @@ extension VCAlergiesAndConditions: UICollectionViewDataSource, UICollectionViewD
             let cell: CellAllergiesCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Names.VContIdentifiers.CELL_ALLERGIES, for: indexPath) as! CellAllergiesCollectionViewCell;
             cell.lTitle.text = allergy.medicalname;
             cell.lSubtitleSeasonalHeredity.text = String(format: "%@,", (allergy.isseasonal ? "Yes" : "No"))
-            cell.lHeredityValue.text = (allergy.isseasonal ? "Yes" : "No")
+            cell.lHeredityValue.text = (allergy.hereditary ? "Yes" : "No")
             cell.lSymptom.text = allergy.symptoms
             cell.btnDelete.tag = indexPath.item + 3000
             cell.btnDelete.addTarget(self, action: #selector(deleteAllergies(sender:)), for: .touchUpInside)

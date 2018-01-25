@@ -72,9 +72,24 @@ class VCMedication: UIViewController, UICollectionViewDelegate, UICollectionView
         let medicat = listMedications[indexPath.row];
         let cell: CellMedicationCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Names.VContIdentifiers.CELL_MEDICATION, for: indexPath) as! CellMedicationCollectionViewCell;
         cell.lTitle.text = medicat.name;
-        cell.lblDosageValue.text = medicat.dosage
-        let strDescripto = String(format: "%@ %@ %@", medicat.duration!, medicat.notes!,medicat.schedule!);
-        cell.lblDurationValue.text = strDescripto
+        if medicat.dosage?.characters.count == 0
+        {
+            cell.lblDosageValue.text = "Not Specified"
+        }
+        else
+        {
+            cell.lblDosageValue.text = medicat.dosage
+        }
+        if medicat.duration?.characters.count == 0
+        {
+            cell.lblDurationValue.text = "Not Specified"
+        }
+        else
+        {
+            let strDescripto = String(format: "%@", medicat.duration!);
+            cell.lblDurationValue.text = strDescripto
+        }
+        cell.lblSchedule.text = medicat.schedule
         cell.btnDelete.tag = indexPath.item + 1000
         cell.btnDelete.addTarget(self, action: #selector(deleteMedication(sender:)), for: .touchUpInside)
         return cell;
