@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, OnSynchronizerStateChange
 
     var window: UIWindow?
     var timerSynch: Timer?;
+    var isServerReachable : Bool = false
+    var reachability: Reachability?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -35,6 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, OnSynchronizerStateChange
         IQKeyboardManager.sharedManager().enable = true;
         startParsingFilesAllergies();
         startTimer();
+        self.setupReachability(hostName: "", useClosures: true)
+        self.startNotifier()
+        print("reachable = ",isServerReachable)
+        isServerReachable = (reachability?.isReachable)!
+        print("reachable after= ",isServerReachable)
+
         return true;
     }
 
@@ -301,6 +309,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate, OnSynchronizerStateChange
             }
         }
     }
+    //MARK:- Reachability
+
+    func setupReachability(hostName: String?, useClosures: Bool) {
+        
+        let reachabil = hostName == "" ? Reachability() : Reachability(hostname: hostName!)
+        reachability = reachabil
+        if useClosures {
+            reachability?.whenReachable = { reachability in
+                DispatchQueue.main.async {
+                    self.isServerReachable = true
+                }
+            }
+            reachability?.whenUnreachable = { reachability in
+                DispatchQueue.main.async {
+                    self.isServerReachable = false
+                }
+            }
+            print("reachable setup = ",isServerReachable)
+        } else {
+            NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: reachability)
+        }
+    }
+    
+    func startNotifier() {
+        print("--- start notifier")
+        do {
+            try reachability?.startNotifier()
+        } catch {
+            
+            return
+        }
+    }
+    
+    func stopNotifier() {
+        print("--- stop notifier")
+        reachability?.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: ReachabilityChangedNotification, object: nil)
+        reachability = nil
+    }
+    @objc func reachabilityChanged(_ note: Notification) {
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable {
+            isServerReachable = true
+        } else {
+            isServerReachable = false
+        }
+    }
+    
+    deinit {
+        stopNotifier()
+    }
+
     //MARK:- Loader  methods
     func showLoader(message:String)
     {

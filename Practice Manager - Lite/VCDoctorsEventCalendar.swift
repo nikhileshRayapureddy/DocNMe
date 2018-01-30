@@ -149,7 +149,6 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
         let idStr = self.doctor?.id!;
         let results = self.realm?.objects(AppointmentModel.self).filter("doctorId = '\(idStr!)' AND isDeleted = false").sorted(byKeyPath: "appointmentFrom", ascending: false);
         if results != nil {
-
             for item in results! {
                 let tempApp = AppointmentModel.fromAppointmentModel(item);
                 let patRes = self.realm?.objects(PersonInfoModel.self).filter("id = '\(item.patientId!)'").first;
@@ -160,12 +159,11 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
                 }
                 arrOfApp.append(tempApp);
             }
-
-
             self.dictionaryAppointments.removeAll();
             self.dictionaryAppointments = AppointmentModel.getAppointmentsListFromArray(data: arrOfApp);
 
             self.calendarView.reloadData()
+            self.selectCurrentDate()
             app_delegate.removeloder()
         }
     }
@@ -238,11 +236,9 @@ extension VCDoctorsEventCalendar: JTAppleCalendarViewDelegate, JTAppleCalendarVi
             self.arrOfAppointments.append(contentsOf: arrOf.reversed());
             if ((arrOfAppointments.count) > 0) {
                 self.tableview_appointment.reloadData();
-            } else {
-                self.tableview_appointment.reloadData();
             }
+            
         }
-        self.tableview_appointment.reloadData();
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
@@ -310,6 +306,36 @@ extension VCDoctorsEventCalendar: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableview_appointment.deselectRow(at: indexPath, animated: false);
+        
+        
+        var arrOfApp = [AppointmentModel]();
+        let idStr = self.doctor?.id!;
+        let results = self.realm?.objects(AppointmentModel.self).filter("doctorId = '\(idStr!)' AND isDeleted = false").sorted(byKeyPath: "appointmentFrom", ascending: false);
+        if results != nil {
+            for item in results! {
+                let tempApp = AppointmentModel.fromAppointmentModel(item);
+                let patRes = self.realm?.objects(PersonInfoModel.self).filter("id = '\(item.patientId!)'").first;
+                if patRes != nil {
+                    let persong = PersonInfoModel();
+                    persong.setFields(patRes!);
+                    tempApp.patientInfo = persong;
+                }
+                arrOfApp.append(tempApp);
+            }
+            self.dictionaryAppointments.removeAll();
+            self.dictionaryAppointments = AppointmentModel.getAppointmentsListFromArray(data: arrOfApp);
+            
+            self.arrOfAppointments.removeAll();
+            if let arrOf: [AppointmentModel] = dictionaryAppointments[formatter.string(from: calendarView.selectedDates[0])] {
+                self.arrOfAppointments.append(contentsOf: arrOf.reversed());
+                if ((arrOfAppointments.count) > 0) {
+                    self.tableview_appointment.reloadData();
+                }
+                
+            }
+            calendarView.selectDates(calendarView.selectedDates)
+        }
+
         let appointmentLocal = self.arrOfAppointments[indexPath.row];
         let alert = UIAlertController(title: appointmentLocal.patientInfo.name as? String
                 , message: nil, preferredStyle: UIAlertControllerStyle.alert)
@@ -374,34 +400,36 @@ extension VCDoctorsEventCalendar: UITableViewDelegate, UITableViewDataSource {
 
     func onConfirmCancelAppointment(appointment: AppointmentModel, index: Int) {
 
-        let results = self.realm?.objects(AppointmentModel.self).filter("id ='\(appointment.id!)' ").first;
-        try? realm?.write({
-            self.realm?.delete(results!);
-            self.apiGetAppointmentsForADoctor(doctor: doctor);
-            if arrOfAppointments.count > index {
-                self.arrOfAppointments.remove(at: index)
+        if let results = self.realm?.objects(AppointmentModel.self).filter("id ='\(appointment.id!)' ").first
+        {
+            try? realm?.write({
+                self.realm?.delete(results);
+                self.apiGetAppointmentsForADoctor(doctor: doctor);
+                if arrOfAppointments.count > index {
+                    self.arrOfAppointments.remove(at: index)
+                }
+                self.tableview_appointment.reloadData();
+            })
+            
+            
+            print("Confirmed");
+            var dict = [String: Any]();
+            dict[Names.APPOINTMENTFROM] = appointment.appointmentFrom;
+            dict[Names.APPOINTMENTTO] = appointment.appointmentTo;
+            dict[Names.DOCTORPERSONID] = appointment.doctorInfo.id;
+            dict[Names.ID] = appointment.id;
+            dict[Names.PATIENTPERSONID] = appointment.patientInfo.id
+            dict[Names.PURPOSE] = appointment.purpose;
+            dict[Names.STATUS] = Names.StatusAppointment.CANCEL;
+            
+            let request = ApiServices.createPostRequest(urlStr: DAMUrls.urlCancelAppointment(), parameters: dict);
+            AlamofireManager.Manager.request(request).responseData {
+                response in
+                print("Data aa gya : Request Appointment Cancellation");
+                //            self.navigationController?.popViewController(animated: true);
+                self.apiGetAppointmentsForADoctor(doctor: self.doctor);
             }
-            self.tableview_appointment.reloadData();
-        })
-
-
-        print("Confirmed");
-        var dict = [String: Any]();
-        dict[Names.APPOINTMENTFROM] = appointment.appointmentFrom;
-        dict[Names.APPOINTMENTTO] = appointment.appointmentTo;
-        dict[Names.DOCTORPERSONID] = appointment.doctorInfo.id;
-        dict[Names.ID] = appointment.id;
-        dict[Names.PATIENTPERSONID] = appointment.patientInfo.id
-        dict[Names.PURPOSE] = appointment.purpose;
-        dict[Names.STATUS] = Names.StatusAppointment.CANCEL;
-
-        let request = ApiServices.createPostRequest(urlStr: DAMUrls.urlCancelAppointment(), parameters: dict);
-        AlamofireManager.Manager.request(request).responseData {
-            response in
-            print("Data aa gya : Request Appointment Cancellation");
-//            self.navigationController?.popViewController(animated: true);
-            self.apiGetAppointmentsForADoctor(doctor: self.doctor);
+            
         }
-
     }
 }
