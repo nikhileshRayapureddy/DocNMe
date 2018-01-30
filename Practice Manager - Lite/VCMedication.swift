@@ -97,6 +97,19 @@ class VCMedication: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func deleteMedication(sender: UIButton)
     {
+        
+        let medication = listMedications[sender.tag - 1000]
+        do {
+            
+            let updatedAppointments = self.realm?.objects(Medication.self).filter("name = '\(medication.name!)'")
+            try realm?.write {
+                realm?.delete(updatedAppointments!)
+            }
+        } catch {
+            print(error);
+        }
+        
+
         listMedications.remove(at: sender.tag - 1000)
         collectionView.reloadData()
     }
