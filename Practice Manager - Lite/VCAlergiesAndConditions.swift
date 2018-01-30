@@ -184,12 +184,36 @@ extension VCAlergiesAndConditions: UICollectionViewDataSource, UICollectionViewD
     
     func deleteAllergies(sender: UIButton)
     {
+        let allergy = listAllergies[sender.tag - 3000]
+
+        do {
+            
+            let updatedAppointments = self.realm?.objects(Allergies.self).filter("medicalname = '\(allergy.medicalname!)'")
+            try realm?.write {
+                realm?.delete(updatedAppointments!)
+            }
+        } catch {
+            print(error);
+        }
+
         listAllergies.remove(at: sender.tag - 3000)
         collectionView.reloadData()
     }
     
     func deleteConditions(sender: UIButton)
     {
+        let allergy = listConditions[sender.tag - 6000]
+
+        do {
+            
+            let updatedAppointments = self.realm?.objects(Condition.self).filter("medicalname = '\(allergy.medicalname!)'")
+            try realm?.write {
+                realm?.delete(updatedAppointments!)
+            }
+        } catch {
+            print(error);
+        }
+
         listConditions.remove(at: sender.tag - 6000)
         collectionView.reloadData()
     }

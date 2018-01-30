@@ -94,14 +94,31 @@ class VCFamilyHistoryViewController: UIViewController, UICollectionViewDataSourc
                 cell.lReasonDeath.text = "Cause of Death: Not Specified"
             }
         }
-
-
+        cell.btnDelete.tag = indexPath.item + 1000
+        cell.btnDelete.addTarget(self, action: #selector(btnDeleteFailyHistoryClicked(sender:)), for: .touchUpInside)
         if let ageUn = familyMember.age {
             cell.lYears.text = ageUn;
         }
         return cell;
     }
 
+    func btnDeleteFailyHistoryClicked(sender: UIButton)
+    {
+        let familyMember = listFamilyMembers[sender.tag - 1000]
+        do {
+            
+            let updatedAppointments = self.realm?.objects(FamilyMember.self).filter("relation = '\(familyMember.relation!)'")
+            try realm?.write {
+                realm?.delete(updatedAppointments!)
+            }
+        } catch {
+            print(error);
+        }
+        listFamilyMembers.remove(at: sender.tag - 1000)
+        collectionView?.reloadData()
+
+
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.listFamilyMembers.count;
     }

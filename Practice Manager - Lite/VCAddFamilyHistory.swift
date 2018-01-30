@@ -17,6 +17,13 @@ import Toaster
 class VCAddFamilyHistory: UIViewController {
 
     let realm = try? Realm();
+    let picker = UIPickerView()
+    var arrPickerComponents = [String]()
+    var currentTextField = UITextField()
+
+    @IBOutlet weak var eConditions: UITextField!
+    @IBOutlet weak var eAge: UITextField!
+    @IBOutlet weak var lRelationLabel: UITextField!
 
     @IBAction func onSwitchValueChanged(_ sender: UISwitch) {
         if (sender.isOn) {
@@ -37,13 +44,14 @@ class VCAddFamilyHistory: UIViewController {
     var onFamilyHistoryAddedListener: OnFamilyHistoryAddedListener?;
 
     @IBAction func onClickSelectRelation(_ sender: UIButton) {
-        if (self.dropper != nil) {
-            self.dropper?.hide();
-        }
-        self.dropper = Dropper.init(width: 140, height: 200);
-        self.dropper?.items = Array(self.dictRelations.keys);
-        self.dropper?.delegate = self;
-        self.dropper?.show(.left, button: sender);
+        lRelationLabel.becomeFirstResponder()
+//        if (self.dropper != nil) {
+//            self.dropper?.hide();
+//        }
+//        self.dropper = Dropper.init(width: 140, height: 200);
+//        self.dropper?.items = Array(self.dictRelations.keys);
+//        self.dropper?.delegate = self;
+//        self.dropper?.show(.left, button: sender);
     }
 
     @IBAction func onClickSaveRelation(_ sender: UIButton) {
@@ -98,9 +106,6 @@ class VCAddFamilyHistory: UIViewController {
         Utility.hideDropper(self.dropper);
     }
 
-    @IBOutlet weak var eConditions: UITextField!
-    @IBOutlet weak var eAge: UITextField!
-    @IBOutlet weak var lRelationLabel: UILabel!
 
     let dictRelations = [
         "Father": "FATHER",
@@ -116,12 +121,75 @@ class VCAddFamilyHistory: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        assignPickerForFields()
     }
+    
+    func assignPickerForFields()
+    {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(sender:)))
+        let flexiSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped(sender:)))
+        
+        toolBar.items = [cancelButton,flexiSpace,flexiSpace,doneButton]
+        toolBar.tintColor = UIColor.init(red: 32.0/255.0, green: 148.0/255.0, blue: 135.0/255.0, alpha: 1.0)
+        
+        picker.delegate = self
+        picker.dataSource = self
+        lRelationLabel.inputAccessoryView = toolBar
+        lRelationLabel.inputView = picker
+    }
+    
+    func doneButtonTapped(sender: UIButton)
+    {
+        currentTextField.text = arrPickerComponents[picker.selectedRow(inComponent: 0)]
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
+    }
+    
+    func cancelButtonTapped(sender: UIButton)
+    {
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
+    }
+
 }
 
 extension VCAddFamilyHistory: DropperDelegate {
 
     func DropperSelectedRow(_ path: IndexPath, contents: String, tag: Int) {
         self.lRelationLabel.text = contents;
+    }
+}
+
+extension VCAddFamilyHistory: UITextFieldDelegate
+{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == lRelationLabel
+        {
+            currentTextField = textField
+            arrPickerComponents = Array(self.dictRelations.keys);
+            picker.reloadAllComponents()
+        }
+    }
+}
+
+extension VCAddFamilyHistory: UIPickerViewDelegate, UIPickerViewDataSource
+{
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrPickerComponents.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrPickerComponents[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     }
 }

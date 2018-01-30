@@ -10,6 +10,7 @@ import UIKit
 
 class CellFamilyHistoryCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var btnDelete: UIButton!
     @IBOutlet weak var lYears: UILabel!
     @IBOutlet weak var lCondition: UILabel!
     @IBOutlet weak var lTitle: UILabel!
