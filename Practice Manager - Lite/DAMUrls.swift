@@ -279,6 +279,11 @@ public class DAMUrls {
     class func urlAddVitals() -> String {
         return URLs.baseUrl + "personvitals/mobile/add";
     }
+    
+    class func urlUploadImage() -> String
+    {
+        return URLs.baseUrl + "person/mobile/uploadimage";
+    }
 }
 
 

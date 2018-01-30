@@ -89,7 +89,7 @@ class VCEditPatientsBasicInfo: UIViewController {
 //        imageController.sourceType = .camera;
 //        imageController.delegate = self;
 //        self.present(imageController, animated: true);
-        picker.delegate = self;
+        imagePicker.delegate = self;
         if UIImagePickerController.isSourceTypeAvailable(.camera)
         {
             imagePicker.sourceType = .camera;
@@ -569,9 +569,33 @@ extension VCEditPatientsBasicInfo: DropperDelegate, UIImagePickerControllerDeleg
         let image: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage;
         self.iProfileAvatar.contentMode = .scaleAspectFit;
         self.iProfileAvatar.image = image;
-        
+//        uploadImage(image: image)
         picker.dismiss(animated: true);
 //        dismiss(animated: true);
+    }
+    
+    func uploadImage(image: UIImage)
+    {
+        let imageData = UIImagePNGRepresentation(image)
+        let strBase64 = imageData?.base64EncodedString(options: .lineLength64Characters)
+        
+        let url = DAMUrls.urlUploadImage()
+        let request = ApiServices.createUploadImageRequest(urlString: url, andParameter: ["id":"123", "personId":personInfo?.id, "type":"image","uploadtime":"30/01/2018","content":strBase64, "mimetype": "image/png"])
+        AlamofireManager.Manager.request(request).responseArray {
+            (response: DataResponse<[Patient]>) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                if response.response?.statusCode == 200 {
+                    print("success")
+                }
+                else
+                {
+                    print("failure")
+                }
+            }
+            
+        }
+
     }
 }
 

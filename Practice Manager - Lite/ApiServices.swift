@@ -138,4 +138,28 @@ class ApiServices {
 //        }
         return urlRequest;
     }
+    
+    class func createUploadImageRequest(urlString: String, andParameter parameters: Any) -> URLRequest
+    {
+        decideAndRefreshToken();
+        let url = URL(string: urlString)!
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        let boundary = NSString(format: "---------------------------14737809831466499882746641449")
+        let contentType = NSString(format: "multipart/form-data; boundary=%@",boundary)
+        urlRequest.addValue(contentType as String, forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue(
+            "Bearer " + UserPrefUtil.getAccessToken(),
+            forHTTPHeaderField: "Authorization")
+
+        urlRequest.cachePolicy = .reloadIgnoringCacheData;
+        
+        do {
+            urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            
+        } catch {
+            print("Error in parameters");
+        }
+        return urlRequest;
+    }
 }
