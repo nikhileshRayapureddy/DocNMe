@@ -19,6 +19,9 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
 
 
     var dropper: Dropper?;
+    let picker = UIPickerView()
+    var arrPickerComponents = [String]()
+    var currentTextField = UITextField()
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -469,8 +472,8 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
 
     @IBOutlet weak var eHeight: UITextField!
 
-    @IBOutlet weak var lUnitBloodGlucose: UILabel!
-    @IBOutlet weak var lTypeBloodGlucose: UILabel!
+    @IBOutlet weak var lUnitBloodGlucose: UITextField!
+    @IBOutlet weak var lTypeBloodGlucose: UITextField!
     @IBOutlet weak var bLMPDate: UIButton!
     @IBOutlet weak var eBPRightNumrator: UITextField!
     @IBOutlet weak var eBPUpperDenominator: UITextField!
@@ -500,21 +503,23 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
     var tag: Int = VCVitalsViewController.TYPE_UNIT;
 
     @IBAction func onClickUnitDialogButton(_ sender: UIButton) {
-        Utility.hideDropper(self.dropper);
-        self.dropper = Dropper(width: 80, height: 200)
-        tag = VCVitalsViewController.TYPE_UNIT;
-        self.dropper?.items = dictBloodUnit;
-        self.dropper?.delegate = self;
-        self.dropper?.show(.center, button: sender);
+        lUnitBloodGlucose.becomeFirstResponder()
+//        Utility.hideDropper(self.dropper);
+//        self.dropper = Dropper(width: 80, height: 200)
+//        tag = VCVitalsViewController.TYPE_UNIT;
+//        self.dropper?.items = dictBloodUnit;
+//        self.dropper?.delegate = self;
+//        self.dropper?.show(.center, button: sender);
     }
 
     @IBAction func onClickTypeDialogButton(_ sender: UIButton) {
-        Utility.hideDropper(self.dropper);
-        self.dropper = Dropper(width: 80, height: 200)
-        tag = VCVitalsViewController.TYPE_TYPE;
-        self.dropper?.items = dictBloodTypes;
-        self.dropper?.delegate = self;
-        self.dropper?.show(.center, button: sender);
+        lTypeBloodGlucose.becomeFirstResponder()
+//        Utility.hideDropper(self.dropper);
+//        self.dropper = Dropper(width: 80, height: 200)
+//        tag = VCVitalsViewController.TYPE_TYPE;
+//        self.dropper?.items = dictBloodTypes;
+//        self.dropper?.delegate = self;
+//        self.dropper?.show(.center, button: sender);
     }
 
     @IBAction func onChangeHeightWeight(_ sender: UITextField) {
@@ -670,10 +675,45 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
         data.antiMullerianHormone = realm?.objects(AntiMullerianHormone.self).filter("personId = '" + (self.patientInfo?.id)! + "'").first;
         data.lastMenstrualPeriod = realm?.objects(LastMenstrualPeriod.self).filter("personId = '" + (self.patientInfo?.id)! + "'").first;
 
-
+        assignPickerForFields()
         self.populateData(data: data)
     }
 
+
+    func assignPickerForFields()
+    {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(sender:)))
+        let flexiSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped(sender:)))
+        
+        toolBar.items = [cancelButton,flexiSpace,flexiSpace,doneButton]
+        toolBar.tintColor = UIColor.init(red: 32.0/255.0, green: 148.0/255.0, blue: 135.0/255.0, alpha: 1.0)
+        
+        picker.delegate = self
+        picker.dataSource = self
+        lTypeBloodGlucose.inputAccessoryView = toolBar
+        lUnitBloodGlucose.inputAccessoryView = toolBar
+        
+        lTypeBloodGlucose.inputView = picker
+        lUnitBloodGlucose.inputView = picker
+        
+    }
+    
+    func doneButtonTapped(sender: UIButton)
+    {
+        currentTextField.text = arrPickerComponents[picker.selectedRow(inComponent: 0)]
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
+    }
+    
+    func cancelButtonTapped(sender: UIButton)
+    {
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
+    }
 
     var patientInfo: PersonInfoModel?;
 
@@ -706,7 +746,7 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
         if let vitals = data {
             if let height = vitals.height {
                 
-                    let res = realm?.objects(Height.self).filter("(isDeleted = false && isUpdated = false) && personId = '\((height.personId)!)'").first
+                    let res = realm?.objects(Height.self).filter("(isUpdated = false) && personId = '\((height.personId)!)'").first
                     if res != nil {
                         res?.height = height.height;
                         res?.id = height.id;
@@ -723,7 +763,7 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
             if let weight = vitals.weight {
                 
                 
-                let res = realm?.objects(Weight.self).filter("(isDeleted = false && isUpdated = false) && personId = '\((weight.personId)!)'").first
+                let res = realm?.objects(Weight.self).filter("(isUpdated = false) && personId = '\((weight.personId)!)'").first
                 if res != nil {
                     res?.weight = weight.weight;
                     res?.id = weight.id;
@@ -744,7 +784,7 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
 
             if let temperature = vitals.temperature {
                
-                let res = realm?.objects(Temperature.self).filter("(isDeleted = false && isUpdated = false) && personId = '\((temperature.personId)!)'").first
+                let res = realm?.objects(Temperature.self).filter("(isUpdated = false) && personId = '\((temperature.personId)!)'").first
                 if res != nil {
                     res?.temperature = temperature.temperature;
                     res?.id = temperature.id;
@@ -759,7 +799,7 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
 
             if let pulserate = vitals.pulserate {
                 
-                let res = realm?.objects(Pulserate.self).filter("(isDeleted = false && isUpdated = false) && personId = '\((pulserate.personId)!)'").first
+                let res = realm?.objects(Pulserate.self).filter("(isUpdated = false) && personId = '\((pulserate.personId)!)'").first
                 if res != nil {
                     res?.pulserate = pulserate.pulserate;
                     res?.id = pulserate.id;
@@ -775,7 +815,7 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
             if let amh = vitals.antiMullerianHormone {
 
 
-                let res = realm?.objects(AntiMullerianHormone.self).filter("(isDeleted = false && isUpdated = false) && personId = '\((amh.personId)!)'").first
+                let res = realm?.objects(AntiMullerianHormone.self).filter("(isUpdated = false) && personId = '\((amh.personId)!)'").first
                 if res != nil {
                     res?.antiMullerianHormone = amh.antiMullerianHormone;
                     res?.id = amh.id;
@@ -791,7 +831,7 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
 
             if let TSH = vitals.thyroidStimulatingHormone {
 
-                let res = realm?.objects(ThyroidStimulatingHormone.self).filter("(isDeleted = false && isUpdated = false) && personId = '\((TSH.personId)!)'").first
+                let res = realm?.objects(ThyroidStimulatingHormone.self).filter("(isUpdated = false) && personId = '\((TSH.personId)!)'").first
                 if res != nil {
                     res?.thyroidStimulatingHormone = TSH.thyroidStimulatingHormone;
                     res?.id = TSH.id;
@@ -809,7 +849,7 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
 
 
 
-                let res = realm?.objects(Hemoglobin.self).filter("(isDeleted = false && isUpdated = false) && personId = '\((HB.personId)!)'").first
+                let res = realm?.objects(Hemoglobin.self).filter("(isUpdated = false) && personId = '\((HB.personId)!)'").first
                 if res != nil {
                     res?.hemoglobin = HB.hemoglobin;
                     res?.id = HB.id;
@@ -824,7 +864,7 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
 
             if let bp = vitals.bloodPressure {
 
-                let res = realm?.objects(BloodPressure.self).filter("(isDeleted = false && isUpdated = false) && personId = '\((bp.personId)!)'").first
+                let res = realm?.objects(BloodPressure.self).filter("(isUpdated = false) && personId = '\((bp.personId)!)'").first
                 if res != nil {
                     res?.diastolic = bp.diastolic;
                     res?.systolic = bp.systolic;
@@ -844,7 +884,7 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
             if let bloodGlucose = vitals.bloodglucose {
                 
                 
-                let res = realm?.objects(Bloodglucose.self).filter("(isDeleted = false && isUpdated = false) && personId = '\((bloodGlucose.personId)!)'").first
+                let res = realm?.objects(Bloodglucose.self).filter("(isUpdated = false) && personId = '\((bloodGlucose.personId)!)'").first
                 if res != nil {
                     res?.bloodglucose = bloodGlucose.bloodglucose;
                     res?.type = bloodGlucose.type;
@@ -865,7 +905,7 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
 
             if let lmp = vitals.lastMenstrualPeriod {
                 
-                let res = realm?.objects(LastMenstrualPeriod.self).filter("(isDeleted = false && isUpdated = false) && personId = '\((lmp.personId)!)'").first
+                let res = realm?.objects(LastMenstrualPeriod.self).filter("(isUpdated = false) && personId = '\((lmp.personId)!)'").first
                 if res != nil {
                     res?.lmp = lmp.lmp;
                     res?.id = lmp.id;
@@ -904,4 +944,40 @@ extension VCVitalsViewController: DropperDelegate {
         }
     }
 
+}
+
+extension VCVitalsViewController: UITextFieldDelegate
+{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == lUnitBloodGlucose
+        {
+            currentTextField = textField
+            arrPickerComponents = dictBloodUnit
+            picker.reloadAllComponents()
+        }
+        if textField == lUnitBloodGlucose
+        {
+            currentTextField = textField
+            arrPickerComponents = dictBloodTypes
+            picker.reloadAllComponents()
+        }
+    }
+}
+
+extension VCVitalsViewController: UIPickerViewDelegate, UIPickerViewDataSource
+{
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrPickerComponents.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrPickerComponents[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    }
 }
