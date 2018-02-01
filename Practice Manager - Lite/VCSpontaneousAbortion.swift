@@ -35,10 +35,15 @@ class VCSpontaneousAbortion: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = obType
         dateFormatter.timeZone = Calendar.current.timeZone;
         dateFormatter.locale = Calendar.current.locale;
         dateFormatter.dateFormat = "dd-MM-yyyy";
         self.bDate.setTitle(dateFormatter.string(from: Date()), for: .normal);
+        self.bDate?.layer.cornerRadius = 10.0
+        self.bDate?.layer.borderColor = UIColor.darkGray.cgColor
+        self.bDate?.layer.borderWidth = 0.5
+        self.bDate?.clipsToBounds = true
     }
 
     @IBOutlet weak var bDate: UIButton!

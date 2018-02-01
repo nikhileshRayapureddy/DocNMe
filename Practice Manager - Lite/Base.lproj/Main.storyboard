@@ -1467,7 +1467,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="mEg-NG-eZl">
-                                        <rect key="frame" x="190.66666666666669" y="302.66666666666669" width="100.00000000000006" height="32"/>
+                                        <rect key="frame" x="190.66666666666669" y="302.33333333333331" width="100.00000000000006" height="32"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <state key="normal" title="Date">
                                             <color key="titleColor" red="0.2340282081" green="0.23778864029999999" blue="0.24260390230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1477,7 +1477,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="KgV-LA-NoJ">
-                                        <rect key="frame" x="190.66666666666669" y="371.66666666666669" width="100.00000000000006" height="32"/>
+                                        <rect key="frame" x="190.66666666666669" y="371.33333333333331" width="100.00000000000006" height="32"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <state key="normal" title="Date">
                                             <color key="titleColor" red="0.2340282081" green="0.23778864029999999" blue="0.24260390230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1487,7 +1487,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="rJf-DO-Nt9">
-                                        <rect key="frame" x="190.66666666666669" y="438.66666666666663" width="100.00000000000006" height="31.999999999999943"/>
+                                        <rect key="frame" x="190.66666666666669" y="438.33333333333337" width="100.00000000000006" height="32.000000000000057"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <state key="normal" title="Date">
                                             <color key="titleColor" red="0.2340282081" green="0.23778864029999999" blue="0.24260390230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1497,7 +1497,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="HXR-JI-a2R">
-                                        <rect key="frame" x="190.66666666666669" y="507.66666666666663" width="100.00000000000006" height="32"/>
+                                        <rect key="frame" x="190.66666666666669" y="507.33333333333337" width="100.00000000000006" height="32"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <state key="normal" title="Date">
                                             <color key="titleColor" red="0.2340282081" green="0.23778864029999999" blue="0.24260390230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1507,7 +1507,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="YJK-cf-yox">
-                                        <rect key="frame" x="190.66666666666669" y="576.66666666666663" width="100.00000000000006" height="32"/>
+                                        <rect key="frame" x="190.66666666666669" y="576.33333333333337" width="100.00000000000006" height="32"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <state key="normal" title="Date">
                                             <color key="titleColor" red="0.2340282081" green="0.23778864029999999" blue="0.24260390230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2098,7 +2098,7 @@
                                                 <rect key="frame" x="8" y="346" width="398" height="35"/>
                                                 <subviews>
                                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLz-8A-Ch9">
-                                                        <rect key="frame" x="0.0" y="-366" width="398" height="114"/>
+                                                        <rect key="frame" x="0.0" y="-493" width="398" height="114"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8rz-F5-kwK" customClass="BEMCheckBox">
                                                                 <rect key="frame" x="8" y="8" width="28" height="28"/>
@@ -2197,7 +2197,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZv-Ft-rXZ">
-                                                        <rect key="frame" x="0.0" y="-239" width="398" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="-366" width="398" height="0.0"/>
                                                         <color key="backgroundColor" red="0.020795726479999999" green="0.44764315500000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Time">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2784,7 +2784,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell_medication" reuseIdentifier="cell_medication" id="XJx-hS-LfK" customClass="CellMedicationCollectionViewCell" customModule="Practice_Manager___Lite" customModuleProvider="target">
-                                        <rect key="frame" x="47.666666666666664" y="0.0" width="311" height="110"/>
+                                        <rect key="frame" x="47.5" y="0.0" width="311" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="311" height="110"/>
@@ -3239,7 +3239,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YOB-fP-jKx" id="uNz-8r-fbe">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="107.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="107.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sandeep Rana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTz-jD-DNA">
@@ -6321,10 +6321,10 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLd-e5-kAK">
                                                 <rect key="frame" x="40" y="0.0" width="358" height="30"/>
-                                                <color key="backgroundColor" red="0.12532997130000001" green="0.58141857389999996" blue="0.52919065949999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                 <state key="normal" title="Date">
-                                                    <color key="titleColor" red="0.98857564180000002" green="0.99696923869999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.12532997130000001" green="0.58141857389999996" blue="0.52919065949999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="onClickDate:" destination="BRr-5P-0Lr" eventType="touchUpInside" id="Jvm-C5-0oY"/>
@@ -6688,14 +6688,14 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMA-fm-pua">
                                 <rect key="frame" x="50" y="57" width="164" height="30"/>
-                                <color key="backgroundColor" red="0.12532997130000001" green="0.58141857389999996" blue="0.52919065949999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="164" id="blJ-Wh-oIx"/>
                                     <constraint firstAttribute="height" constant="30" id="poH-jX-LFh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <state key="normal" title="Date">
-                                    <color key="titleColor" red="0.98857564180000002" green="0.99696923869999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.12532997130000001" green="0.58141857389999996" blue="0.52919065949999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onClickDate:" destination="PDC-6s-bej" eventType="touchUpInside" id="V2u-9t-SjT"/>
