@@ -26,6 +26,71 @@ class VCMenstrualHIstory: UIViewController {
     let dateFormatter = DateFormatter();
 
     private let realm = try? Realm();
+    let picker = UIPickerView()
+    var arrPickerComponents = [String]()
+    var currentTextField = UITextField()
+
+    @IBOutlet weak var sVaginalDryness: UISwitch!
+    @IBOutlet weak var sTakingHormoneReplacement: UISwitch!
+    @IBOutlet weak var sHavePainOrPeriods: UISwitch!
+    @IBOutlet weak var sChronicConstipationOrDiarrhea: UISwitch!
+    @IBOutlet weak var sPassClots: UISwitch!
+    @IBOutlet weak var sAreThereAnyMenopausalSymptoms: UISwitch!
+    @IBOutlet weak var sAreYouTryingToGetPregnant: UISwitch!
+    @IBOutlet weak var sIsThereBloodInUrine: UISwitch!
+    @IBOutlet weak var sGetUpMultiTimesAtNightToUrinate: UISwitch!
+    @IBOutlet weak var sMissSchoolWorkMonthly: UISwitch!
+    @IBOutlet weak var sExperienceHotFlashes: UISwitch!
+    @IBOutlet weak var sFacingInfertilityIssues: UISwitch!
+    @IBOutlet weak var lAgeMensesInYears: UITextField!
+    @IBOutlet weak var lFrequencyOfPeriod: UITextField!
+    @IBOutlet weak var lDaysPeriodLasts: UITextField!
+    @IBOutlet weak var lQuantityOfFlow: UITextField!
+    @IBOutlet weak var sAreYourMensesRegular: UISwitch!
+    @IBOutlet weak var sFrequentHeadaches: UISwitch!
+    @IBOutlet weak var sSpotOrBleedBetweenPeriods: UISwitch!
+    
+    @IBOutlet weak var eMensesDetailWasItNormal: UITextField!
+    @IBOutlet weak var bLastMensesDate: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+
+    let listQualityOfFlow = ["Scanty": "scanty",
+                             "Average": "average",
+                             "Heavy": "heavy",
+                             "With Clots": "withclots"];
+    
+    let listFreqOfPeriods: Dictionary = ["Less than 20 days apart": "LT20",
+                                         "Between 20-22 days apart": "LT22",
+                                         "Between 23-25 days apart": "LT25",
+                                         "Between 26-28 days apart": "LT28",
+                                         "Between 28-30 days apart": "LT30",
+                                         "Between 30-35 days apart": "LT35",
+                                         "Between 35-40 days apart": "LT40",
+                                         "More than 40 days apart": "GT40"];
+    
+    let listDaysPeriodLasts = ["2 days": "LT02",
+                               "3 days": "LT03",
+                               "4 days": "LT04",
+                               "5 days": "LT05",
+                               "6 days": "LT06",
+                               "7 days": "LT07",
+                               "Between 7-10 days": "GT07",
+                               "More than 10 days": "GT10"];
+    
+    let listAgeAtMenses: Dictionary = ["9": "1",
+                                       "10": "2",
+                                       "11": "3",
+                                       "12": "4",
+                                       "13": "5",
+                                       "14": "6",
+                                       "15": "7",
+                                       "16": "8",
+                                       "17": "9",
+                                       "18": "10",
+                                       "19": "11"];
+    
+    let arrAgeMensus = ["9","10","11","12","13","14","15","16","17","18","19"]
+    var dropper: Dropper?;
 
     @IBAction func onSelectLastMensesDate(_ sender: UIButton) {
         DatePickerDialog().show("Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", defaultDate: Date(), minimumDate: nil, maximumDate: Date(), datePickerMode: .date) {
@@ -36,7 +101,6 @@ class VCMenstrualHIstory: UIViewController {
         }
     }
 
-    var dropper: Dropper?;
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -46,7 +110,7 @@ class VCMenstrualHIstory: UIViewController {
     @IBAction func onClickSaveButton(_ sender: UIButton) {
 
         var arrOfAttr = [BasicProfileAttributes]();
-        if let data = self.listAgeAtMenses[self.lAgeMensesInYears.text!] {
+        if let data = self.lAgeMensesInYears.text {
             let attr = BasicProfileAttributes();
             attr.setFields(name: Names.MENSESONSETAGE, value: data, personId: self.patientInfo?.id);
             arrOfAttr.append(attr);
@@ -167,80 +231,44 @@ class VCMenstrualHIstory: UIViewController {
 
     }
 
-    let listQualityOfFlow = ["- Select -": "",
-                             "Scanty": "scanty",
-                             "Average": "average",
-                             "Heavy": "heavy",
-                             "With Clots": "withclots"];
-
-    let listFreqOfPeriods: Dictionary = ["Less than 20 days apart": "LT20",
-                                         "Between 20-22 days apart": "LT22",
-                                         "Between 23-25 days apart": "LT25",
-                                         "Between 26-28 days apart": "LT28",
-                                         "Between 28-30 days apart": "LT30",
-                                         "Between 30-35 days apart": "LT35",
-                                         "Between 35-40 days apart": "LT40",
-                                         "More than 40 days apart": "GT40"];
-
-    let listDaysPeriodLasts = ["- Select -": "",
-                               "2 days": "LT02",
-                               "3 days": "LT03",
-                               "4 days": "LT04",
-                               "5 days": "LT05",
-                               "6 days": "LT06",
-                               "7 days": "LT07",
-                               "Between 7-10 days": "GT07",
-                               "More than 10 days": "GT10"];
-
-    let listAgeAtMenses: Dictionary = ["- Select -": "0",
-                                       "9": "1",
-                                       "10": "2",
-                                       "11": "3",
-                                       "12": "4",
-                                       "13": "5",
-                                       "14": "6",
-                                       "15": "7",
-                                       "16": "8",
-                                       "17": "9",
-                                       "18": "10",
-                                       "19": "11"];
-
-
     @IBAction func selectMensesInYears(_ sender: UIButton) {
-
-        self.closeDropper();
-        dropper = Dropper(width: 75, height: 250);
-        dropper?.items = Array(listAgeAtMenses.keys);
-        dropper?.delegate = self;
-        dropper?.show(Dropper.Alignment.right, button: sender);
-        tag = VCMenstrualHIstory.TYPE_MENSES_IN_YEAR;
+        lAgeMensesInYears.becomeFirstResponder()
+//        self.closeDropper();
+//        dropper = Dropper(width: 75, height: 250);
+//        dropper?.items = Array(listAgeAtMenses.keys);
+//        dropper?.delegate = self;
+//        dropper?.show(Dropper.Alignment.right, button: sender);
+//        tag = VCMenstrualHIstory.TYPE_MENSES_IN_YEAR;
     }
 
     @IBAction func selectFrequencyOfYourPeriod(_ sender: UIButton) {
-        self.closeDropper();
-        dropper = Dropper(width: 180, height: 250);
-        dropper?.items = Array(listFreqOfPeriods.keys);
-        dropper?.delegate = self;
-        dropper?.show(Dropper.Alignment.right, button: sender);
-        tag = VCMenstrualHIstory.TYPE_FREQU_OF_PERIODS;
+        lFrequencyOfPeriod.becomeFirstResponder()
+//        self.closeDropper();
+//        dropper = Dropper(width: 180, height: 250);
+//        dropper?.items = Array(listFreqOfPeriods.keys);
+//        dropper?.delegate = self;
+//        dropper?.show(Dropper.Alignment.right, button: sender);
+//        tag = VCMenstrualHIstory.TYPE_FREQU_OF_PERIODS;
     }
 
     @IBAction func selectDaysDoesPeriodLast(_ sender: UIButton) {
-        self.closeDropper();
-        dropper = Dropper(width: 180, height: 250);
-        dropper?.items = Array(listDaysPeriodLasts.keys);
-        dropper?.delegate = self;
-        dropper?.show(Dropper.Alignment.right, button: sender);
-        tag = VCMenstrualHIstory.TYPE_DAYSPERIODLASTS;
+        lDaysPeriodLasts.becomeFirstResponder()
+//        self.closeDropper();
+//        dropper = Dropper(width: 180, height: 250);
+//        dropper?.items = Array(listDaysPeriodLasts.keys);
+//        dropper?.delegate = self;
+//        dropper?.show(Dropper.Alignment.right, button: sender);
+//        tag = VCMenstrualHIstory.TYPE_DAYSPERIODLASTS;
     }
 
     @IBAction func selectQuantityOfFlow(_ sender: UIButton) {
-        self.closeDropper();
-        dropper = Dropper(width: 130, height: 250);
-        dropper?.items = Array(listQualityOfFlow.keys);
-        dropper?.delegate = self;
-        dropper?.show(Dropper.Alignment.right, button: sender);
-        tag = VCMenstrualHIstory.TYPE_QUALITY_OF_FLOW;
+        lQuantityOfFlow.becomeFirstResponder()
+//        self.closeDropper();
+//        dropper = Dropper(width: 130, height: 250);
+//        dropper?.items = Array(listQualityOfFlow.keys);
+//        dropper?.delegate = self;
+//        dropper?.show(Dropper.Alignment.right, button: sender);
+//        tag = VCMenstrualHIstory.TYPE_QUALITY_OF_FLOW;
     }
 
     func closeDropper() {
@@ -249,29 +277,6 @@ class VCMenstrualHIstory: UIViewController {
         }
     }
 
-    @IBOutlet weak var sVaginalDryness: UISwitch!
-    @IBOutlet weak var sTakingHormoneReplacement: UISwitch!
-    @IBOutlet weak var sHavePainOrPeriods: UISwitch!
-    @IBOutlet weak var sChronicConstipationOrDiarrhea: UISwitch!
-    @IBOutlet weak var sPassClots: UISwitch!
-    @IBOutlet weak var sAreThereAnyMenopausalSymptoms: UISwitch!
-    @IBOutlet weak var sAreYouTryingToGetPregnant: UISwitch!
-    @IBOutlet weak var sIsThereBloodInUrine: UISwitch!
-    @IBOutlet weak var sGetUpMultiTimesAtNightToUrinate: UISwitch!
-    @IBOutlet weak var sMissSchoolWorkMonthly: UISwitch!
-    @IBOutlet weak var sExperienceHotFlashes: UISwitch!
-    @IBOutlet weak var sFacingInfertilityIssues: UISwitch!
-    @IBOutlet weak var lAgeMensesInYears: UILabel!
-    @IBOutlet weak var lFrequencyOfPeriod: UILabel!
-    @IBOutlet weak var lDaysPeriodLasts: UILabel!
-    @IBOutlet weak var lQuantityOfFlow: UILabel!
-    @IBOutlet weak var sAreYourMensesRegular: UISwitch!
-    @IBOutlet weak var sFrequentHeadaches: UISwitch!
-    @IBOutlet weak var sSpotOrBleedBetweenPeriods: UISwitch!
-
-    @IBOutlet weak var eMensesDetailWasItNormal: UITextField!
-    @IBOutlet weak var bLastMensesDate: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
 
     var patientInfo: PersonInfoModel?;
 
@@ -291,8 +296,47 @@ class VCMenstrualHIstory: UIViewController {
         dateFormatter.dateFormat = "dd-MM-yyyy";
         dateFormatter.timeZone = Calendar.current.timeZone;
         dateFormatter.locale = Calendar.current.locale;
-
+        assignPickerForFields()
         self.apiCallGetMenstrualHistory();
+    }
+
+    func assignPickerForFields()
+    {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(sender:)))
+        let flexiSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped(sender:)))
+        
+        toolBar.items = [cancelButton,flexiSpace,flexiSpace,doneButton]
+        toolBar.tintColor = UIColor.init(red: 32.0/255.0, green: 148.0/255.0, blue: 135.0/255.0, alpha: 1.0)
+        
+        picker.delegate = self
+        picker.dataSource = self
+        lAgeMensesInYears.inputAccessoryView = toolBar
+        lAgeMensesInYears.inputView = picker
+        
+        lFrequencyOfPeriod.inputAccessoryView = toolBar
+        lDaysPeriodLasts.inputAccessoryView = toolBar
+        lQuantityOfFlow.inputAccessoryView = toolBar
+        
+        lFrequencyOfPeriod.inputView = picker
+        lDaysPeriodLasts.inputView = picker
+        lQuantityOfFlow.inputView = picker
+    }
+    
+    func doneButtonTapped(sender: UIButton)
+    {
+        currentTextField.text = arrPickerComponents[picker.selectedRow(inComponent: 0)]
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
+    }
+    
+    func cancelButtonTapped(sender: UIButton)
+    {
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
     }
 
     func apiCallGetMenstrualHistory() {
@@ -302,7 +346,9 @@ class VCMenstrualHIstory: UIViewController {
             self.pupulateData(Array(results!));
         }
 
-
+        let alert = UIAlertController(title: "Success", message: "History saved successfully", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
 //        let url = DAMUrls.urlPatientMenstrualHistory(patientInfo: self.patientInfo!);
 //        let request = ApiServices.createGetRequest(urlStr: url, parameters: []);
 //        Utility.showProgressForIndicator(self.indicator, true);
@@ -515,5 +561,53 @@ extension Dictionary {
         }
 
         return nil
+    }
+}
+
+extension VCMenstrualHIstory: UITextFieldDelegate
+{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == lAgeMensesInYears
+        {
+            currentTextField = textField
+            arrPickerComponents = arrAgeMensus
+            picker.reloadAllComponents()
+        }
+        if textField == lFrequencyOfPeriod
+        {
+            currentTextField = textField
+            arrPickerComponents = Array(listFreqOfPeriods.keys);
+            picker.reloadAllComponents()
+        }
+        if textField == lDaysPeriodLasts
+        {
+            currentTextField = textField
+            arrPickerComponents = Array(listDaysPeriodLasts.keys);
+            picker.reloadAllComponents()
+        }
+        if textField == lQuantityOfFlow
+        {
+            currentTextField = textField
+            arrPickerComponents = Array(listQualityOfFlow.keys)
+            picker.reloadAllComponents()
+        }
+    }
+}
+
+extension VCMenstrualHIstory: UIPickerViewDelegate, UIPickerViewDataSource
+{
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrPickerComponents.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrPickerComponents[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     }
 }
