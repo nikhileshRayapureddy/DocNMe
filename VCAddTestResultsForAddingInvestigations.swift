@@ -104,6 +104,7 @@ class VCAddTestResultsForAddingInvestigations: UIViewController, UITableViewDele
         super.viewDidLoad()
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
+        self.title = "Add Investigation"
     }
 
 
