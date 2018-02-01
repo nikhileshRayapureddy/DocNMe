@@ -144,6 +144,10 @@ class VCGynecHistory: UIViewController {
 //            sender.setTitle("Save", for: .normal);
 //        }
 
+        let alert = UIAlertController(title: "Success", message: "History saved successfully", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+
 
     }
 
