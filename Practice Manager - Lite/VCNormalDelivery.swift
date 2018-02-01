@@ -216,13 +216,17 @@ class VCNormalDelivery: UIViewController, UICollectionViewDelegate, UICollection
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = pregnancyType
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
         self.dateFormatter.timeZone = Calendar.current.timeZone;
         self.dateFormatter.locale = Calendar.current.locale;
         self.dateFormatter.dateFormat = "dd-MM-yyyy";
         self.arr.append(Childs());
-
+        self.bGestationalDate?.layer.cornerRadius = 10.0
+        self.bGestationalDate?.layer.borderColor = UIColor.darkGray.cgColor
+        self.bGestationalDate?.layer.borderWidth = 0.5
+        self.bGestationalDate?.clipsToBounds = true
         self.bGestationalDate?.setTitle(self.dateFormatter.string(from: Date()), for: .normal);
     }
 

@@ -98,6 +98,7 @@ class VCPregnancyHistoryViewController: UIViewController, UICollectionViewDataSo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Pregnancy History"
         collectionView?.delegate = self;
         collectionView?.dataSource = self;
         self.callApiGetPregnancyMembersList();
