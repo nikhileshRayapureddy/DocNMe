@@ -145,9 +145,7 @@ class ApiServices {
         let url = URL(string: urlString)!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
-        let boundary = NSString(format: "---------------------------14737809831466499882746641449")
-        let contentType = NSString(format: "multipart/form-data; boundary=%@",boundary)
-        urlRequest.addValue(contentType as String, forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue(
             "Bearer " + UserPrefUtil.getAccessToken(),
             forHTTPHeaderField: "Authorization")

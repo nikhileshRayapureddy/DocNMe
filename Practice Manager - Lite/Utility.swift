@@ -70,8 +70,17 @@ class Utility {
 
     class func calculateGestAge(_ timeInMillis: Int64) -> String? {
         if timeInMillis > 0 {
-            let curDate = Int64(Date().timeIntervalSince1970 * 1000.0)
-            let days = ((timeInMillis - curDate)/(1000 * 60 * 60 * 24))
+            let date = Date();
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .medium
+            dateFormatter.timeZone = TimeZone.current
+            let localDate = dateFormatter.string(from: date)
+            let curDate1 = dateFormatter.date(from: localDate)?.addingTimeInterval((5 * 60) + 30)
+            let curDate = Int64((curDate1?.timeIntervalSince1970)! * 1000.0)
+            
+            let result = curDate - (timeInMillis - (40 * 7 * 24 * 60 * 60 * 1000))
+            let days = ((result)/(1000 * 60 * 60 * 24))
             let strTime = "\(days / 7)W \(days % 7)D";
             return strTime;
         } else {

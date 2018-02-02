@@ -569,7 +569,7 @@ extension VCEditPatientsBasicInfo: DropperDelegate, UIImagePickerControllerDeleg
         let image: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage;
         self.iProfileAvatar.contentMode = .scaleAspectFit;
         self.iProfileAvatar.image = image;
-//        uploadImage(image: image)
+        uploadImage(image: image)
         picker.dismiss(animated: true);
 //        dismiss(animated: true);
     }
@@ -580,7 +580,14 @@ extension VCEditPatientsBasicInfo: DropperDelegate, UIImagePickerControllerDeleg
         let strBase64 = imageData?.base64EncodedString(options: .lineLength64Characters)
         
         let url = DAMUrls.urlUploadImage()
-        let request = ApiServices.createUploadImageRequest(urlString: url, andParameter: ["id":"123", "personId":personInfo?.id, "type":"image","uploadtime":"30/01/2018","content":strBase64, "mimetype": "image/png"])
+        let dict = NSMutableDictionary()
+        dict.setValue("", forKey: "id")
+        dict.setValue(personInfo?.id, forKey: "personId")
+        dict.setValue("profileImage", forKey: "type")
+        dict.setValue("30/01/2018", forKey: "uploadtime")
+        dict.setValue(strBase64, forKey: "Content")
+        dict.setValue("image/png", forKey: "mimetype")
+        let request = ApiServices.createUploadImageRequest(urlString: url, andParameter: ["filedetail": dict])
         AlamofireManager.Manager.request(request).responseArray {
             (response: DataResponse<[Patient]>) in
             DispatchQueue.main.async {
