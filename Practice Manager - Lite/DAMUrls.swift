@@ -12,8 +12,8 @@ public class DAMUrls {
     struct URLs {
 //        static let baseUrl = "http://139.59.42.79:8080/server/webapi/";
 //        static let baseUrl = "https://api.docnme.com/server/webapi/";
-        static let baseUrl = "https://api-dev.docnme.com/server/webapi/";
-
+//        static let baseUrl = "https://api-dev.docnme.com/server/webapi/";
+        static let baseUrl = "https://api-demo.docnme.com/server/webapi/"
     }
 
 
@@ -283,6 +283,11 @@ public class DAMUrls {
     class func urlUploadImage() -> String
     {
         return URLs.baseUrl + "person/mobile/uploadimage";
+    }
+    
+    class func urlGetAppointments() -> String
+    {
+        return URLs.baseUrl + "appointments/clinic/" + (UserPrefUtil.getClinicResponse()?.clinic!.id)!
     }
 }
 
