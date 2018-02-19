@@ -14,7 +14,7 @@ import RealmSwift
 let ScreenWidth =  UIScreen.main.bounds.size.width
 let ScreenHeight = UIScreen.main.bounds.size.height
 let app_delegate =  UIApplication.shared.delegate as! AppDelegate
-
+var loggedInDoctor = DoctorModel()
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, OnSynchronizerStateChanged {
 

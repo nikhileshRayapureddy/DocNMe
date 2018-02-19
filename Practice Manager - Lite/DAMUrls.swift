@@ -289,6 +289,11 @@ public class DAMUrls {
     {
         return URLs.baseUrl + "appointments/clinic/" + (UserPrefUtil.getClinicResponse()?.clinic!.id)!
     }
+    
+    class func getProfileImageUrlForId(_ id: String) -> String
+    {
+        return URLs.baseUrl + "records/userimage/" + id + "_userimage/data?base64=true";
+    }
 }
 
 

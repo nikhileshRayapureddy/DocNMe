@@ -102,6 +102,12 @@ class LoginViewController: UIViewController {
                             //                  Saving clinic details
                             
                             let clin: ClinicDetailResponse = response.result.value!;
+                            let doctor = DoctorModel()
+                            doctor.id = clin.clinic?.id
+                            doctor.name = clin.clinic?.name
+                            doctor.email = clin.clinic?.email
+                            doctor.phonenumber = clin.clinic?.phone
+                            loggedInDoctor = doctor
                             UserDefaults.standard.setValue(response.result.value?.toJSONString(), forKey: Names.CLINIC_RESPONSE);
                             
                             if (Utility.needToOpenFill(clin)) {
