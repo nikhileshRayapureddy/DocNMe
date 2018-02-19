@@ -28,10 +28,16 @@ class VCHomeScreen: UIViewController {
 
     @IBAction func onClickAppointment(_ sender: Any) {
 //        performSegue(withIdentifier: Names.Segues.DOCTORS_LIST, sender: self);
-        let vc = self.storyboard?.instantiateViewController(
-                withIdentifier: Names.VContIdentifiers.VC_DOCTORSLISTCOLLECTIONVIEW) as! VCDoctorsListofClinicCollectionView;
-        vc.onDoctorClickedDelegate = self;
-        self.navigationController?.pushViewController(vc, animated: true);
+        
+        let calViewController: VCDoctorsEventCalendar = self.storyboard!.instantiateViewController(
+            withIdentifier: Names.VContIdentifiers.CALENDAR_VIEW) as! VCDoctorsEventCalendar;
+        calViewController.doctor = loggedInDoctor;
+        self.navigationController?.pushViewController(calViewController, animated: true);
+
+//        let vc = self.storyboard?.instantiateViewController(
+//                withIdentifier: Names.VContIdentifiers.VC_DOCTORSLISTCOLLECTIONVIEW) as! VCDoctorsListofClinicCollectionView;
+//        vc.onDoctorClickedDelegate = self;
+//        self.navigationController?.pushViewController(vc, animated: true);
 
 
     }

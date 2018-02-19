@@ -151,7 +151,7 @@ class ApiServices {
             forHTTPHeaderField: "Authorization")
 
         urlRequest.cachePolicy = .reloadIgnoringCacheData;
-        
+//        print(parameters)
         do {
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
             
