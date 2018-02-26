@@ -39,6 +39,7 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         calendarView.scrollToDate(Date());
         formatterTime.timeZone = Calendar.current.timeZone;
         formatterTime.locale = Calendar.current.locale;
@@ -180,7 +181,7 @@ extension VCDoctorsEventCalendar: JTAppleCalendarViewDelegate, JTAppleCalendarVi
         formatter.locale = Calendar.current.locale;
 
         let startDate = formatter.date(from: "01012016");
-        let endDate = formatter.date(from: "01012018");
+        let endDate = formatter.date(from: "01012020");
         let parameters = ConfigurationParameters(startDate: startDate!, endDate: endDate!)
         return parameters;
     }
