@@ -283,191 +283,196 @@ class VCVitalsViewController: UIViewController, IndicatorInfoProvider {
         self.onClickSaveButtonOffline(sender);
 
 
-//        if (data != nil ) {
-////            Height
-//            if (isValidField(view: self.eHeight)) {
-//                if (data?.height == nil) {
-//                    let heightDict: Height = Height();
-//                    heightDict.height = Int64(self.eHeight.text!);
-//                    heightDict.personId = patientInfo?.id;
-//                    heightDict.measuredTime = self.dateFormatter?.date(from: (bHeightDate.titleLabel?.text!)!)?.millisecondsSince1970;
-//                    heightDict.visitId = "";
-//                    self.data?.height = heightDict;
-//                } else {
-//                    data?.height?.height = Int64(self.eHeight.text!);
-//                    data?.height?.personId = patientInfo?.id;
-//                    data?.height?.measuredTime = self.dateFormatter?.date(from: (bHeightDate.titleLabel?.text!)!)?.millisecondsSince1970;
-//                }
-//            }
-////            Weight
-//            if (isValidField(view: self.eWeight)) {
-//                if (self.data?.weight == nil) {
-//                    let weightDict: Weight = Weight();
-//                    weightDict.weight = Int(self.eWeight.text!);
-//                    weightDict.personId = patientInfo?.id;
-//                    weightDict.measuredTime = self.dateFormatter?.date(from: (bWeightDate.titleLabel?.text!)!)?.millisecondsSince1970;
-//                    weightDict.visitId = "";
-//                    self.data?.weight = weightDict;
-//                } else {
-//                    data?.weight?.weight = Int(self.eWeight.text!);
-//                    data?.weight?.personId = patientInfo?.id;
-//                    data?.weight?.measuredTime = self.dateFormatter?.date(from: (bHeightDate.titleLabel?.text!)!)?.millisecondsSince1970;
-//                }
-//            }
-////          Temperature
-//            if (isValidField(view: self.eTemperature)) {
-//                if (self.data?.temperature == nil) {
-//                    let tempDict:
-//                            Temperature = Temperature();
-//                    tempDict.setFields(temperature: Int(self.eTemperature.text!), measuredTime: dateFormatter?.date(from: (bTemperatureDate.titleLabel?.text)!)?.millisecondsSince1970, visitId: "", personId: self.patientInfo?.id);
-//                    self.data?.temperature = tempDict;
-//                } else {
-//                    data?.temperature?.setFields(temperature: Int(self.eTemperature.text!), measuredTime: dateFormatter?.date(from: (bTemperatureDate.titleLabel?.text!)!)?.millisecondsSince1970, visitId: self.data?.temperature?.visitId, personId: self.patientInfo?.id);
-//                }
-//            }
-////          PulseRate
-//
-//            if (isValidField(view: self.ePulseRate)) {
-//                if (self.data?.pulserate == nil) {
-//                    let pulseRate: Pulserate = Pulserate();
-//                    pulseRate.setFields(pulserate: Int(self.ePulseRate.text!), measuredTime: self.dateFormatter?.date(from: (self.bPulseRateDate.titleLabel?.text!)!)?.millisecondsSince1970, visitId: "", personId: self.patientInfo?.id)
-//                    self.data?.pulserate = pulseRate;
-//                } else {
-//                    self.data?.pulserate?.setFields(pulserate: Int(self.ePulseRate.text!), measuredTime: self.dateFormatter?.date(from: (self.bPulseRateDate.titleLabel?.text!)!)?.millisecondsSince1970, visitId: self.data?.pulserate?.visitId, personId: self.patientInfo?.id)
-//                }
-//            }
-////            BloodPressure
-//            if (isValidField(view: self.eBPUpperDenominator) && isValidField(view: eBPUpperDenominator)) {
-//                if (self.data?.bloodPressure == nil) {
-//                    let bloodPressuer = BloodPressure();
-//                    bloodPressuer.setField(diastolic: Int(self.eBPUpperDenominator.text!), systolic: Int(self.eBPRightNumrator.text!), measuredTime: self.dateFormatter?.date(from: (bBloodPressureDate.titleLabel?.text!)!)?.millisecondsSince1970, visitId: "", personId: patientInfo?.id);
-//                    self.data?.bloodPressure = bloodPressuer;
-//                } else {
-//                    self.data?.bloodPressure?.setField(diastolic: Int(self.eBPUpperDenominator.text!), systolic: Int(self.eBPRightNumrator.text!), measuredTime: self.dateFormatter?.date(from: (bBloodPressureDate.titleLabel?.text!)!)?.millisecondsSince1970, visitId: "", personId: patientInfo?.id);
-//                }
-//            } else {
-////                In case of invalid entry
-//            }
-//
-////            LastMenstrualPeriod (LMP)
-//            if (self.bLMPDate.titleLabel?.text != "Date" && isValidButton(view: self.bLMPDate)) {
-//                if (self.data?.lastMenstrualPeriod == nil) {
-//                    let lmp = LastMenstrualPeriod();
-//                    let time = self.dateFormatter?.date(from: (self.bLMPDate.titleLabel?.text!)!)?.millisecondsSince1970;
-//                    lmp.setField(lmp: time!,
-//                            measuredTime: time!,
-//                            visitId: "",
-//                            personId: (self.patientInfo?.id)!
-//                    );
-//                    self.data?.lastMenstrualPeriod = lmp;
-//                } else {
-//                    let time = self.dateFormatter?.date(from: (self.bLMPDate.titleLabel?.text!)!)?.millisecondsSince1970;
-//                    self.data?.lastMenstrualPeriod?.setField(lmp: time!,
-//                            measuredTime: time!,
-//                            visitId: "",
-//                            personId: (self.patientInfo?.id)!
-//                    );
-//                }
-//            }
-////            Blood Glucose
-//
-//            if (isValidField(view: self.eBloodGlucose)) {
-//                if (self.data?.bloodglucose == nil) {
-//                    let bloodGlucose = Bloodglucose();
-//                    bloodGlucose.setField(type: lTypeBloodGlucose.text!, measuredTime:
-//                    (dateFormatter?.date(from: (self.bBloodGlucoseDate.titleLabel?.text!)!)?.millisecondsSince1970)!,
-//                            visitId: "", personId: (self.patientInfo?.id)!,
-//                            bloodglucose: Int(eBloodGlucose.text!)!,
-//                            unit: lUnitBloodGlucose.text!);
-//                    self.data?.bloodglucose = bloodGlucose;
-//                } else {
-//                    self.data?.bloodglucose?.setField(type: lTypeBloodGlucose.text!,
-//                            measuredTime: (dateFormatter?.date(
-//                                    from: (self.bBloodGlucoseDate.titleLabel?.text)!)?.millisecondsSince1970)!,
-//                            visitId: "",
-//                            personId: (self.patientInfo?.id)!,
-//                            bloodglucose: Int(eBloodGlucose.text!)!,
-//                            unit: lUnitBloodGlucose.text!);
-//                }
-//            }
-//
-////            AMH
-//            if (isValidField(view: eAmh)) {
-//                if (self.data?.antiMullerianHormone == nil) {
-//                    let amh = AntiMullerianHormone();
-//                    amh.setField(
-//                            antiMullerianHormone: Int(self.eAmh.text!)!,
-//                            measuredTime: (self.dateFormatter!.date(
-//                                    from: self.bAMSDate.titleLabel!.text!)?.millisecondsSince1970)!,
-//                            visitId: "",
-//                            personId: (self.patientInfo?.id)!);
-//                    self.data?.antiMullerianHormone = amh;
-//                } else {
-//                    self.data?.antiMullerianHormone?.setField(
-//                            antiMullerianHormone: Int(self.eAmh.text!)!,
-//                            measuredTime: (self.dateFormatter!.date(
-//                                    from: self.bAMSDate.titleLabel!.text!)?.millisecondsSince1970)!,
-//                            visitId: "",
-//                            personId: (self.patientInfo?.id)!);
-//                }
-//            }
-//
-////            TSH
-//            if (isValidField(view: self.eTSH)) {
-//                if (self.data?.thyroidStimulatingHormone == nil) {
-//                    let tsh = ThyroidStimulatingHormone();
-//                    tsh.setfield(
-//                            thyroidStimulatingHormone: Int(self.eTSH.text!),
-//                            measuredTime: self.dateFormatter?.date(
-//                                    from: (self.bTSHDate.titleLabel?.text!)!)?.millisecondsSince1970,
-//                            visitId: "",
-//                            personId: self.patientInfo?.id!);
-//                    self.data?.thyroidStimulatingHormone = tsh;
-//                } else {
-//                    self.data?.thyroidStimulatingHormone?.setfield(
-//                            thyroidStimulatingHormone: Int(self.eTSH.text!),
-//                            measuredTime: self.dateFormatter?.date(
-//                                    from: (self.bTSHDate.titleLabel?.text!)!)?.millisecondsSince1970,
-//                            visitId: "",
-//                            personId: self.patientInfo?.id!);
-//                }
-//            }
-//
-////            HB
-//            if (isValidField(view: self.eHb)) {
-//                if ((self.data?.hemoglobin) != nil) {
-//                    let hb = Hemoglobin();
-//                    hb.setField(hemoglobin: Int(eHb.text!),
-//                            measuredTime: self.dateFormatter?.date(from: (self.bHBDate.titleLabel?.text!)!)?
-//                                    .millisecondsSince1970, visitId: "",
-//                            personId: self.patientInfo?.id!)
-//                    self.data?.hemoglobin = hb;
-//                } else {
-//                    self.data?.hemoglobin?.setField(hemoglobin: Int(eHb.text!),
-//                            measuredTime: self.dateFormatter?.date(from: (self.bHBDate.titleLabel?.text!)!)?
-//                                    .millisecondsSince1970, visitId: "",
-//                            personId: self.patientInfo?.id!)
-//                }
-//            }
-//
-//
-//            let dict = self.data?.toJSON();
-////            dict?[Names.PERSONID] = self.patientInfo?.id;
-//
-//            self.bSave.isEnabled = false;
-//            self.bSave.setTitle("Saving...", for: .normal);
-//            let url = DAMUrls.urlPatientVitalsUpdate();
-//
-////            URLCache.shared.removeAllCachedResponses()
-//            let request = ApiServices.createPostRequest(urlStr: url, parameters: dict);
-//            AlamofireManager.Manager.request(request).responseString {
-//                response in
-//                self.bSave.isEnabled = true;
-//                self.bSave.setTitle("Save", for: .normal);
-//
-//                print(response.result.value)
-//            }
-//        }
+        if (data != nil ) {
+//            Height
+            if (isValidField(view: self.eHeight)) {
+                if (data?.height == nil) {
+                    let heightDict: Height = Height();
+                    heightDict.height = Int64(self.eHeight.text!)!;
+                    heightDict.personId = patientInfo?.id;
+                    heightDict.measuredTime = (self.dateFormatter?.date(from: (bHeightDate.titleLabel?.text!)!)?.millisecondsSince1970)!;
+                    heightDict.visitId = "";
+                    self.data?.height = heightDict;
+                } else {
+                    data?.height?.height = Int64(self.eHeight.text!)!;
+                    data?.height?.personId = patientInfo?.id;
+                    data?.height?.measuredTime = (self.dateFormatter?.date(from: (bHeightDate.titleLabel?.text!)!)?.millisecondsSince1970)!;
+                }
+            }
+//            Weight
+            if (isValidField(view: self.eWeight)) {
+                if (self.data?.weight == nil) {
+                    let weightDict: Weight = Weight();
+                    weightDict.weight = Int(self.eWeight.text!)!;
+                    weightDict.personId = patientInfo?.id;
+                    weightDict.measuredTime = (self.dateFormatter?.date(from: (bWeightDate.titleLabel?.text!)!)?.millisecondsSince1970)!;
+                    weightDict.visitId = "";
+                    self.data?.weight = weightDict;
+                } else {
+                    data?.weight?.weight = Int(self.eWeight.text!)!;
+                    data?.weight?.personId = patientInfo?.id;
+                    data?.weight?.measuredTime = (self.dateFormatter?.date(from: (bHeightDate.titleLabel?.text!)!)?.millisecondsSince1970)!;
+                }
+            }
+//          Temperature
+            if (isValidField(view: self.eTemperature)) {
+                if (self.data?.temperature == nil) {
+                    let tempDict:
+                            Temperature = Temperature();
+                    tempDict.setFields(temperature: Int(self.eTemperature.text!), measuredTime: dateFormatter?.date(from: (bTemperatureDate.titleLabel?.text)!)?.millisecondsSince1970, visitId: "", personId: self.patientInfo?.id);
+                    self.data?.temperature = tempDict;
+                } else {
+                    data?.temperature?.setFields(temperature: Int(self.eTemperature.text!), measuredTime: dateFormatter?.date(from: (bTemperatureDate.titleLabel?.text!)!)?.millisecondsSince1970, visitId: self.data?.temperature?.visitId, personId: self.patientInfo?.id);
+                }
+            }
+//          PulseRate
+
+            if (isValidField(view: self.ePulseRate)) {
+                if (self.data?.pulserate == nil) {
+                    let pulseRate: Pulserate = Pulserate();
+                    pulseRate.setFields(pulserate: Int(self.ePulseRate.text!), measuredTime: self.dateFormatter?.date(from: (self.bPulseRateDate.titleLabel?.text!)!)?.millisecondsSince1970, visitId: "", personId: self.patientInfo?.id)
+                    self.data?.pulserate = pulseRate;
+                } else {
+                    self.data?.pulserate?.setFields(pulserate: Int(self.ePulseRate.text!), measuredTime: self.dateFormatter?.date(from: (self.bPulseRateDate.titleLabel?.text!)!)?.millisecondsSince1970, visitId: self.data?.pulserate?.visitId, personId: self.patientInfo?.id)
+                }
+            }
+//            BloodPressure
+            if (isValidField(view: self.eBPUpperDenominator) && isValidField(view: eBPUpperDenominator)) {
+                if (self.data?.bloodPressure == nil) {
+                    let bloodPressuer = BloodPressure();
+                    bloodPressuer.setField(diastolic: Int(self.eBPUpperDenominator.text!), systolic: Int(self.eBPRightNumrator.text!), measuredTime: self.dateFormatter?.date(from: (bBloodPressureDate.titleLabel?.text!)!)?.millisecondsSince1970, visitId: "", personId: patientInfo?.id);
+                    self.data?.bloodPressure = bloodPressuer;
+                } else {
+                    self.data?.bloodPressure?.setField(diastolic: Int(self.eBPUpperDenominator.text!), systolic: Int(self.eBPRightNumrator.text!), measuredTime: self.dateFormatter?.date(from: (bBloodPressureDate.titleLabel?.text!)!)?.millisecondsSince1970, visitId: "", personId: patientInfo?.id);
+                }
+            } else {
+//                In case of invalid entry
+            }
+
+//            LastMenstrualPeriod (LMP)
+            if (self.bLMPDate.titleLabel?.text != "Date" && isValidButton(view: self.bLMPDate)) {
+                if (self.data?.lastMenstrualPeriod == nil) {
+                    let lmp = LastMenstrualPeriod();
+                    let time = self.dateFormatter?.date(from: (self.bLMPDate.titleLabel?.text!)!)?.millisecondsSince1970;
+                    lmp.setField(lmp: time!,
+                            measuredTime: time!,
+                            visitId: "",
+                            personId: (self.patientInfo?.id)!
+                    );
+                    self.data?.lastMenstrualPeriod = lmp;
+                } else {
+                    let time = self.dateFormatter?.date(from: (self.bLMPDate.titleLabel?.text!)!)?.millisecondsSince1970;
+                    self.data?.lastMenstrualPeriod?.setField(lmp: time!,
+                            measuredTime: time!,
+                            visitId: "",
+                            personId: (self.patientInfo?.id)!
+                    );
+                }
+            }
+//            Blood Glucose
+
+            if (isValidField(view: self.eBloodGlucose)) {
+                if (self.data?.bloodglucose == nil) {
+                    let bloodGlucose = Bloodglucose();
+                    bloodGlucose.setField(type: lTypeBloodGlucose.text!, measuredTime:
+                    (dateFormatter?.date(from: (self.bBloodGlucoseDate.titleLabel?.text!)!)?.millisecondsSince1970)!,
+                            visitId: "", personId: (self.patientInfo?.id)!,
+                            bloodglucose: Int(eBloodGlucose.text!)!,
+                            unit: lUnitBloodGlucose.text!);
+                    self.data?.bloodglucose = bloodGlucose;
+                } else {
+                    self.data?.bloodglucose?.setField(type: lTypeBloodGlucose.text!,
+                            measuredTime: (dateFormatter?.date(
+                                    from: (self.bBloodGlucoseDate.titleLabel?.text)!)?.millisecondsSince1970)!,
+                            visitId: "",
+                            personId: (self.patientInfo?.id)!,
+                            bloodglucose: Int(eBloodGlucose.text!)!,
+                            unit: lUnitBloodGlucose.text!);
+                }
+            }
+
+//            AMH
+            if (isValidField(view: eAmh)) {
+                if (self.data?.antiMullerianHormone == nil) {
+                    let amh = AntiMullerianHormone();
+                    amh.setField(
+                            antiMullerianHormone: Int(self.eAmh.text!)!,
+                            measuredTime: (self.dateFormatter!.date(
+                                    from: self.bAMSDate.titleLabel!.text!)?.millisecondsSince1970)!,
+                            visitId: "",
+                            personId: (self.patientInfo?.id)!);
+                    self.data?.antiMullerianHormone = amh;
+                } else {
+                    self.data?.antiMullerianHormone?.setField(
+                            antiMullerianHormone: Int(self.eAmh.text!)!,
+                            measuredTime: (self.dateFormatter!.date(
+                                    from: self.bAMSDate.titleLabel!.text!)?.millisecondsSince1970)!,
+                            visitId: "",
+                            personId: (self.patientInfo?.id)!);
+                }
+            }
+
+//            TSH
+            if (isValidField(view: self.eTSH)) {
+                if (self.data?.thyroidStimulatingHormone == nil) {
+                    let tsh = ThyroidStimulatingHormone();
+                    tsh.setfield(
+                            thyroidStimulatingHormone: Int(self.eTSH.text!),
+                            measuredTime: self.dateFormatter?.date(
+                                    from: (self.bTSHDate.titleLabel?.text!)!)?.millisecondsSince1970,
+                            visitId: "",
+                            personId: self.patientInfo?.id!);
+                    self.data?.thyroidStimulatingHormone = tsh;
+                } else {
+                    self.data?.thyroidStimulatingHormone?.setfield(
+                            thyroidStimulatingHormone: Int(self.eTSH.text!),
+                            measuredTime: self.dateFormatter?.date(
+                                    from: (self.bTSHDate.titleLabel?.text!)!)?.millisecondsSince1970,
+                            visitId: "",
+                            personId: self.patientInfo?.id!);
+                }
+            }
+
+//            HB
+            if (isValidField(view: self.eHb)) {
+                if ((self.data?.hemoglobin) != nil) {
+                    let hb = Hemoglobin();
+                    hb.setField(hemoglobin: Int(eHb.text!),
+                            measuredTime: self.dateFormatter?.date(from: (self.bHBDate.titleLabel?.text!)!)?
+                                    .millisecondsSince1970, visitId: "",
+                            personId: self.patientInfo?.id!)
+                    self.data?.hemoglobin = hb;
+                } else {
+                    self.data?.hemoglobin?.setField(hemoglobin: Int(eHb.text!),
+                            measuredTime: self.dateFormatter?.date(from: (self.bHBDate.titleLabel?.text!)!)?
+                                    .millisecondsSince1970, visitId: "",
+                            personId: self.patientInfo?.id!)
+                }
+            }
+
+
+            let dict = self.data?.toJSON();
+//            dict?[Names.PERSONID] = self.patientInfo?.id;
+
+            self.bSave.isEnabled = false;
+            self.bSave.setTitle("Saving...", for: .normal);
+            let url = DAMUrls.urlPatientVitalsUpdate();
+
+//            URLCache.shared.removeAllCachedResponses()
+            let request = ApiServices.createPostRequest(urlStr: url, parameters: dict);
+            AlamofireManager.Manager.request(request).responseString {
+                response in
+                DispatchQueue.main.async {
+
+                let alert = UIAlertController(title: "Success!"
+                    , message: "Vitals Saved successfully.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+
+                print(response.result.value)
+                }
+            }
+        }
     }
 
     @IBOutlet weak var eHeight: UITextField!

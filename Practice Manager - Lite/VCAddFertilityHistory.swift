@@ -13,7 +13,7 @@ import RealmSwift
 import Toaster
 
 class VCAddFertilityHistory: UIViewController {
-    var dateFormatter: DateFormatter?;
+    var dateFormatter = DateFormatter()
 
 
 
@@ -33,7 +33,9 @@ class VCAddFertilityHistory: UIViewController {
 
     private var dropper: Dropper?;
 
-
+    @IBOutlet weak var btnDateFrom: UIButton!
+    
+    @IBOutlet weak var btnDateTo: UIButton!
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         Utility.hideDropper(self.dropper);
@@ -43,7 +45,8 @@ class VCAddFertilityHistory: UIViewController {
         DatePickerDialog().show("Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", defaultDate: Date(), minimumDate: nil, maximumDate: Date(), datePickerMode: .date) {
             (date) -> Void in
             if (date != nil) {
-                sender.setTitle(self.dateFormatter?.string(from: date!), for: .normal);
+                self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+                sender.setTitle(self.dateFormatter.string(from: date!), for: .normal);
             }
         }
     }
@@ -68,9 +71,9 @@ class VCAddFertilityHistory: UIViewController {
             }
         
         history.treatmentType = self.lTreatmentName.text;
-        let dateToInt64:Int64 = (self.dateFormatter?.date(from: (bDateTo.titleLabel?.text)!)?.millisecondsSince1970)!;
+            let dateToInt64:Int64 = (self.dateFormatter.date(from: (bDateTo.titleLabel?.text)!)?.millisecondsSince1970)!;
         history.dateTo = dateToInt64 ;
-        let dateFromInt64:Int64 = (self.dateFormatter?.date(from: (bDateFrom.titleLabel?.text)!)?.millisecondsSince1970)!;
+            let dateFromInt64:Int64 = (self.dateFormatter.date(from: (bDateFrom.titleLabel?.text)!)?.millisecondsSince1970)!;
         history.dateFrom = dateFromInt64;
         history.note = self.eNote.text;
         history.patientPersonId = self.patientInfo?.id;
@@ -131,7 +134,12 @@ class VCAddFertilityHistory: UIViewController {
 //        let date = Date();
 //        self.bDateFrom.setTitle(dateFormatter?.string(from: date), for: .normal);
 //        self.bDateTo.setTitle(dateFormatter?.string(from: date), for: .normal);
-        
+        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        self.dateFormatter.dateFormat = "dd/MM/yyyy"
+
+        btnDateFrom.setTitle(self.dateFormatter.string(from: Date()), for: .normal);
+        btnDateTo.setTitle(self.dateFormatter.string(from: Date()), for: .normal);
+
     }
 
 

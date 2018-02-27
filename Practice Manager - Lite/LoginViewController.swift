@@ -108,6 +108,10 @@ class LoginViewController: UIViewController {
                             doctor.email = clin.clinic?.email
                             doctor.phonenumber = clin.clinic?.phone
                             loggedInDoctor = doctor
+                            
+                            UserDefaults.standard.setValue(loggedInDoctor.toJSONString(), forKey: Names.DOCTOR_DATA);
+                            UserDefaults.standard.synchronize()
+
                             UserDefaults.standard.setValue(response.result.value?.toJSONString(), forKey: Names.CLINIC_RESPONSE);
                             
                             if (Utility.needToOpenFill(clin)) {

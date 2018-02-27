@@ -27,6 +27,10 @@ class VCRecords: UIViewController, OnRecordAddedDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad();
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         dateFormatter.timeZone = Calendar.current.timeZone;
         dateFormatter.locale = Calendar.current.locale;
         dateFormatter.dateFormat = "dd MMM yyyy";
@@ -34,7 +38,6 @@ class VCRecords: UIViewController, OnRecordAddedDelegate {
         self.collectionView?.delegate = self;
         self.collectionView?.dataSource = self;
     }
-
 
     @IBAction func onClickSelectRecordDate(_ sender: UIButton) {
         let vcAddRecords = self.storyboard?.instantiateViewController(withIdentifier: Names.VContIdentifiers.VC_ADDRECORDS) as! VCAddRecords;

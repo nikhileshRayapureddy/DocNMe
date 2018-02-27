@@ -39,7 +39,6 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         calendarView.scrollToDate(Date());
         formatterTime.timeZone = Calendar.current.timeZone;
         formatterTime.locale = Calendar.current.locale;
@@ -51,10 +50,27 @@ class VCDoctorsEventCalendar: UIViewController, OnAppointmentDelegateRescheduled
         tableview_appointment.delegate = self;
         
         print("on load");
-        self.apiGetAppointmentsForADoctor(doctor: doctor);
+        
+        let doctorData = UserDefaults.standard.object(forKey: Names.DOCTOR_DATA)
+        self.doctor = DoctorModel(JSONString: doctorData as! String)
+
         
         if self.doctor != nil {
             self.title = self.doctor?.name;
+            self.apiGetAppointmentsForADoctor(doctor: doctor);
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Alert!"
+                , message: "Doctor Data not avaialable.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {
+                action in
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+
         }
         
 
