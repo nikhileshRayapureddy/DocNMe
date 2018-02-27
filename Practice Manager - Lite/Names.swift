@@ -167,6 +167,7 @@ class Names {
     }
 
     static let CLINIC_RESPONSE = "clinic_response";
+    static let DOCTOR_DATA = "DoctorData";
 
     class StatusMarriage {
         static let MARRIED: Int = 1;

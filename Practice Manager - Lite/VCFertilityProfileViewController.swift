@@ -301,13 +301,20 @@ class VCFertilityProfileViewController: UIViewController {
         }
 
 
-//        let url = DAMUrls.urlPatientUpdateProfile();
-//        let request = ApiServices.createPostRequest(urlStr: url,
-//                parameters: [Names.PERSON_ATTRIBUTES: arrOfAttributes]);
-//        AlamofireManager.Manager.request(request).responseString {
-//            response in
-//            print(response.result.value);
-//        }
+        let url = DAMUrls.urlPatientUpdateProfile();
+        let request = ApiServices.createPostRequest(urlStr: url,
+                parameters: [Names.PERSON_ATTRIBUTES: arrOfAttributes]);
+        AlamofireManager.Manager.request(request).responseString {
+            response in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Success!"
+                    , message: "Fertility Saved successfully.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+
+            }
+            print(response.result.value);
+        }
 
 
     }

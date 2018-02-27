@@ -57,12 +57,15 @@ class VCFertilityHistory: UIViewController, UICollectionViewDataSource, UICollec
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.apiCallGetData();
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
         self.dateFormatter = Utility.getDateFormatter(dateFormat: "dd-MM-yyyy");
-    }
 
+    }
     let realm = try? Realm();
 
     private func checkAndStoreToData(_ list: [FertilityHistory]) {
