@@ -196,8 +196,8 @@ extension VCDoctorsEventCalendar: JTAppleCalendarViewDelegate, JTAppleCalendarVi
         formatter.timeZone = Calendar.current.timeZone;
         formatter.locale = Calendar.current.locale;
 
-        let startDate = formatter.date(from: "01012016");
-        let endDate = formatter.date(from: "01012020");
+        let startDate = formatter.date(from: "01011800");
+        let endDate = formatter.date(from: "01013020");
         let parameters = ConfigurationParameters(startDate: startDate!, endDate: endDate!)
         return parameters;
     }
