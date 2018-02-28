@@ -14,6 +14,9 @@ import Toaster
 
 class VCAddFertilityHistory: UIViewController {
     var dateFormatter = DateFormatter()
+    let picker = UIPickerView()
+    var arrPickerComponents = [String]()
+    var currentTextField = UITextField()
 
 
 
@@ -113,23 +116,24 @@ class VCAddFertilityHistory: UIViewController {
     @IBOutlet weak var sResultedInPregnancy: UISwitch!
     @IBOutlet weak var eNote: UITextField!
     @IBOutlet weak var eNoofcycles: UITextField!
-    @IBOutlet weak var lTreatmentName: UILabel!
+    @IBOutlet weak var lTreatmentName: UITextField!
 
     @IBAction func onclickTreatmentName(_ sender: UIButton) {
-
-        if self.dropper != nil && self.dropper?.status != Dropper.Status.hidden {
-            dropper?.hide();
-        }
-
-        self.dropper = Dropper(width: 200, height: 220)
-
-        self.dropper?.items = self.arrOfTypes;
-        self.dropper?.delegate = self;
-        self.dropper?.show(.left, button: sender);
+lTreatmentName.becomeFirstResponder()
+//        if self.dropper != nil && self.dropper?.status != Dropper.Status.hidden {
+//            dropper?.hide();
+//        }
+//
+//        self.dropper = Dropper(width: 200, height: 220)
+//
+//        self.dropper?.items = self.arrOfTypes;
+//        self.dropper?.delegate = self;
+//        self.dropper?.show(.left, button: sender);
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        self.dateFormatter = Utility.getDateFormatter(dateFormat: "dd-MM-yyyy");
 //        let date = Date();
 //        self.bDateFrom.setTitle(dateFormatter?.string(from: date), for: .normal);
@@ -139,14 +143,76 @@ class VCAddFertilityHistory: UIViewController {
 
         btnDateFrom.setTitle(self.dateFormatter.string(from: Date()), for: .normal);
         btnDateTo.setTitle(self.dateFormatter.string(from: Date()), for: .normal);
-
+        assignPickerForFields()
     }
 
+    func assignPickerForFields()
+    {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(sender:)))
+        let flexiSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped(sender:)))
+        
+        toolBar.items = [cancelButton,flexiSpace,flexiSpace,doneButton]
+        toolBar.tintColor = UIColor.init(red: 32.0/255.0, green: 148.0/255.0, blue: 135.0/255.0, alpha: 1.0)
+        
+        picker.delegate = self
+        picker.dataSource = self
+        lTreatmentName.inputAccessoryView = toolBar
+        
+        lTreatmentName.inputView = picker
+    }
+
+    func doneButtonTapped(sender: UIButton)
+    {
+        currentTextField.text = arrPickerComponents[picker.selectedRow(inComponent: 0)]
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
+    }
+    
+    func cancelButtonTapped(sender: UIButton)
+    {
+        arrPickerComponents.removeAll()
+        picker.reloadAllComponents()
+        currentTextField.resignFirstResponder()
+    }
 
 }
+
 
 extension VCAddFertilityHistory: DropperDelegate {
     func DropperSelectedRow(_ path: IndexPath, contents: String) {
         self.lTreatmentName.text = contents;
+    }
+}
+
+extension VCAddFertilityHistory: UITextFieldDelegate
+{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == lTreatmentName
+        {
+            currentTextField = textField
+            arrPickerComponents = self.arrOfTypes
+            picker.reloadAllComponents()
+        }
+    }
+}
+
+extension VCAddFertilityHistory: UIPickerViewDelegate, UIPickerViewDataSource
+{
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrOfTypes.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrOfTypes[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     }
 }
